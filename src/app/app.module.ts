@@ -15,6 +15,9 @@ import { LoginPage } from '../pages/login/login';
 import { BannerPage } from '../pages/banner/banner';
 import { NewsPage } from '../pages/news/news';
 import { DocumentsPage } from '../pages/documents/documents';
+import { VdoPage } from '../pages/vdo/vdo';
+
+import { HttpModule } from '@angular/http';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -35,11 +38,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     BannerPage,
     NewsPage,
-    DocumentsPage
+    DocumentsPage,
+    VdoPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpModule,
+        IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,7 +61,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     LoginPage,
     BannerPage,
     NewsPage,
-    DocumentsPage
+    DocumentsPage,
+    VdoPage
   ],
   providers: [
     StatusBar,

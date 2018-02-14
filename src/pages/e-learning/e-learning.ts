@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { BannerPage } from '../banner/banner';
 import { NewsPage } from '../news/news';
 import { DocumentsPage } from '../documents/documents';
+import { VdoPage } from '../vdo/vdo';
 
 @Component({
   selector: 'page-e-learning',
@@ -15,11 +16,17 @@ export class ELearningPage {
   goToBanner(params){
     if (!params) params = {};
     this.navCtrl.push(BannerPage);
-  }goToNews(params){
+  }
+  goToNews(params){
     if (!params) params = {};
     this.navCtrl.push(NewsPage);
-  }goToDocuments(params){
+  }
+  goToDocuments(params){
     if (!params) params = {};
     this.navCtrl.push(DocumentsPage);
+  }
+  getVdo(params){
+    if (!params) params = {};
+    this.navCtrl.push(VdoPage)
   }
 }

@@ -4,8 +4,23 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      faq
+      ถาม-ตอบใหม่ครับ
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page6"></ion-content>
+
+<ion-content padding>
+  <ion-searchbar [(ngModel)]="searchQuery" (input)="searchGIFs()" placeholder="Search"></ion-searchbar>
+  <ion-list inset>
+     <!-- <ion-item *ngFor="let item of faq">  -->
+        <div>
+            <button ion-item *ngFor="let item of faq" (click)="itemSelected(item)">
+           <h2>{{ item.faq_type_title_TH}}</h2>
+           <p>{{ item.faq_type_title_TH}}</p> 
+           <!-- {{topics}} -->
+        </button> 
+        </div>
+     <!-- </ion-item>  -->
+  </ion-list> 
+</ion-content>
+

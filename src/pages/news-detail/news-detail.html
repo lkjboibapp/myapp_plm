@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ item.cms_title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    <ion-card >
+        <ion-card >
+            <!-- <div class="item-profile" text-center  #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
+            </div> -->
+        
+             <img  height="200dp" src="assets/imgs/elearning.png"/>
+          
+          </ion-card>
+        
+          <div class="item-detail" padding>
+            <h2 item-center>{{ item.cms_title}}</h2><br>
+            <p item-center>{{ item.cms_short_title}}</p><br>
+            <p item-end>{{ item.create_date}}</p>
+          </div>
+    </ion-card>
+</ion-content>

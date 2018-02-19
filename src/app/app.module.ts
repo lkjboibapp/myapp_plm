@@ -17,11 +17,22 @@ import { NewsPage } from '../pages/news/news';
 import { DocumentsPage } from '../pages/documents/documents';
 import { VdoPage } from '../pages/vdo/vdo';
 
-import { HttpModule } from '@angular/http';
+import { IonicStorageModule, Storage } from '@ionic/storage';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpModule,Http } from '@angular/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Items } from '../mocks/providers/items';
+import { Api } from '../providers/providers';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 
 @NgModule({
   declarations: [
@@ -43,8 +54,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     HttpModule,
-        IonicModule.forRoot(MyApp)
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -65,6 +85,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     VdoPage
   ],
   providers: [
+    Api,
+    Items,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

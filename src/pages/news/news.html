@@ -1,11 +1,23 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>
-      News
+      ข่าวประชาสัมพันธ์
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page12"></ion-content>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of news">
+      <button ion-item (click)="openItem(item)">
+        <ion-avatar item-start>
+          <!-- <img [src]="item.cms_picture" /> -->
+          <img src="C:/Users/HelloKitty/Desktop/09_01_61/{{ item.cms_picture}}"/>
+        </ion-avatar>
+        <a><h2 item-center>{{ item.cms_title}}</h2></a>
+        <a><p item-center>{{ item.cms_short_title}}</p></a>
+        <a><p item-center >{{ item.create_date}}</p></a>
+      </button>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

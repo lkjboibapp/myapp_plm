@@ -10,6 +10,8 @@ import 'rxjs/add/operator/timeout';
   templateUrl: 'faq.html'
 })
 export class FaqPage {
+  public results_filter: any;
+  public results: any;
   faq: any;
   constructor(public navCtrl: NavController, public http: Http) {
   this.ETPhoneHome();
@@ -32,10 +34,23 @@ export class FaqPage {
             console.log("Error");
         });
 }
-searchGIFs() {
-    // 
-    this.faq.search(this.faq).then(data => {
-        this.faq = data;
-    });
-}
-}
+getItems(ev: any) {
+      let val = ev.target.value;
+      
+      
+      if (val && val.trim() != '') {
+        console.log(val)
+       this.faq = this.faq.filter((item) => {
+         console.log("btes"+this.faq)
+        // ในที่นี้เราค้นหาจาก name ของ item ก็กำหนด item.name ซึ่งเป็นชื่อจังหวัด
+          // return (item.vdo_title.indexOf(val) > -1);
+         return (item.faq_type_title_TH.toLowerCase().indexOf(val.toLowerCase()) > -1);
+       });
+    }else if (val =='') {
+        this.ETPhoneHome();
+      
+     }
+     
+   }
+  }
+

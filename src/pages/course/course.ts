@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Item, AlertController, Button } from 'ionic-angular';
 import { Http } from '@angular/http';
 
 import 'rxjs/add/operator/map';
@@ -15,15 +15,14 @@ export class CoursePage {
   news: any;
 
 
-  constructor(public http: Http, public navCtrl: NavController) {
+  constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
     this.ETPhoneHome();
     
     console.log('======================================');
-
   }
 
   ETPhoneHome() {
-    let path = 'http://localhost:80/ServiceMobile/Service_VDO_Usability_Report_New/ServiceVDO.php/getvdo';
+    let path = 'http://localhost:80/ServiceMobile/ServiceMobile/ServiceVDO.php/getvdo';
     let encodedPath = encodeURI(path);
     console.log(encodedPath)
     let timeoutMS = 100;
@@ -42,17 +41,26 @@ export class CoursePage {
   getItems(ev: any) {
     let val = ev.target.value;
     
-    if (val && val.trim() != '') {
-      this.results = this.results.filter((item) => {
-        
-        // ในที่นี้เราค้นหาจาก name ของ item ก็กำหนด item.name ซึ่งเป็นชื่อจังหวัด
-        // return (item.vdo_title.indexOf(val) > -1);
-        return (item.vdo_title.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      });
-  }else if (val =='') {
+    if (val && val.trim() != '') 
+      {
+        this.results = this.results.filter((item) => {
+          
+          // ในที่นี้เราค้นหาจาก name ของ item ก็กำหนด item.name ซึ่งเป็นชื่อจังหวัด
+          // return (item.vdo_title.indexOf(val) > -1);
+          return (item.vdo_title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        });
+      }else if (val =='') {
       this.ETPhoneHome();
-    
+    }
+  }
+
+  openItem(item){
+    let alert = this.alertCtrl.create({
+      title:'alert',
+      subTitle: item.vdo_title,
+      buttons: ['OK']
+    });
+    alert.present();
   }
   
-}
 }

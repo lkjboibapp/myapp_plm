@@ -10,18 +10,29 @@
 </ion-header>
 <ion-content padding id="page3">
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  <ion-title>หมวดหมูหลักสูตร</ion-title>
+  <!-- <ion-title>หมวดหมูหลักสูตร</ion-title> -->
   <ion-list>
-  <button ion-button full color="secondary">Secondary</button>
-  <button ion-button full color="Danger">Danger</button>
+
+  <!-- <button ion-button full color="secondary">Secondary</button> -->
+  <!-- <button ion-button full color="Danger">Danger</button>
   <button ion-button full color="Dark">Dark</button>
   <button ion-button full color="light">light</button>
   <button ion-button full color="Primary">Primary</button>
   <button ion-button full color="secondary">Secondary</button>
-  <button ion-button full color="Danger">Danger</button>
-  <ion-item *ngFor="let item of results" (click)="openItem(item)" >
+  <button ion-button full color="Danger">Danger</button> -->
+
+  <ion-item *ngFor="let item of results" (click)="openItem(item)">
     <div>
       <p>{{ item.vdo_title }}</p>
+    </div>
+  </ion-item>
+</ion-list>
+
+<ion-list>
+  <p>test text</p>
+  <ion-item *ngFor="let i of text">
+    <div>
+      <p>{{ i.vdo_title }}</p>
     </div>
   </ion-item>
 </ion-list>

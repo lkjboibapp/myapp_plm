@@ -12,45 +12,62 @@ import 'rxjs/add/operator/timeout';
 export class FaqPage {
   public results_filter: any;
   public results: any;
+  information: any[];//ของเสีย
   faq: any;
-  constructor(public navCtrl: NavController, public http: Http) {
+  child: any ;
+  constructor(public navCtrl: NavController, private http: Http) 
+  {
   this.ETPhoneHome();
-  console.log('======================================');
+  // console.log('คือ======================================');
   }
 
+  // ETPhoneHome() {
+  //   let localData = this.http.get('assets/information.json').map(res => res.json().items);
+  //   localData.subscribe(data => {
+  //     this.information = data;
+  //   })
+  //   }
   ETPhoneHome() {
     let path = 'http://localhost/ServiceMobile/Service_VDO_Usability_Report_New/ServiceFAQ.php/getfaq_type';
     let encodedPath = encodeURI(path);
-    // console.log(encodedPath)
+    //  console.log("คือencodedPath"+encodedPath)path
     let timeoutMS = 10000;
 
     this.http.get(encodedPath)
         .timeout(timeoutMS)
         .map(res => res.json()).subscribe(data => {
             this.faq = data.data;
-            console.log(data)
+            // console.log("คือdata"+data)[object Object]
         },
         err => {
             console.log("Error");
         });
+        //1
+        // let localData = this.http.get('assets/information.json').map(res => res.json().items);
+        // localData.subscribe(data => {
+        //   this.faq = data;
+        // })
 }
 getItems(ev: any) {
       let val = ev.target.value;
-      
-      
       if (val && val.trim() != '') {
-        console.log(val)
+        // console.log("คือval"+val)คำค้นหา
        this.faq = this.faq.filter((item) => {
-         console.log("btes"+this.faq)
-        // ในที่นี้เราค้นหาจาก name ของ item ก็กำหนด item.name ซึ่งเป็นชื่อจังหวัด
-          // return (item.vdo_title.indexOf(val) > -1);
+        //  console.log("คือthis.faq.filter"+this.faq.filter)function filter()
          return (item.faq_type_title_TH.toLowerCase().indexOf(val.toLowerCase()) > -1);
        });
     }else if (val =='') {
         this.ETPhoneHome();
-      
      }
-     
    }
+   toggleSection(i) {//iคือ Array
+    this.faq[i].open = ! this.faq[i].open;
+    console.log("คือ"+this.faq)
   }
+  }
+  
+  
 
+  
+
+  

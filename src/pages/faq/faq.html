@@ -4,24 +4,46 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      ถาม-ตอบใหม่ครับ
+      ถาม-ตอบ
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <!-- <ion-searchbar [(ngModel)]="searchQuery" (input)="searchGIFs()" ></ion-searchbar> -->
-  <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar >
-  <ion-list inset>
-     <!-- <ion-item *ngFor="let item of faq">  -->
-        <div>
-          
+        <!-- <div>
             <button ion-item *ngFor="let item of faq" (click)="itemSelected(item)">
            <h3>{{ item.faq_type_title_TH}}</h3>
-           <!-- {{topics}} -->
         </button> 
-        </div>
-     <!-- </ion-item>  -->
-  </ion-list> 
-</ion-content>
+        </div> -->
+
+<!-- test -->
+<ion-content padding>
+    <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar >
+  <ion-list class="accordion-list">
+     <!-- First Level -->
+     <ion-list-header *ngFor="let item of faq; let i = index" no-lines no-padding>
+       <!-- Toggle Button -->
+       <button ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}">
+         <ion-icon item-left name="arrow-forward" *ngIf="!item.open"></ion-icon>
+         <ion-icon item-left name="arrow-down" *ngIf="item.open"></ion-icon>
+           <!-- {{ item.name }} -->
+           <h3>{{ item.faq_type_title_TH}}</h3>
+       </button>
+       <ion-list *ngIf="item.faq_type_title_TH && item.open" no-lines>
+         <!-- Second Level -->
+           <!-- Direct Add Button as Fallback -->
+           <ion-item *ngIf="!item.faq_type_title_TH" ion-item detail-none class="child-item" text-wrap>
+             <p text-lowercase>{{ item.faq_type_title_TH}}</p>
+           </ion-item>
+  
+           <ion-list *ngIf="item.faq_type_title_TH && this.faq">
+             <!-- Third Level -->
+             <ion-item *ngFor="let item of faq; let k = index" detail-none class="child-item" text-wrap>
+                <h5>{{ item.faq_type_title_TH}}</h5>
+               <!-- Direct Add Button -->
+             </ion-item>
+           </ion-list>
+       </ion-list>
+     </ion-list-header>
+   </ion-list>
+ </ion-content>
 

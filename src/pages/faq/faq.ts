@@ -28,7 +28,7 @@ export class FaqPage {
   //   })
   //   }
   ETPhoneHome() {
-    let path = 'http://localhost/ServiceMobile/Service_VDO_Usability_Report_New/ServiceFAQ.php/getfaq_type';
+    let path = 'http://localhost/ServiceMobile/ServiceMobile/ServiceFAQ.php/getfaq_type';
     let encodedPath = encodeURI(path);
     //  console.log("คือencodedPath"+encodedPath)path
     let timeoutMS = 10000;

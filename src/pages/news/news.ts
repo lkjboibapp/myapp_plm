@@ -21,7 +21,7 @@ export class NewsPage {
   }
 
   ETPhoneHome() {
-    let path = 'http://localhost/ServiceMobile/Service_VDO_Usability_Report_New/ServiceNew_v3.php/getNews';
+    let path = 'http://localhost/ServiceMobile/ServiceMobile/ServiceNew_v3.php/getNews';
     let encodedPath = encodeURI(path);
     let timeoutMS = 10000;
 

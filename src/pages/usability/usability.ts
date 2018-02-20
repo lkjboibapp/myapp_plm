@@ -24,7 +24,7 @@ export class UsabilityPage {
     }
     
     ETPhoneHome() {
-        let path = 'http://localhost/ServiceMobile/Service_VDO_Usability_Report_New/Serviceusability.php/usability';
+      let path = 'http://localhost/ServiceMobile/ServiceMobile/Serviceusability.php/usability';
         let encodedPath = encodeURI(path);
         let timeoutMS = 100;
 

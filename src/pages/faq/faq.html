@@ -10,13 +10,14 @@
 </ion-header>
 
 <ion-content padding>
-  <!-- <ion-searchbar [(ngModel)]="searchQuery" (input)="searchGIFs()" placeholder="Search"></ion-searchbar> -->
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <!-- <ion-searchbar [(ngModel)]="searchQuery" (input)="searchGIFs()" ></ion-searchbar> -->
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar >
   <ion-list inset>
      <!-- <ion-item *ngFor="let item of faq">  -->
         <div>
+          
             <button ion-item *ngFor="let item of faq" (click)="itemSelected(item)">
-           <h2>{{ item.faq_type_title_TH}}</h2>
+           <h3>{{ item.faq_type_title_TH}}</h3>
            <!-- {{topics}} -->
         </button> 
         </div>

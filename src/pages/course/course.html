@@ -10,7 +10,7 @@
 </ion-header>
 <ion-content padding id="page3">
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  <ion-item *ngFor="let item of results">
+  <ion-item *ngFor="let item of results" (click)="openItem(item)" >
     <div>
       <p>{{ item.vdo_title }}</p>
     </div>

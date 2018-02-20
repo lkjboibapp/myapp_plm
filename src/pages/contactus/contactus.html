@@ -4,8 +4,60 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      contactus
+      ติดต่อเรา
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page8"></ion-content>
+<ion-content padding id="page8">
+  <ion-list>
+    <ion-item>
+      <ion-label floating>ชื่อ</ion-label>
+      <ion-input type="text" name="contac_by_name" [(ngModel)]="data.contac_by_name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>นามสกุล</ion-label>
+      <ion-input type="text" name="contac_by_surname" [(ngModel)]="data.contac_by_surname"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>เบอร์โทรศัพท์</ion-label>
+      <ion-input type="text" name="contac_by_tel" [(ngModel)]="data.contac_by_tel"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>อีเมล์</ion-label>
+      <ion-input type="text" name="contac_by_email" [(ngModel)]="data.contac_by_email"></ion-input>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label floating>หัวข้อ</ion-label>
+      <ion-input type="text" name="contac_subject" [(ngModel)]="data.contac_subject"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>ประเภท</ion-label>
+      <ion-input type="text" name="contac_type" [(ngModel)]="data.contac_type"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>รายละเอียด</ion-label>
+      <ion-input type="text" name="contac_detail" [(ngModel)]="data.contac_detail"></ion-input>
+    </ion-item>
+
+    <!-- <ion-item>
+      <ion-label floating>contac_ans_subject</ion-label>
+      <ion-input type="text" name="contac_ans_subject" [(ngModel)]="data.contac_ans_subject"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>create_by</ion-label>
+      <ion-input type="text" name="create_by" [(ngModel)]="data.create_by"></ion-input>
+    </ion-item> -->
+
+
+
+    <button ion-button block (click)="submit()">Submit to server</button>
+  </ion-list>
+</ion-content>

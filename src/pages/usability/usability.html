@@ -1,11 +1,29 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color ="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      usability
+      วิธีการใช้งาน
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page7"></ion-content>
+<ion-content padding id="page7">
+
+  
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list  >
+    <button ion-item  *ngFor="let item of usability" (click)="doAlert(item)"> 
+        <p class="section">  {{ item.usa_title}} </p>
+        
+        <ion-thumbnail item-start class="ascordion-list">
+            <img src="assets/img/symbol.png">
+          </ion-thumbnail>
+         
+     
+        
+          
+    </button>
+  </ion-list> 
+
+</ion-content>

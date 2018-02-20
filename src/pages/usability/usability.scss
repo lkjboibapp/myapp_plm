@@ -1,3 +1,38 @@
 page-usability {
+    .section{
+        background: rgb(224, 222, 222);
+        color: #000000;
+        margin-bottom: 8px;
+    }
+    .section-active{
+        background: rgb(248, 236, 123);
+        color: rgb(253, 175, 112);
+        
+    }
+
+    ion-alert {
+        &.alert-warning {
+          .alert-head {
+            background: map-get($colors, warning);
+            color: rgb(248, 236, 123);;
+            margin-bottom: 10px;
+          }
+        }
+        &.alert-danger {
+          .alert-head {
+            background: map-get($colors, danger);
+            color: rgb(253, 175, 112);;
+            margin-bottom: 10px;
+          }
+        }
+        &.alert-success {
+          .alert-head {
+            background: map-get($colors, success);
+            color: #fff;
+            margin-bottom: 10px;
+          }
+        }
+      
+      }
 
 }

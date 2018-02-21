@@ -15,16 +15,16 @@ export class UsabilityPage {
   items :any;
   alert:any;
  
-  
-
   constructor(public navCtrl: NavController,public alerCtrl: AlertController, public http: Http) {
     this.ETPhoneHome();
 
        console.log('======================================');
+
+
     }
     
     ETPhoneHome() {
-      let path = 'http://localhost/ServiceMobile/ServiceMobile/Serviceusability.php/usability';
+      let path = 'http://localhost/Service/ServiceMobile/Serviceusability.php/usability';
         let encodedPath = encodeURI(path);
         let timeoutMS = 100;
 
@@ -33,7 +33,7 @@ export class UsabilityPage {
           .map(res => res.json()).subscribe(data => {
               let responseData = data;
               this.usability = responseData.data;
-              // console.log(responseData.data);
+              // console.log("show data = ",responseData.data);
               console.log("ETPhoneHome",this.usability);
           },
               err => {
@@ -61,7 +61,7 @@ export class UsabilityPage {
                       this.ETPhoneHome();
         }
     }
-
+    
       doAlert(item) {
         let alert = this.alerCtrl.create({
           title: item.usa_title,

@@ -23,7 +23,7 @@ export class CoursePage {
   }
 
   ETPhoneHome() {
-    let path = 'http://localhost:80/ServiceMobile/ServiceMobile/ServiceVDO.php/getvdo';
+    let path = 'http://localhost:80/Service/ServiceMobile/ServiceVDO.php/getvdo';
     let encodedPath = encodeURI(path);
     // console.log(encodedPath)
     let timeoutMS = 100;
@@ -62,7 +62,7 @@ export class CoursePage {
 
       // ในที่นี้เราค้นหาจาก name ของ item ก็กำหนด item.name ซึ่งเป็นชื่อจังหวัด
       // return (item.vdo_title.indexOf(val) > -1);
-      return (item.vdo_title.toLowerCase().indexOf(text.toLowerCase()) > -1);
+      return (item.vdo_id.toLowerCase().indexOf(text.toLowerCase()) > -1);
     });
 
     console.log("show text =", this.text);

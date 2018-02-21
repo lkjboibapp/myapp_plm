@@ -8,6 +8,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { AboutPage } from '../pages/about/about';
 import { FaqPage } from '../pages/faq/faq';
+import { RegisterPage } from '../pages/register/register';
 import { UsabilityPage } from '../pages/usability/usability';
 import { ContactusPage } from '../pages/contactus/contactus';
 import { PrivatemessagePage } from '../pages/privatemessage/privatemessage';
@@ -50,7 +51,8 @@ export function createTranslateLoader(http: HttpClient) {
     BannerPage,
     NewsPage,
     DocumentsPage,
-    VdoPage
+    VdoPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,8 @@ export function createTranslateLoader(http: HttpClient) {
     BannerPage,
     NewsPage,
     DocumentsPage,
-    VdoPage
+    VdoPage,
+    RegisterPage
   ],
   providers: [
     Api,

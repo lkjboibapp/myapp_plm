@@ -11,6 +11,7 @@ import { CoursePage } from '../pages/course/course';
 import { AboutPage } from '../pages/about/about';
 import { UsabilityPage } from '../pages/usability/usability';
 import { FaqPage } from '../pages/faq/faq';
+import { RegisterPage } from '../pages/register/register';
 import { ContactusPage } from '../pages/contactus/contactus';
 
 
@@ -60,5 +61,8 @@ export class MyApp {
   }goToContactus(params){
     if (!params) params = {};
     this.navCtrl.setRoot(ContactusPage);
+  }goToRegister(params){
+    if (!params) params = {};
+    this.navCtrl.setRoot(RegisterPage);
   }
 }

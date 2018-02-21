@@ -24,7 +24,7 @@ export class NewsPage {
     let path = 'http://localhost/Service/ServiceMobile/ServiceNew_v3.php/getNews';
     let encodedPath = encodeURI(path);
     let timeoutMS = 10000;
-
+  
     this.http.get(encodedPath)
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {

@@ -22,7 +22,7 @@ export class VdoPage {
   }
 
   ETPhoneHome() {
-    let path = 'http://localhost:80/Service/ServiceMobile/ServiceVDO.php/getvdo';
+    let path = 'http://localhost/Service/ServiceMobile/ServiceVDO.php/getvdo';
     let encodedPath = encodeURI(path);
     // console.log(encodedPath)
     let timeoutMS = 100;

@@ -17,6 +17,7 @@ import { BannerPage } from '../pages/banner/banner';
 import { NewsPage } from '../pages/news/news';
 import { DocumentsPage } from '../pages/documents/documents';
 import { VdoPage } from '../pages/vdo/vdo';
+import { LicencePage } from '../pages/licence/licence';
 
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -52,7 +53,8 @@ export function createTranslateLoader(http: HttpClient) {
     NewsPage,
     DocumentsPage,
     VdoPage,
-    RegisterPage
+    RegisterPage,
+    LicencePage
   ],
   imports: [
     BrowserModule,
@@ -85,7 +87,8 @@ export function createTranslateLoader(http: HttpClient) {
     NewsPage,
     DocumentsPage,
     VdoPage,
-    RegisterPage
+    RegisterPage,
+    LicencePage
   ],
   providers: [
     Api,

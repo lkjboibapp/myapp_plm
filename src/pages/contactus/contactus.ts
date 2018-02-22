@@ -28,7 +28,7 @@ export class ContactusPage {
   }
 
   submit() {
-    var link = 'http://localhost/ServiceMobile/Service_VDO_Usability_Report_New/Contect_Us.php';
+    var link = 'http://localhost/Service/ServiceMobile/Contect_Us.php';
     var myData = JSON.stringify({
       contac_by_name: this.data.contac_by_name,
       contac_by_surname: this.data.contac_by_surname,

@@ -25,7 +25,7 @@ import { HttpModule,Http } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Items } from '../mocks/providers/items';
 import { Api } from '../providers/providers';
-
+import { AlertController } from 'ionic-angular';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';

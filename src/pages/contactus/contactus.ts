@@ -24,11 +24,11 @@ export class ContactusPage {
     this.data.response = '';
 
     this.http = http;
-
+  
   }
 
   submit() {
-    var link = 'http://localhost/Service/ServiceMobile/Contect_Us.php';
+    var link = 'http://localhost/service/ServiceMobile/Contect_Us.php/InsertContectUs';
     var myData = JSON.stringify({
       contac_by_name: this.data.contac_by_name,
       contac_by_surname: this.data.contac_by_surname,

@@ -40,25 +40,25 @@ export class AboutPage {
          }     
          
 
-         getItems(ev:any) {
-             // Reset items back to all of the items
-             // set val to the value of the searchbar
-             let val = ev.target.value;
+//          getItems(ev:any) {
+//              // Reset items back to all of the items
+//              // set val to the value of the searchbar
+//              let val = ev.target.value;
              
-             // if the value is an empty string don't filter the items
-             if (val && val.trim() != '') {
-                 val = val.toLowerCase();
-                 console.log(val)
+//              // if the value is an empty string don't filter the items
+//              if (val && val.trim() != '') {
+//                  val = val.toLowerCase();
+//                  console.log(val)
 
-                 // console.log("test usa", this.usability);
-                 this.about = this.about .filter((item) => {
-                     // console.log(item.usa_title.toLowerCase())
-                     return (item.about_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
-                   });
-               }else if (val =='') {
-                   this.ETPhoneHome();
-     }
- }
+//                  // console.log("test usa", this.usability);
+//                  this.about = this.about .filter((item) => {
+//                      // console.log(item.usa_title.toLowerCase())
+//                      return (item.about_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
+//                    });
+//                }else if (val =='') {
+//                    this.ETPhoneHome();
+//      }
+//  }
 }
   
 

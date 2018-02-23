@@ -31,7 +31,7 @@ export class VdoPage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-        // console.log(data)
+        console.log("vdo = ", this.results)
       },
         err => {
           console.log("ldokvopdsv");

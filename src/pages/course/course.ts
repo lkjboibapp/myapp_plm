@@ -7,7 +7,8 @@ import 'rxjs/add/operator/timeout';
 
 @Component({
   selector: 'page-course',
-  templateUrl: 'course.html'
+  templateUrl: 'course.html '
+  // templateUrl: 'tabs-controller.html'
 })
 export class CoursePage {
   public results_filter: any;
@@ -19,11 +20,11 @@ export class CoursePage {
     this.ETPhoneHome();
     
 
-    console.log("123",this.ETPhoneHome());
+    // console.log("123",this.ETPhoneHome());
   }
 
   ETPhoneHome() {
-    let path = 'http://localhost/Service/ServiceMobile/ServiceVDO.php/getvdo';
+    let path = 'http://localhost/Service/ServiceMobile/ServiceCourse.php/getvdo';
     let encodedPath = encodeURI(path);
     // console.log(encodedPath)
     let timeoutMS = 100;
@@ -32,10 +33,10 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-        // console.log(data)
+        console.log("show time = ",this.results);
       },
         err => {
-          console.log("ldokvopdsv");
+          console.log("Erroersdfdf");
         });
   }
 
@@ -48,7 +49,7 @@ export class CoursePage {
           
           // ในที่นี้เราค้นหาจาก name ของ item ก็กำหนด item.name ซึ่งเป็นชื่อจังหวัด
           // return (item.vdo_title.indexOf(val) > -1);
-          return (item.vdo_title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+          return (item.cate_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
         });
       }else if (val =='') {
       this.ETPhoneHome();
@@ -56,13 +57,14 @@ export class CoursePage {
   }
 
   openItem(item){
-    let text = item.vdo_id;
+    console.log("123", item.cate_id)
+    let text = item.cate_id;
 
     this.text = this.results.filter((item) => {
 
       // ในที่นี้เราค้นหาจาก name ของ item ก็กำหนด item.name ซึ่งเป็นชื่อจังหวัด
       // return (item.vdo_title.indexOf(val) > -1);
-      return (item.vdo_id.toLowerCase().indexOf(text.toLowerCase()) > -1);
+      return (item.cate_id.toLowerCase().indexOf(text.toLowerCase()) > -1);
     });
 
     console.log("show text =", this.text);

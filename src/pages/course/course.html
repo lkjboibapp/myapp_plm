@@ -10,14 +10,18 @@
 </ion-header>
 <ion-content padding id="page3">
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  <!-- <ion-title>หมวดหมูหลักสูตร</ion-title> -->
-  <ion-list>
-    <ion-item *ngFor="let item of results" (click)="openItem(item)">
-      <div>
-        <p>{{ item.cate_title }}</p>
-      </div>
-    </ion-item>
-  </ion-list>
+  <ion-title>หมวดหมูหลักสูตร</ion-title>
+
+
+<article>
+  <h2>select </h2>
+  <select  (change)="selectChangHandler($event)" >
+    <option *ngFor="let item of results" value="{{ item.cate_id }}">{{ item.cate_title }}</option>
+  </select>
+</article>
+
+
+
   <ion-list>
     <p>test text</p>
     <ion-item *ngFor="let i of text">

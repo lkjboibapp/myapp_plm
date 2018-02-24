@@ -56,10 +56,9 @@ export class CoursePage {
     }
   }
 
-  openItem(item){
-    console.log("123", item.cate_id)
-    let text = item.cate_id;
-
+  selectChangHandler(event:any){
+    console.log("selectChangHandler = ",event.target.value);
+    let text = event.target.value;
     this.text = this.results.filter((item) => {
 
       // ในที่นี้เราค้นหาจาก name ของ item ก็กำหนด item.name ซึ่งเป็นชื่อจังหวัด
@@ -68,12 +67,6 @@ export class CoursePage {
     });
 
     console.log("show text =", this.text);
-  //   let alert = this.alertCtrl.create({
-  //     title:'alert',
-  //     subTitle: item.vdo_title,
-  //     buttons: ['OK']
-  //   });
-  //   alert.present();
   }
   
 }

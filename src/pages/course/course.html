@@ -16,7 +16,7 @@
 <article>
   <h2>select </h2>
   <select  (change)="selectChangHandler($event)" >
-    <option *ngFor="let item of results" value="{{ item.cate_id }}">{{ item.cate_title }}</option>
+    <option *ngFor="let item of results" value="{{ item.cate_id }}">{{ item.name }}</option>
   </select>
 </article>
 

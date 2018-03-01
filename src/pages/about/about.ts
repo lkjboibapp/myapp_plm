@@ -24,7 +24,7 @@ export class AboutPage {
  ETPhoneHome() {
    let path = 'http://localhost/Service/ServiceMobile/about.php/getabout';
      let encodedPath = encodeURI(path);
-     let timeoutMS = 100;
+     let timeoutMS = 200;
 
      this.http.get(encodedPath)
        .timeout(timeoutMS)

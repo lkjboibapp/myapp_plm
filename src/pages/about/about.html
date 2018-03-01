@@ -1,22 +1,32 @@
+
+
 <ion-header>
-  <ion-navbar color ="secondary">
+  <ion-navbar color="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-     เกี่ยวกับเรา
+      เกี่ยวกับเรา
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page5">
+<ion-content padding id="page10">
+  <form id="login-form13">
     <ion-title>
-        สำนักงานเลขาธิการสภาผู้แทนราษฎร
-       </ion-title>
-  <ion-list  >
-    <ion-item ion-item  *ngFor="let item of about"> 
-        <p> {{item.about_title}} </p>
-      
-    </ion-item>
-  </ion-list> 
-
+      <br>
+      <h3>
+        <b>สำนักงานเลขาธิการสภาผู้แทนราษฎร
+        </b>
+      </h3>
+    </ion-title>
+    <ion-list id="login-list2">
+      <ion-card>
+        <ion-card-content>
+          <ion-item ion-item *ngFor="let item of about">
+            <p [innerHTML]="item.about_detail"></p>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </form>
 </ion-content>

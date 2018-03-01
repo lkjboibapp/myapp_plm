@@ -21,14 +21,25 @@
 </article>
 
 
-
+<!-- 
   <ion-list>
     <p>test text</p>
     <ion-item *ngFor="let i of text">
       <div>
-        <button ion-button full color="secondary">{{ i.cate_id }}</button>
-        <!-- <p>{{ i.vdo_title }}</p> -->
+        <button ion-button full color="secondary">{{ i.course_title }}</button>
+         <p>{{ i.vdo_title }}</p>
       </div>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 col-md-4 col-xl-3 *ngFor="let i of text">
+        <div class="container">
+        <p>{{ i.course_title }}</p>
+          <!-- <p>test Grid View</p> -->
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

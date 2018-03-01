@@ -11,22 +11,22 @@ import 'rxjs/add/operator/timeout';
   // templateUrl: 'tabs-controller.html'
 })
 export class CoursePage {
-  public results_filter: any;
+  public results_course: any;
   public results: any;
   public text: any;
 
 
   constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
     this.ETPhoneHome();
-    
+    this.CourseOnline();
+    console.log("this course = ",this.CourseOnline);
 
     // console.log("123",this.ETPhoneHome());
   }
 
   ETPhoneHome() {
-    let path = 'http://localhost/Service/ServiceMobile/ServiceCourse.php/getvdo';
+    let path = 'http://localhost/Service/ServiceMobile/ServiceCourse.php/getCategory';
     let encodedPath = encodeURI(path);
-    // console.log(encodedPath)
     let timeoutMS = 100;
 
     this.http.get(encodedPath)
@@ -37,6 +37,22 @@ export class CoursePage {
       },
         err => {
           console.log("Erroersdfdf");
+        });
+  }
+
+  CourseOnline() {
+    let path = 'http://localhost/Service/ServiceMobile/Course_online.php/get';
+    let encodedPath = encodeURI(path);
+    let timeoutMS = 200;
+
+    this.http.get(encodedPath)
+      .timeout(timeoutMS)
+      .map(res => res.json()).subscribe(data => {
+        this.results_course = data.data;
+        console.log("show results_course = ", this.results_course);
+      },
+        err => {
+          console.log("err json load");
         });
   }
 
@@ -59,7 +75,7 @@ export class CoursePage {
   selectChangHandler(event:any){
     console.log("selectChangHandler = ",event.target.value);
     let text = event.target.value;
-    this.text = this.results.filter((item) => {
+    this.text = this.results_course.filter((item) => {
 
       // ในที่นี้เราค้นหาจาก name ของ item ก็กำหนด item.name ซึ่งเป็นชื่อจังหวัด
       // return (item.vdo_title.indexOf(val) > -1);

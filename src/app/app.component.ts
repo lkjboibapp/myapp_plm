@@ -36,38 +36,32 @@ export class MyApp {
     });
   }
 
-  goToELearning(params) {
+ goToBanner(params) {
     if (!params) params = {};
-    this.navCtrl.setRoot(TabsControllerPage);
-  } goToBanner(params) {
-    if (!params) params = {};
-    this.navCtrl.setRoot(BannerPage);
+    this.navCtrl.push(BannerPage);
   } goToNews(params) {
     if (!params) params = {};
-    this.navCtrl.setRoot(NewsPage);
+    this.navCtrl.push(NewsPage);
   } goToDocuments(params) {
     if (!params) params = {};
-    this.navCtrl.setRoot(DocumentsPage);
-  } goToCourse(params) {
-    if (!params) params = {};
-    this.navCtrl.setRoot(CoursePage);
+    this.navCtrl.push(DocumentsPage);
   } goToAbout(params) {
     if (!params) params = {};
-    this.navCtrl.setRoot(AboutPage);
+    this.navCtrl.push(AboutPage);
   } goToUsability(params) {
     if (!params) params = {};
-    this.navCtrl.setRoot(UsabilityPage);
+    this.navCtrl.push(UsabilityPage);
   } goToFaq(params) {
     if (!params) params = {};
-    this.navCtrl.setRoot(FaqPage);
+    this.navCtrl.push(FaqPage);
   } goToContactus(params) {
     if (!params) params = {};
-    this.navCtrl.setRoot(ContactusPage);
+    this.navCtrl.push(ContactusPage);
   } goToRegister(params) {
     if (!params) params = {};
-    this.navCtrl.setRoot(RegisterPage);
+    this.navCtrl.push(RegisterPage);
   } goToLicence(params) {
     if (!params) params = {};
-    this.navCtrl.setRoot(LicencePage);
+    this.navCtrl.push(LicencePage);
   }
 }

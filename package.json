@@ -37,5 +37,12 @@
     "@ionic/app-scripts": "3.1.8",
     "typescript": "2.4.2"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyAnY93vj4oIV2Yj-JPAUKgT5mtdGl2uGqA"
+      }
+    }
+  }
 }

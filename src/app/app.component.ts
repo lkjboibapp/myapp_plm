@@ -25,7 +25,7 @@ import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = TabsControllerPage;
+  rootPage: any = TabsControllerPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -35,37 +35,38 @@ export class MyApp {
       splashScreen.hide();
     });
   }
-  goToELearning(params){
+
+  goToELearning(params) {
     if (!params) params = {};
-    this.navCtrl.setRoot(ELearningPage);
-  }goToBanner(params){
+    this.navCtrl.setRoot(TabsControllerPage);
+  } goToBanner(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(BannerPage);
-  }goToNews(params){
+  } goToNews(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(NewsPage);
-  }goToDocuments(params){
+  } goToDocuments(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(DocumentsPage);
-  }goToCourse(params){
+  } goToCourse(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(CoursePage);
-  }goToAbout(params){
+  } goToAbout(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(AboutPage);
-  }goToUsability(params){
+  } goToUsability(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(UsabilityPage);
-  }goToFaq(params){
+  } goToFaq(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(FaqPage);
-  }goToContactus(params){
+  } goToContactus(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(ContactusPage);
-  }goToRegister(params){
+  } goToRegister(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(RegisterPage);
-  }goToLicence(params){
+  } goToLicence(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(LicencePage);
   }

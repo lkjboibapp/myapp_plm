@@ -25,7 +25,7 @@ export class CoursePage {
   ETPhoneHome() {
     let path = 'http://localhost/Service/ServiceMobile/ServiceCourse.php/getCategory';
     let encodedPath = encodeURI(path);
-    let timeoutMS = 100;
+    let timeoutMS = 200;
 
     this.http.get(encodedPath)
       .timeout(timeoutMS)
@@ -60,9 +60,6 @@ export class CoursePage {
     if (val && val.trim() != '') 
       {
         this.results = this.results.filter((item) => {
-          
-          // ในที่นี้เราค้นหาจาก name ของ item ก็กำหนด item.name ซึ่งเป็นชื่อจังหวัด
-          // return (item.vdo_title.indexOf(val) > -1);
           return (item.cate_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
         });
       }else if (val =='') {
@@ -74,9 +71,6 @@ export class CoursePage {
     console.log("selectChangHandler = ",event.target.value);
     let text = event.target.value;
     this.text = this.results_course.filter((item) => {
-
-      // ในที่นี้เราค้นหาจาก name ของ item ก็กำหนด item.name ซึ่งเป็นชื่อจังหวัด
-      // return (item.vdo_title.indexOf(val) > -1);
       return (item.cate_id.toLowerCase().indexOf(text.toLowerCase()) > -1);
     });
 

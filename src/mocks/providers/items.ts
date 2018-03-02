@@ -6,12 +6,6 @@ import { ItemNews } from '../../models/itemnews';
 export class Items {
   items: ItemNews[] = [];
 
-  defaultItem: any = {
-    "name": "Burt Bear",
-    "profilePic": "assets/img/speakers/bear.jpg",
-    "about": "Burt is a Bear.",
-  };
-
 
 
   add(item: ItemNews) {

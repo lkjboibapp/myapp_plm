@@ -19,9 +19,7 @@ export class CoursePage {
   constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
     this.ETPhoneHome();
     this.CourseOnline();
-    console.log("this course = ",this.CourseOnline);
 
-    // console.log("123",this.ETPhoneHome());
   }
 
   ETPhoneHome() {

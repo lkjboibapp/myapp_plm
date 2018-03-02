@@ -4,6 +4,7 @@ import { BannerPage } from '../banner/banner';
 import { NewsPage } from '../news/news';
 import { DocumentsPage } from '../documents/documents';
 import { VdoPage } from '../vdo/vdo';
+import { FeaturedlinksPage } from '../featuredlinks/featuredlinks';
 
 @Component({
   selector: 'page-e-learning',
@@ -27,6 +28,11 @@ export class ELearningPage {
   }
   getVdo(params){
     if (!params) params = {};
-    this.navCtrl.push(VdoPage)
+    this.navCtrl.push(VdoPage);
+  }
+
+  getFeatured(params){
+    if(!params) params = {};
+    this.navCtrl.push(FeaturedlinksPage);
   }
 }

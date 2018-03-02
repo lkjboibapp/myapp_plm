@@ -18,8 +18,8 @@ export class ELearningPage {
     this.imageArray = [
       { 'image': '../../assets/img/a.jpg' },
       { 'image': '../../assets/img/bu.jpg' },
-      { 'image': '../../assets/img/tim.png' },
-      { 'image': '../../assets/img/t.jpg' }
+      { 'image': '../../assets/img/tim.png' }
+      // { 'image': '../../assets/img/t.jpg' }
     ]
   }
   goToBanner(params) {

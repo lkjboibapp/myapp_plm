@@ -8,71 +8,124 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content id="page2" style="background-color:#95F04D;">
-  <img src="assets/img/sYDY78VHSJynacq1yAAB_banner-animation.jpg" style="display:block;width:100%;height:100%;" />
+<!-- <ion-content id="page2" style="background-color:#95F04D;"> -->
+<ion-content>
+  <img src="assets/img/sYDY78VHSJynacq1yAAB_banner-animation.jpg" style="display:block;width:100%;height:50%;" />
   <div class="spacer" style="height:10px;" id="eLearning-spacer2"></div>
 
 
-  <ion-slides autoplay="500" loop="true" speed="3000">
-    <ion-slide *ngFor="let img of imageArray">
-      <img src="{{img.image}}" height="20%" width="10%">
-    </ion-slide>
-  </ion-slides>
 
-  
-  <ion-list id="eLearning-list10">
-    <ion-item on-click="goToBanner()" id="eLearning-list-item21">
-      ป้ายประชาสัมพันธ์
-      <ion-note item-right></ion-note>
-      <ion-icon name="arrow-forward" item-right></ion-icon>
-    </ion-item>
-    <ion-item-sliding>
-      <ion-item on-click="goToNews()" id="eLearning-list-item22">
-        ข่าวประชาสัมพันธ์
-        <ion-note item-right></ion-note>
-        <ion-icon name="arrow-forward" item-right></ion-icon>
+
+
+  <ion-list>
+
+    <ion-card>
+      <ion-item>
+        <ion-grid>
+          <ion-row on-click="goToBanner()">
+            <ion-col col-8>
+              ป้ายประชาสัมพันธ์
+            </ion-col>
+            <ion-col col-2>
+              ดูทั้งหมด
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-slides autoplay="500" loop="true" speed="3000">
+                <ion-slide *ngFor="let img of imageArray">
+                  <ion-card>
+                    <img src="{{img.image}}">
+                  </ion-card>
+                </ion-slide>
+              </ion-slides>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="positive">
-          กด
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding>
-      <ion-item on-click="goToDocuments()" id="eLearning-list-item23">
-        เอกสารแผยแพร่
-        <ion-note item-right></ion-note>
-        <ion-icon name="arrow-forward" item-right></ion-icon>
-      </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="positive">
-          กด
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding>
-      <ion-item on-click="getVdo()">
-        วีดีโอ
-        <ion-note item-right></ion-note>
-        <ion-icon name="arrow-forward" item-right></ion-icon>
-      </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="positive">
-          กด
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding>
-      <ion-item on-click="getFeatured()">
-        หน่วยงานที่เกี่ยวข้อง
-        <ion-note item-right></ion-note>
-        <ion-icon name="arrow-forward" item-right></ion-icon>
-      </ion-item>
-      <ion-item-options side="left">
-        <button ion-button color="positive">
-          กด
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
+    </ion-card>
+
+    <ion-card>
+      <ion-item-sliding>
+
+        <ion-item>
+          <ion-grid>
+            <ion-row on-click="goToNews()">
+              <ion-col col-8>
+                ข่าวประชาสัมพันธ์
+              </ion-col>
+              <ion-col col-2>
+                ดูทั้งหมด
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                <ion-col>
+                  <ion-slides autoplay="500" loop="true" speed="3000">
+                    <ion-slide *ngFor="let img of imageArray">
+                      <ion-card>
+                        <img src="{{img.image}}">
+                      </ion-card>
+                    </ion-slide>
+                  </ion-slides>
+                </ion-col>
+              </ion-col>
+
+            </ion-row>
+          </ion-grid>
+          <!-- <ion-note item-right></ion-note> -->
+          <!-- <ion-icon name="arrow-forward" item-right></ion-icon> -->
+        </ion-item>
+
+      </ion-item-sliding>
+    </ion-card>
+
+    <ion-card>
+      <ion-item-sliding>
+        <ion-item on-click="goToDocuments()" id="eLearning-list-item23">
+          เอกสารแผยแพร่
+          <ion-note item-right></ion-note>
+          <ion-icon name="arrow-forward" item-right></ion-icon>
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button color="positive">
+            กด
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card>
+
+    <ion-card>
+      <ion-item-sliding>
+        <ion-item on-click="getVdo()">
+          วีดีโอ
+          <ion-note item-right></ion-note>
+          <ion-icon name="arrow-forward" item-right></ion-icon>
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button color="positive">
+            กด
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card>
+
+    <ion-card>
+      <ion-item-sliding>
+        <ion-item on-click="getFeatured()">
+          หน่วยงานที่เกี่ยวข้อง
+          <ion-note item-right></ion-note>
+          <ion-icon name="arrow-forward" item-right></ion-icon>
+        </ion-item>
+        <ion-item-options side="left">
+          <button ion-button color="positive">
+            กด
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-card>
+
+
   </ion-list>
 </ion-content>

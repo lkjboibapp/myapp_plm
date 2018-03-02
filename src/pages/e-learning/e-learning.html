@@ -11,14 +11,23 @@
 <ion-content id="page2" style="background-color:#95F04D;">
   <img src="assets/img/sYDY78VHSJynacq1yAAB_banner-animation.jpg" style="display:block;width:100%;height:100%;" />
   <div class="spacer" style="height:10px;" id="eLearning-spacer2"></div>
+
+
+  <ion-slides autoplay="500" loop="true" speed="3000">
+    <ion-slide *ngFor="let img of imageArray">
+      <img src="{{img.image}}" height="20%" width="10%">
+    </ion-slide>
+  </ion-slides>
+
+  
   <ion-list id="eLearning-list10">
-    <ion-item color="dark" on-click="goToBanner()" id="eLearning-list-item21">
+    <ion-item on-click="goToBanner()" id="eLearning-list-item21">
       ป้ายประชาสัมพันธ์
       <ion-note item-right></ion-note>
       <ion-icon name="arrow-forward" item-right></ion-icon>
     </ion-item>
     <ion-item-sliding>
-      <ion-item color="dark" on-click="goToNews()" id="eLearning-list-item22">
+      <ion-item on-click="goToNews()" id="eLearning-list-item22">
         ข่าวประชาสัมพันธ์
         <ion-note item-right></ion-note>
         <ion-icon name="arrow-forward" item-right></ion-icon>
@@ -30,7 +39,7 @@
       </ion-item-options>
     </ion-item-sliding>
     <ion-item-sliding>
-      <ion-item color="dark" on-click="goToDocuments()" id="eLearning-list-item23">
+      <ion-item on-click="goToDocuments()" id="eLearning-list-item23">
         เอกสารแผยแพร่
         <ion-note item-right></ion-note>
         <ion-icon name="arrow-forward" item-right></ion-icon>
@@ -42,7 +51,7 @@
       </ion-item-options>
     </ion-item-sliding>
     <ion-item-sliding>
-      <ion-item color="dark" on-click="getVdo()">
+      <ion-item on-click="getVdo()">
         วีดีโอ
         <ion-note item-right></ion-note>
         <ion-icon name="arrow-forward" item-right></ion-icon>
@@ -54,7 +63,7 @@
       </ion-item-options>
     </ion-item-sliding>
     <ion-item-sliding>
-      <ion-item color="dark" on-click="getFeatured()">
+      <ion-item on-click="getFeatured()">
         หน่วยงานที่เกี่ยวข้อง
         <ion-note item-right></ion-note>
         <ion-icon name="arrow-forward" item-right></ion-icon>

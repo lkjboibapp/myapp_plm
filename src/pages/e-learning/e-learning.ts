@@ -12,27 +12,35 @@ import { FeaturedlinksPage } from '../featuredlinks/featuredlinks';
 })
 export class ELearningPage {
 
+  imageArray: any = [];
+
   constructor(public navCtrl: NavController) {
+    this.imageArray = [
+      { 'image': '../../assets/img/a.jpg' },
+      { 'image': '../../assets/img/bu.jpg' },
+      { 'image': '../../assets/img/tim.png' },
+      { 'image': '../../assets/img/t.jpg' }
+    ]
   }
-  goToBanner(params){
+  goToBanner(params) {
     if (!params) params = {};
     this.navCtrl.push(BannerPage);
   }
-  goToNews(params){
+  goToNews(params) {
     if (!params) params = {};
     this.navCtrl.push(NewsPage);
   }
-  goToDocuments(params){
+  goToDocuments(params) {
     if (!params) params = {};
     this.navCtrl.push(DocumentsPage);
   }
-  getVdo(params){
+  getVdo(params) {
     if (!params) params = {};
     this.navCtrl.push(VdoPage);
   }
 
-  getFeatured(params){
-    if(!params) params = {};
+  getFeatured(params) {
+    if (!params) params = {};
     this.navCtrl.push(FeaturedlinksPage);
   }
 }

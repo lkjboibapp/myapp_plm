@@ -4,8 +4,69 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Privatemessage
+      สร้างขข้อความใหม่
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page9"></ion-content>
+<ion-content padding id="page9">
+  <ion-list>
+    <ion-item>
+      <ion-label>ผู้รับ</ion-label>
+      <ion-select name="pm_to" [(ngModel)]="data.pm_to" okText="ตกลง" cancelText="ยกเลิก">
+        <ion-option *ngFor="let item of pm">
+          <ion-item>
+            <ion-option value="item.superuser">{{ item.username}}</ion-option>
+          </ion-item>
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>หัวข้อ</ion-label>
+      <ion-input type="text" name="pm_topic" [(ngModel)]="data.pm_topic"></ion-input>
+    </ion-item>
+
+
+    <ion-item class="rowArear">
+      <ion-row row-auto>
+        <ion-col col-auto>
+          <span class="input-label">รายละเอียด :</span>
+        </ion-col>
+      </ion-row>
+      <ion-row row-auto>
+        <ion-col>
+          <textarea ion-input class="resizedTextArearbox" type="text" name="pm_quest" [(ngModel)]="data.pm_quest"></textarea>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-list>
+      <ion-label>การแจ้งเตือน</ion-label>
+      <ion-item>
+        <ion-label>แจ้งเตือนไปยังอีเมล์ เมื่อมีการโต้ตอบ
+          <br>(สำหรับหัวข้อนี้)</ion-label>
+        <ion-checkbox name="question_status" value="1" [(ngModel)]="data.question_status" checked="true"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+
+    <ion-label>แนบไฟล์</ion-label>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-auto>
+          <button ion-button name="question_status">เรียกดู...</button>
+        </ion-col>
+        <ion-col>
+          <ion-label>ไม่มีไฟล์ที่ถูกเลือก</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+    <ion-item>
+      <button ion-button item-end navPop>ปิด</button>
+      <button ion-button item-end (click)="submit()">ส่งข้อความ</button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

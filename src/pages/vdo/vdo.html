@@ -16,16 +16,19 @@
 <ion-content padding id="page3">
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
-        <ion-item *ngFor="let item of results" (click)="openItem(item)">
-    
-    <ion-card>
+    <ion-item *ngFor="let item of results" (click)="openItem(item)">
       <ion-card>
-        <iframe width="500" height="400" ng-src="{item.vdo_path}"></iframe>
-            <p>{{ item.vdo_path }}</p>
+        <ion-card>
+          <!-- <iframe width="500" height="400" ng-src="{item.vdo_path}"></iframe> -->
+          <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer">
+            <source src="{item.vdo_path}" type="video/mp4" />
+          </video>
+          <p>{{ item.vdo_path }}</p>
+        </ion-card>
       </ion-card>
-    </ion-card>
-        </ion-item>
-    
+    </ion-item>
   </ion-list>
+
+
 
 </ion-content>

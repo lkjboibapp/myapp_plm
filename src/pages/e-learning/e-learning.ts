@@ -13,6 +13,8 @@ import { Items } from '../../providers/providers';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
 
+import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
+
 @Component({
   selector: 'page-e-learning',
   templateUrl: 'e-learning.html'
@@ -23,14 +25,20 @@ export class ELearningPage {
 
   news: any;
   imageArray: any = [];
-
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, public http: Http) {
+  featuredlinks: any;
+  
+  constructor(private inAppBrowser: InAppBrowser,public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, public http: Http) {
     this.ETPhoneHome();
+    this.FeaturedHome();
     console.log('======================================');
     this.imageArray = [
       { 'image': '../../assets/img/a.jpg' },
       { 'image': '../../assets/img/bu.jpg' },
-      { 'image': '../../assets/img/tim.png' }
+      { 'image': '../../assets/img/tim.png' },
+      { 'image': '../../assets/img/b.jpg' },
+      { 'image': '../../assets/img/c.jpg'} ,
+      { 'image': '../../assets/img/d.jpg' },
+      { 'image': '../../assets/img/e.jpg' }
       // { 'image': '../../assets/img/t.jpg' }
     ]
   }
@@ -74,6 +82,36 @@ export class ELearningPage {
           console.log('error in ETPhoneHome');
         });       
   }
+
+  FeaturedHome() {
+    let path = 'http://localhost/service/ServiceMobile/ServiceFeaturedLinks.php/getFeaturedLinks';
+    let encodedPath = encodeURI(path);
+    let timeoutMS = 10000;
+  
+    this.http.get(encodedPath)
+      .timeout(timeoutMS)
+      .map(res => res.json()).subscribe(data => {
+        let responseData = data;
+        this.featuredlinks = responseData.data;
+        console.log(this.featuredlinks);
+      },
+
+        err => {
+          console.log('error in ETPhoneHome');
+        });
+  }
+  
+
+  OpenUrl(url)
+  {
+   
+    const options: InAppBrowserOptions = {
+          zoom: 'no'
+        }
+    const browser = this.inAppBrowser.create(url, '_self', options);      
+  }
+
+
   openItem(item: ItemNews) {
     this.navCtrl.push('NewsDetailPage', {
       item: item

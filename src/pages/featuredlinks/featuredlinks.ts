@@ -21,7 +21,7 @@ import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser"
 export class FeaturedlinksPage {
 
   // url: string;  
-  data: any;
+  // data: any;
   featuredlinks: any;
   constructor(private inAppBrowser: InAppBrowser,public navCtrl: NavController,public modalCtrl: ModalController, public http: Http) {
 

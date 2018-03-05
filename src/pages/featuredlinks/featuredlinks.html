@@ -7,13 +7,15 @@
 
 <ion-content padding>
   <ion-card padding item-center  *ngFor="let item of featuredlinks">
+    
+    <button ion-button class="setsizeimg"  clear (click)=" OpenUrl(item.link_url);" >
     <!-- <img [src]="item.cms_picture" /> -->
-    <ion-img item-center  src="assets/imgs/nom.png">
+    <ion-img item-center class="setsizeimg" src="assets/imgs/nom.png">
     </ion-img>
-    <label>{{item.link_url}}</label>
-    <label>{{item.link_name}}</label>
+    <!-- <label>{{item.link_url}}</label>
+    <label>{{item.link_name}}</label> -->
 
-    <button ion-button block clear (click)=" OpenUrl(item.link_url);" >Open Webpage</button>
+   </button>
    
   </ion-card>
 </ion-content>

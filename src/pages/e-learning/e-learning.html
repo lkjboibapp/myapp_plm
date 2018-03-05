@@ -23,7 +23,7 @@
       <ion-item>
         <ion-grid>
           <ion-row>
-            <ion-col col-8>
+            <ion-col>
               ป้ายประชาสัมพันธ์
             </ion-col>
             <ion-col>
@@ -37,7 +37,7 @@
               <ion-slides autoplay="500" loop="true" speed="3000">
                 <ion-slide *ngFor="let img of imageArray">
                   <ion-card>
-                    <img src="{{img.image}}">
+                    <img class="setTest" src="{{img.image}}">
                   </ion-card>
                 </ion-slide>
               </ion-slides>
@@ -53,7 +53,7 @@
         <ion-item>
           <ion-grid>
             <ion-row>
-              <ion-col col-8>
+              <ion-col>
                 ข่าวประชาสัมพันธ์
               </ion-col>
               <ion-col>
@@ -75,10 +75,7 @@
                           <ion-col col-auto>
                             <!-- <img [src]="item.cms_picture" /> -->
                             <ion-card>
-                              <ion-img item-center padding class="setsizeimg"
-                               src="assets/imgs/nom.png">
-                                 
-                              </ion-img>
+                              <img item-center padding class="setsizeimg" src="assets/imgs/nom.png"/>
                             </ion-card>
                             <h2>{{ item.cms_title}}</h2>
                             <p>{{ item.cms_short_title}}</p>
@@ -130,18 +127,40 @@
     </ion-card>
 
     <ion-card>
-      <ion-item-sliding>
-        <ion-item on-click="getFeatured()">
-          หน่วยงานที่เกี่ยวข้อง
-          <ion-note item-right></ion-note>
-          <ion-icon name="arrow-forward" item-right></ion-icon>
-        </ion-item>
-        <ion-item-options side="left">
-          <button ion-button color="positive">
-            กด
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              หน่วยงานที่เกี่ยวข้อง
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <button ion-button item-end clear on-click="goToBanner()">ดูทั้งหมด</button>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <ion-slides autoplay="200" loop="true" on-release="true" speed="10000">
+                <ion-slide>
+                  <h1>Slide 2</h1>
+                </ion-slide>
+                <ion-grid *ngFor="let itemF of featuredlinks">
+                  <ion-card clear item-height="100%" item-width="100%" (click)=" OpenUrl(itemF.link_url);">
+                    <ion-slide>
+                      <ion-row>
+                        <ion-col col-auto>
+                            <img class="setCard" item-height="100%" src="assets/imgs/nom.png"/>
+                        </ion-col>
+                      </ion-row>
+                    </ion-slide>
+                  </ion-card>
+                </ion-grid>
+              </ion-slides>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
     </ion-card>
 
 

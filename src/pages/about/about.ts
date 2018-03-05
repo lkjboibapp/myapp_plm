@@ -11,33 +11,32 @@ import 'rxjs/add/operator/timeout';
   templateUrl: 'about.html'
 })
 export class AboutPage {
-  public about: any;
-  public items_filter : any ;
-  items :any;
+  // public about: any;
+  // public items_filter : any ;
+  // items :any;
  
   constructor(public navCtrl: NavController,public alerCtrl: AlertController, public http: Http) {
-    this.ETPhoneHome();
-
-    console.log('======================================');
+    // this.ETPhoneHome();
+// console.log('======================================');
  }
  
- ETPhoneHome() {
-   let path = 'http://localhost/Service/ServiceMobile/about.php/getabout';
-     let encodedPath = encodeURI(path);
-     let timeoutMS = 200;
+//  ETPhoneHome() {
+//    let path = 'http://localhost/Service/ServiceMobile/about.php/getabout';
+//      let encodedPath = encodeURI(path);
+//      let timeoutMS = 200;
 
-     this.http.get(encodedPath)
-       .timeout(timeoutMS)
-       .map(res => res.json()).subscribe(data => {
-           let responseData = data;
-           this.about = responseData.data;
-        //    console.log(responseData.data);
-           console.log("about",this.about);
-       },
-           err => {
-               console.log('error in ETPhoneHome');
-           });
-         }     
+//      this.http.get(encodedPath)
+//        .timeout(timeoutMS)
+//        .map(res => res.json()).subscribe(data => {
+//            let responseData = data;
+//            this.about = responseData.data;
+//         //    console.log(responseData.data);
+//            console.log("about",this.about);
+//        },
+//            err => {
+//                console.log('error in ETPhoneHome');
+//            });
+//          }     
          
 
 //          getItems(ev:any) {

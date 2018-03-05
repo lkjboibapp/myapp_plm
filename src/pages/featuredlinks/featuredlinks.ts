@@ -33,14 +33,14 @@ export class FeaturedlinksPage {
     let encodedPath = encodeURI(path);
     let timeoutMS = 10000;
   
-    console.log(',mdfmva;lad');
     this.http.get(encodedPath)
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         let responseData = data;
         this.featuredlinks = responseData.data;
-        console.log(responseData.data);
+        console.log(this.featuredlinks);
       },
+
         err => {
           console.log('error in ETPhoneHome');
         });

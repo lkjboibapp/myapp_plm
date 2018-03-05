@@ -20,12 +20,16 @@ import { VdoPage } from '../pages/vdo/vdo';
 import { LicencePage } from '../pages/licence/licence';
 import { FeaturedlinksPage} from '../pages/featuredlinks/featuredlinks';
 
+
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpModule,Http } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Items } from '../mocks/providers/items';
+import { ItemsCouse } from '../mocks/providers/itemCouse';
+import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent} from "@ionic-native/google-maps";
+
 import { Api } from '../providers/providers';
 import { AlertController } from 'ionic-angular';
 
@@ -96,7 +100,9 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     Api,
     Items,
+    ItemsCouse,
     StatusBar,
+    GoogleMaps,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

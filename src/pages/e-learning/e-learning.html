@@ -22,12 +22,14 @@
     <ion-card>
       <ion-item>
         <ion-grid>
-          <ion-row on-click="goToBanner()">
+          <ion-row>
             <ion-col col-8>
               ป้ายประชาสัมพันธ์
             </ion-col>
-            <ion-col col-2>
-              ดูทั้งหมด
+            <ion-col>
+              <ion-item>
+                <button ion-button item-end clear on-click="goToBanner()">ดูทั้งหมด</button>
+              </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
@@ -50,28 +52,44 @@
 
         <ion-item>
           <ion-grid>
-            <ion-row on-click="goToNews()">
+            <ion-row>
               <ion-col col-8>
                 ข่าวประชาสัมพันธ์
               </ion-col>
-              <ion-col col-2>
-                ดูทั้งหมด
+              <ion-col>
+                <ion-item>
+                  <button ion-button item-end clear on-click="goToNews()">ดูทั้งหมด</button>
+                </ion-item>
               </ion-col>
             </ion-row>
-
             <ion-row>
               <ion-col>
-                <ion-col>
-                  <ion-slides autoplay="500" loop="true" speed="3000">
-                    <ion-slide *ngFor="let img of imageArray">
-                      <ion-card>
-                        <img src="{{img.image}}">
-                      </ion-card>
-                    </ion-slide>
-                  </ion-slides>
-                </ion-col>
+                <ion-slides autoplay="200" loop="true" on-release="true" speed="10000">
+                  <ion-slide>
+                    <h1>Slide 2</h1>
+                  </ion-slide>
+                  <ion-grid *ngFor="let item of news">
+                    <ion-card class="setCard" (click)="openItem(item)">
+                      <ion-slide>
+                        <ion-row>
+                          <ion-col col-auto>
+                            <!-- <img [src]="item.cms_picture" /> -->
+                            <ion-card>
+                              <ion-img item-center padding class="setsizeimg"
+                               src="assets/imgs/nom.png">
+                                 
+                              </ion-img>
+                            </ion-card>
+                            <h2>{{ item.cms_title}}</h2>
+                            <p>{{ item.cms_short_title}}</p>
+                            <p item-end>{{ item.create_date}}</p>
+                          </ion-col>
+                        </ion-row>
+                      </ion-slide>
+                    </ion-card>
+                  </ion-grid>
+                </ion-slides>
               </ion-col>
-
             </ion-row>
           </ion-grid>
           <!-- <ion-note item-right></ion-note> -->

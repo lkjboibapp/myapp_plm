@@ -14,6 +14,7 @@ import { FaqPage } from '../pages/faq/faq';
 import { RegisterPage } from '../pages/register/register';
 import { ContactusPage } from '../pages/contactus/contactus';
 import { LicencePage } from '../pages/licence/licence';
+import { PrivatemessagePage } from '../pages/privatemessage/privatemessage';
 
 
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
@@ -63,5 +64,9 @@ export class MyApp {
   } goToLicence(params) {
     if (!params) params = {};
     this.navCtrl.push(LicencePage);
+  } goToPrivatemessage(params){
+    if(!params) params ={};
+    this.navCtrl.push(PrivatemessagePage);
+
   }
 }

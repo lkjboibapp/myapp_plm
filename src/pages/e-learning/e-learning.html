@@ -70,12 +70,12 @@
                   </ion-slide>
                   <ion-grid *ngFor="let item of news">
                     <ion-card class="setCard" (click)="openItem(item)">
-                      <ion-slide>
+                      <ion-slide padding>
                         <ion-row>
                           <ion-col col-auto>
                             <!-- <img [src]="item.cms_picture" /> -->
-                            <ion-card>
-                              <img item-center padding class="setsizeimg" src="assets/imgs/nom.png"/>
+                            <ion-card  item-center  class="setsizeimg">
+                              <img padding  src="assets/imgs/nom.png" />
                             </ion-card>
                             <h2>{{ item.cms_title}}</h2>
                             <p>{{ item.cms_short_title}}</p>
@@ -112,19 +112,31 @@
     </ion-card>
 
     <ion-card>
-      <ion-item-sliding>
-        <ion-item on-click="getVdo()">
-          วีดีโอ
-          <ion-note item-right></ion-note>
-          <ion-icon name="arrow-forward" item-right></ion-icon>
-        </ion-item>
-        <ion-item-options side="left">
-          <button ion-button color="positive">
-            กด
-          </button>
-        </ion-item-options>
-      </ion-item-sliding>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              วีดีโอแนะนำ
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <button ion-button item-end clear on-click="getVdo()">ดูทั้งหมด</button>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+                    <!-- <iframe width="500" height="400" ng-src="{item.vdo_path}"></iframe> -->
+                    <video  controls="controls" preload="metadata" webkit-playsinline="webkit-playsinline" class="videoPlayer">
+                      <source src="https://player.vimeo.com/external/76336826.sd.mp4?s=dd361715fad172bf26ba0ad91635c4f9" type="video/mp4" />
+                    </video>
+                    <!-- <p>{{ item.vdo_path }}</p> -->
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
     </ion-card>
+
 
     <ion-card>
       <ion-item>
@@ -135,7 +147,7 @@
             </ion-col>
             <ion-col>
               <ion-item>
-                <button ion-button item-end clear on-click="goToBanner()">ดูทั้งหมด</button>
+                <button ion-button item-end clear on-click="getFeatured()">ดูทั้งหมด</button>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -150,7 +162,7 @@
                     <ion-slide>
                       <ion-row>
                         <ion-col col-auto>
-                            <img class="setCard" item-height="100%" src="assets/imgs/nom.png"/>
+                          <img class="setCard" item-height="100%" src="assets/imgs/nom.png" />
                         </ion-col>
                       </ion-row>
                     </ion-slide>

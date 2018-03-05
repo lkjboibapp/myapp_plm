@@ -26,10 +26,12 @@ export class ELearningPage {
   news: any;
   imageArray: any = [];
   featuredlinks: any;
+  public resultsVDO: any;
   
   constructor(private inAppBrowser: InAppBrowser,public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, public http: Http) {
     this.ETPhoneHome();
     this.FeaturedHome();
+    this.ResulteVDO()
     console.log('======================================');
     this.imageArray = [
       { 'image': '../../assets/img/a.jpg' },
@@ -41,6 +43,7 @@ export class ELearningPage {
       { 'image': '../../assets/img/e.jpg' }
       // { 'image': '../../assets/img/t.jpg' }
     ]
+    this.resultsVDO = "";
   }
   goToBanner(params) {
     if (!params) params = {};
@@ -101,6 +104,23 @@ export class ELearningPage {
         });
   }
   
+  ResulteVDO() {
+    let path = 'http://localhost/Service/ServiceMobile/ServiceVDO.php/getvdo';
+    let encodedPath = encodeURI(path);
+    // console.log(encodedPath)
+    let timeoutMS = 100;
+
+    this.http.get(encodedPath)
+      .timeout(timeoutMS)
+      .map(res => res.json()).subscribe(data => {
+        this.resultsVDO = data.data;
+
+        console.log("vdo = ", this.resultsVDO)
+      },
+        err => {
+          console.log("ldokvopdsv");
+        });
+  }
 
   OpenUrl(url)
   {
@@ -118,3 +138,4 @@ export class ELearningPage {
     });
   }
 }
+

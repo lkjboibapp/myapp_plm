@@ -33,6 +33,7 @@ import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent} from "@ionic-native/goog
 import { Api } from '../providers/providers';
 import { AlertController } from 'ionic-angular';
 
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -104,6 +105,7 @@ export function createTranslateLoader(http: HttpClient) {
     StatusBar,
     GoogleMaps,
     SplashScreen,
+    InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

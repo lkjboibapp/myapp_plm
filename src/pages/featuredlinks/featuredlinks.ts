@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
+
+import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser";
 
 /**
  * Generated class for the FeaturedlinksPage page.
@@ -11,16 +13,22 @@ import 'rxjs/add/operator/timeout';
  * Ionic pages and navigation.
  */
 
+
 @Component({
   selector: 'page-featuredlinks',
   templateUrl: 'featuredlinks.html',
 })
 export class FeaturedlinksPage {
 
+  // url: string;  
+  data: any;
   featuredlinks: any;
-  constructor(public navCtrl: NavController,public modalCtrl: ModalController, public http: Http) {
+  constructor(private inAppBrowser: InAppBrowser,public navCtrl: NavController,public modalCtrl: ModalController, public http: Http) {
 
     this.ETPhoneHome();
+
+
+    this.http = http;
     console.log('======================================');
   }
 
@@ -44,6 +52,20 @@ export class FeaturedlinksPage {
         err => {
           console.log('error in ETPhoneHome');
         });
+  }
+  // openWebpage() {
+  //   const options: InAppBrowserOptions = {
+  //     zoom: 'no'
+  //   }
+  //   const browser = this.inAppBrowser.create(url, '_self', options);
+  // }
+  OpenUrl(url)
+  {
+   
+    const options: InAppBrowserOptions = {
+          zoom: 'no'
+        }
+    const browser = this.inAppBrowser.create(url, '_self', options);      
   }
 
 }

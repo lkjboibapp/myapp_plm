@@ -81,9 +81,9 @@ export class CoursePage {
     console.log("show text =", this.text);
   }
 
-  openItem(item: ItemCouse) {
+  openItem(id) {
     this.navCtrl.push('DetailCoursePage', {
-      item: item
+      item: id
     });
   }
  

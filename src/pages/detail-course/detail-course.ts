@@ -21,13 +21,16 @@ export class DetailCoursePage {
 
   public results_course: any;
   public text: any;
-
+  public course_title: any;
   constructor(public http: Http, private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, items: ItemsCouse) {
+    this.course_title = navParams.get("course_title");
+    console.log("param: " + this.course_title );
   }
 
   ngAfterViewInit() {
     this.CourseOnline();
     this.text = this.navParams.get('test');
+    // console.log("123",this.text)
   }
 
   CourseOnline() {
@@ -40,7 +43,7 @@ export class DetailCoursePage {
       // .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results_course = data.data;
-        // console.log("show results_course = ", this.results_course);
+        console.log("show results_course = ", this.results_course);
       },
         err => {
           console.log("err json load");

@@ -35,8 +35,8 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-        console.log("show time = ", data.data[0]['cate_id']);
-        //console.log("show time = ", data.data[0]);
+        //console.log("show time = ", data.data[0]['cate_id']);
+        console.log("Data = ", data.data);
       },
         err => {
           console.log("Erroersdfdf");
@@ -84,9 +84,11 @@ export class CoursePage {
   }
 
   openItem(i) {
-    console.log("log"+i);
+    console.log("name: " + i.course_title)
+   
+
     this.navCtrl.push('DetailCoursePage', {
-      test : i
+      course_title: i.course_title
     });
   }
  

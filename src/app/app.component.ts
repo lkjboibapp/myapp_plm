@@ -13,6 +13,7 @@ import { UsabilityPage } from '../pages/usability/usability';
 import { FaqPage } from '../pages/faq/faq';
 import { RegisterPage } from '../pages/register/register';
 import { ContactusPage } from '../pages/contactus/contactus';
+import { LoginPage } from '../pages/login/login';
 import { LicencePage } from '../pages/licence/licence';
 import { PrivatemessagePage } from '../pages/privatemessage/privatemessage';
 
@@ -61,6 +62,9 @@ export class MyApp {
   } goToRegister(params) {
     if (!params) params = {};
     this.navCtrl.push(RegisterPage);
+  } goToLogin(params) {
+    if (!params) params = {};
+    this.navCtrl.push(LoginPage);
   } goToLicence(params) {
     if (!params) params = {};
     this.navCtrl.push(LicencePage);

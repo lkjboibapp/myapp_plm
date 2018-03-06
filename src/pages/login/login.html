@@ -16,7 +16,10 @@
             <img src="assets/img/symbol.png">
           </ion-thumbnail>
           
-      <ion-item id="login-input12" class="section2">
+          <ion-item *ngFor="let item of user">  
+          <p> {{ item.username}} {{ item.password}} </p>
+        </ion-item>
+          <ion-item id="login-input12" class="section2">
         <ion-label  >
           username
         </ion-label>
@@ -32,13 +35,14 @@
     </ion-list>
     <div class="spacer" style="height:10px;" id="login-spacer1"></div>
 
-     <button ion-button full color="positive"round (click)="ELearningPage()">Log in </button>
+     <button ion-button full color="positive"round (click)="ELearningPage()">เข้าสู่ระบบ </button>
 
+     <button ion-button full color="light"  round (click)="LoginPage()">สมัครเรียน </button>
     
-    <button id="login-button2" ion-button clear color="positive" block href-inappbrowser="/signup">
-      Or create an account
+    <button id="login-button2" ion-button clear color="positive" block href-inappbrowser="/signup" (click)="ForgotPassPage()">
+      ลืมรหัสผ่าน
     </button>
  
-    <button ion-button full color="light"  round (click)="LoginPage()">register </button>
+    
   </form>
 </ion-content>

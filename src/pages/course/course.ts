@@ -19,10 +19,17 @@ export class CoursePage {
 
   currentItems: ItemCouse[];
 
-  constructor(public http: Http,public items: ItemsCouse, public navCtrl: NavController, private alertCtrl: AlertController) {
+  constructor(public http: Http,
+    public items: ItemsCouse,
+    public navCtrl: NavController,
+    private alertCtrl: AlertController) {
+
+
+  }
+
+  ngAfterViewInit() {
     this.ETPhoneHome();
     this.CourseOnline();
-
   }
 
   ETPhoneHome() {
@@ -34,7 +41,7 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-        console.log("show time = ",this.results);
+        console.log("show time = ", this.results);
       },
         err => {
           console.log("Erroersdfdf");
@@ -59,21 +66,21 @@ export class CoursePage {
 
   getItems(ev: any) {
     let val = ev.target.value;
-    
-    if (val && val.trim() != '') 
-      {
-        this.results = this.results.filter((item) => {
-          return (item.cate_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
-        });
-      }else if (val =='') {
+
+    if (val && val.trim() != '') {
+      this.results = this.results.filter((item) => {
+        return (item.cate_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
+    } else if (val == '') {
       this.ETPhoneHome();
     }
   }
 
 
-  selectChangHandler(event:any){
-    console.log("selectChangHandler = ",event.target.value);
+  selectChangHandler(event: any) {
+    // console.log("selectChangHandler = ",event.target.value);
     let text = event.target.value;
+    console.log("tezt", text);
     this.text = this.results_course.filter((item) => {
       return (item.cate_id.toLowerCase().indexOf(text.toLowerCase()) > -1);
     });
@@ -86,5 +93,5 @@ export class CoursePage {
       item: id
     });
   }
- 
+
 }

@@ -100,7 +100,7 @@ export class ELearningPage {
       },
 
         err => {
-          console.log('error in ETPhoneHome');
+          console.log('error in FeaturedHome');
         });
   }
   
@@ -115,10 +115,10 @@ export class ELearningPage {
       .map(res => res.json()).subscribe(data => {
         this.resultsVDO = data.data;
 
-        console.log("vdo = ", this.resultsVDO)
+        // console.log("vdo = ", this.resultsVDO)
       },
         err => {
-          console.log("ldokvopdsv");
+          console.log("err ResulteVDO");
         });
   }
 

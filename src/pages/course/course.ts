@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
-import { ItemCouse } from '../../models/itemCouse';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
-import { ItemsCouse } from '../../providers/providers';
 
 
 @Component({
@@ -17,17 +15,13 @@ export class CoursePage {
   public results: any;
   public text: any;
 
-  currentItems: ItemCouse[];
 
-  constructor(public http: Http,
-    public items: ItemsCouse,
-    public navCtrl: NavController,
-    private alertCtrl: AlertController) {
-
+  constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
+   
 
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(){
     this.ETPhoneHome();
     this.CourseOnline();
   }
@@ -41,7 +35,8 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-        console.log("show time = ", this.results);
+        console.log("show time = ", data.data[0]['cate_id']);
+        //console.log("show time = ", data.data[0]);
       },
         err => {
           console.log("Erroersdfdf");
@@ -66,32 +61,33 @@ export class CoursePage {
 
   getItems(ev: any) {
     let val = ev.target.value;
-
-    if (val && val.trim() != '') {
-      this.results = this.results.filter((item) => {
-        return (item.cate_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      });
-    } else if (val == '') {
+    console.log("t1",val);
+    if (val && val.trim() != '') 
+      {
+        this.results = this.results.filter((item) => {
+          return (item.cate_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        });
+      }else if (val =='') {
       this.ETPhoneHome();
     }
   }
 
 
-  selectChangHandler(event: any) {
-    // console.log("selectChangHandler = ",event.target.value);
+  selectChangHandler(event:any){
+    console.log("selectChangHandler = ",event.target.value);
     let text = event.target.value;
-    console.log("tezt", text);
     this.text = this.results_course.filter((item) => {
       return (item.cate_id.toLowerCase().indexOf(text.toLowerCase()) > -1);
     });
 
-    console.log("show text =", this.text);
+    // console.log("show text =", this.text);
   }
 
-  openItem(id) {
+  openItem(i) {
+    console.log("log"+i);
     this.navCtrl.push('DetailCoursePage', {
-      item: id
+      test : i
     });
   }
-
+ 
 }

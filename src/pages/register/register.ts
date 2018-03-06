@@ -63,8 +63,8 @@ getItems(ev: any) {
    }
    alert() {
     let alert = this.alertCtrl.create({
-      title: 'ข้อกำหนดและเงื่อนไขสำหรับการสมัครสมาชิก',
-      message: "Do you want to buy this book?",
+      title: 'ยืนยันการสมัครเรียน',
+      message: "คลิกตกลงเพื่อทำการสมัครเรียน",
       buttons: [
         {
           text: 'ไม่ยอมรับ',

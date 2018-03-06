@@ -5,6 +5,8 @@ import { IonicPage } from 'ionic-angular';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 
+import { Camera } from '@ionic-native/camera';
+
 import { Content } from 'ionic-angular';
 import {
   GoogleMaps,
@@ -14,9 +16,11 @@ import {
   CameraPosition,
   MarkerOptions,
   Marker
-} from "@ionic-native/google-maps";
-
+} from '@ionic-native/google-maps';
 import { Http } from '@angular/http';
+
+
+declare var google;
 
 @IonicPage()
 @Component({
@@ -26,8 +30,13 @@ import { Http } from '@angular/http';
 export class ContactusPage {
 
   @ViewChild(Content) content: Content;
+
   @ViewChild('map') mapElement: ElementRef;
-  map: GoogleMap;
+  map: any;
+  directionsService = new google.maps.DirectionsService;
+  directionsDisplay = new google.maps.DirectionsRenderer;
+
+
 
   data: any = {};
 
@@ -45,6 +54,12 @@ export class ContactusPage {
 
     this.http = http;
 
+  }
+
+  ngAfterViewInit() {
+  
+      this.loadMap();
+   
   }
 
   submit() {
@@ -89,36 +104,21 @@ export class ContactusPage {
   }
 
   loadMap() {
-    let element = document.getElementById('map');
-    let mapOptions: GoogleMapOptions = {
-      camera: {
-        target: {
-          lat: 43.0741904,
-          lng: -89.3809802
-        },
-        zoom: 18,
-        tilt: 30
-      }
-    };
+    var uluru = { lat: 13.79129, lng: 100.596887};
+    this.map = new google.maps.Map(this.mapElement.nativeElement, {
+      zoom: 18,
+      tilt: 30,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: this.map
+    });
 
-    let map: GoogleMap = this.googleMaps.create(element, mapOptions);
-
-    map.addMarker({
-      title: 'Location',
-      icon: 'blue',
-      animation: 'DROP',
-      position: {
-        lat: 43.0741904,
-        lng: -89.3809802
-      }
-    })
-      .then(marker => {
-        marker.on(GoogleMapsEvent.MARKER_CLICK)
-          .subscribe(() => {
-            //alert('clicked');
-          });
-      });
   }
+
 }
+  
+
 
 

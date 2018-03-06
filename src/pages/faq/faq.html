@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color ="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -15,13 +15,13 @@
         </button> 
         </div> -->
 <!-- test -->
-<ion-content padding>
+<ion-content  class="section">
     <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar >
   <ion-list class="accordion-list">
      <!-- First Level -->
      <ion-list-header *ngFor="let item of faq; let i = index" no-lines no-padding>
        <!-- Toggle Button -->
-       <button ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}" color="stable" block>
+       <button class="section1" ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}" color="stable" block>
          <ion-icon item-left name="arrow-forward" *ngIf="!item.open"></ion-icon>
          <ion-icon item-left name="arrow-down" *ngIf="item.open"></ion-icon>
            <!-- {{ item.name }} -->

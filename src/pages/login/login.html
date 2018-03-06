@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color ="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,14 +8,19 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page10">
+<ion-content padding id="page10" class="section1" >
   <form id="login-form13">
+      
     <ion-list id="login-list2">
-      <ion-item id="login-input12">
-        <ion-label>
-          Email
+        <ion-thumbnail item-start class="section">
+            <img src="assets/img/symbol.png">
+          </ion-thumbnail>
+          
+      <ion-item id="login-input12" class="section2">
+        <ion-label  >
+          username
         </ion-label>
-        <ion-input type="email" placeholder=""></ion-input>
+        <ion-input type="username" placeholder=""></ion-input>
       </ion-item>
       <ion-item id="login-input13">
         <ion-label>
@@ -23,13 +28,17 @@
         </ion-label>
         <ion-input type="password" placeholder=""></ion-input>
       </ion-item>
+    
     </ion-list>
-    <div class="spacer" style="height:40px;" id="login-spacer1"></div>
-    <button id="login-button1" ion-button color="stable" block>
-      Log in
-    </button>
+    <div class="spacer" style="height:10px;" id="login-spacer1"></div>
+
+     <button ion-button full color="positive"round (click)="ELearningPage()">Log in </button>
+
+    
     <button id="login-button2" ion-button clear color="positive" block href-inappbrowser="/signup">
       Or create an account
     </button>
+ 
+    <button ion-button full color="light"  round (click)="LoginPage()">register </button>
   </form>
 </ion-content>

@@ -6,16 +6,21 @@ page-faq {
         padding: 10px;
     }
     .accordion-list {
-        background: color($colors, light);
+        background: rgb(253, 242, 219);
         height: 100%;
     }
-    .section {
-        background: #fff;
-        color: #000;
-        margin-bottom: 4px;
+    .section{
+        background: rgb(253, 242, 219);
+        color: #000000;
+    
+    }
+    .section1{
+        background: #dbfda3;
+        color: #000000;
+    
     }
     .section-active {
-        background: #9dba5a;
+        background: #bad873;
         color: #000;
     }
  

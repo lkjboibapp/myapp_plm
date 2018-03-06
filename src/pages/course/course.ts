@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 
+
+
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
 

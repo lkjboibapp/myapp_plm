@@ -28,7 +28,7 @@ export class FaqPage {
   //   })
   //   }
   ETPhoneHome() {
-    let path = 'http://localhost/ServiceMobile/ServiceMobile/ServiceFAQ.php/getfaq_type';
+    let path = 'http://localhost/Service/ServiceMobile/ServiceFAQ.php/getfaq_type';
     let encodedPath = encodeURI(path);
     //  console.log("คือencodedPath"+encodedPath)path
     let timeoutMS = 10000;
@@ -37,7 +37,7 @@ export class FaqPage {
         .timeout(timeoutMS)
         .map(res => res.json()).subscribe(data => {
             this.faq = data.data;
-            // console.log("คือdata"+data)[object Object]
+           //console.log("คือdata"+data)[object Object]
         },
         err => {
             console.log("Error");
@@ -51,7 +51,7 @@ export class FaqPage {
 getItems(ev: any) {
       let val = ev.target.value;
       if (val && val.trim() != '') {
-        // console.log("คือval"+val)คำค้นหา
+        console.log("คือval"+val)
        this.faq = this.faq.filter((item) => {
         //  console.log("คือthis.faq.filter"+this.faq.filter)function filter()
          return (item.faq_type_title_TH.toLowerCase().indexOf(val.toLowerCase()) > -1);

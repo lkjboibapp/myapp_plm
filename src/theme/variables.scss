@@ -15,6 +15,15 @@ $app-direction: ltr;
 @import "ionic.globals";
 
 
+@font-face {
+  font-family: "RSU_Regular";
+  src: url(../assets/font/RSU_Regular.ttf) format("ttf");
+  font-weight: 200
+  }
+  body {
+      font-family: "RSU_Regular" !important;
+  }
+
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override

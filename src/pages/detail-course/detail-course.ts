@@ -27,15 +27,14 @@ export class DetailCoursePage {
               public navCtrl: NavController, public navParams: NavParams,
               items: ItemsCouse) 
         {
-            this.course_title = navParams.get("course_title");
-            this.course_detail = navParams.get("course_detail");
-            
-    console.log("param: " + this.course_detail);
+      
         }
 
   ngAfterViewInit() {
     this.CourseOnline();
-    // console.log("123",this.text)
+    this.course_title = this.navParams.get("course_title");
+    this.course_detail = this.navParams.get("course_detail");
+
   }
 
   CourseOnline() {

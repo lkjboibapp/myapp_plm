@@ -84,7 +84,7 @@ export class CoursePage {
   }
 
   openItem(i) {
-    console.log("i = ", i.course_detail);
+    // console.log("i = ", i.course_detail);
     this.navCtrl.push('DetailCoursePage', {
       course_title: i.course_title,
       course_detail: i.course_detail

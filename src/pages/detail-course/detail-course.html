@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>DetailCoursePage</ion-title>
+    <ion-title>{{course_title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,12 +20,13 @@
             <!-- <div class="item-profile" text-center  #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
             </div> -->
            
-             <!-- <img  height="100%" src="assets/imgs/nom.png"/> -->
+             <img src="assets/imgs/nom.png"/>
 
           </ion-card>
 
-          <div class="item-detail" padding>
-            {{course_title}}
+          <div padding>
+            
+            <p [innerHTML]="course_detail"></p>
         
           </div>
           

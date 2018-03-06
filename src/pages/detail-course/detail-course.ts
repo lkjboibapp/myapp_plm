@@ -20,16 +20,21 @@ import 'rxjs/add/operator/timeout';
 export class DetailCoursePage {
 
   public results_course: any;
-  public text: any;
+  public course_detail: any;
   public course_title: any;
-  constructor(public http: Http, private alertCtrl: AlertController, public navCtrl: NavController, public navParams: NavParams, items: ItemsCouse) {
-    this.course_title = navParams.get("course_title");
-    console.log("param: " + this.course_title );
-  }
+  constructor(public http: Http, 
+              private alertCtrl: AlertController,
+              public navCtrl: NavController, public navParams: NavParams,
+              items: ItemsCouse) 
+        {
+            this.course_title = navParams.get("course_title");
+            this.course_detail = navParams.get("course_detail");
+            
+    console.log("param: " + this.course_detail);
+        }
 
   ngAfterViewInit() {
     this.CourseOnline();
-    this.text = this.navParams.get('test');
     // console.log("123",this.text)
   }
 

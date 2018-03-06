@@ -52,7 +52,7 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results_course = data.data;
-        console.log("show results_course = ", this.results_course);
+        // console.log("show results_course = ", this.results_course);
       },
         err => {
           console.log("err json load");
@@ -84,11 +84,10 @@ export class CoursePage {
   }
 
   openItem(i) {
-    console.log("name: " + i.course_title)
-   
-
+    console.log("i = ", i.course_detail);
     this.navCtrl.push('DetailCoursePage', {
-      course_title: i.course_title
+      course_title: i.course_title,
+      course_detail: i.course_detail
     });
   }
  

@@ -17,9 +17,13 @@ export class CoursePage {
 
 
   constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
+   
+
+  }
+
+  ngAfterViewInit(){
     this.ETPhoneHome();
     this.CourseOnline();
-
   }
 
   ETPhoneHome() {
@@ -31,7 +35,8 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-        console.log("show time = ",this.results);
+        console.log("show time = ", data.data[0]['cate_id']);
+        //console.log("show time = ", data.data[0]);
       },
         err => {
           console.log("Erroersdfdf");
@@ -56,7 +61,7 @@ export class CoursePage {
 
   getItems(ev: any) {
     let val = ev.target.value;
-    
+    console.log("t1",val);
     if (val && val.trim() != '') 
       {
         this.results = this.results.filter((item) => {
@@ -75,12 +80,13 @@ export class CoursePage {
       return (item.cate_id.toLowerCase().indexOf(text.toLowerCase()) > -1);
     });
 
-    console.log("show text =", this.text);
+    // console.log("show text =", this.text);
   }
 
-  openItem(id) {
+  openItem(i) {
+    console.log("log"+i);
     this.navCtrl.push('DetailCoursePage', {
-      test : id
+      test : i
     });
   }
  

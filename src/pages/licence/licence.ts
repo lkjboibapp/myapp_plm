@@ -10,7 +10,15 @@ import{RegisterPage} from '../register/register';
 export class LicencePage {
   constructor(public navCtrl: NavController) {}
   nextPage(){
-   this.navCtrl.push(RegisterPage);
+    let redioyes = (<HTMLInputElement>document.getElementById('redioyes')).checked;
+    let rediono = (<HTMLInputElement>document.getElementById('rediono')).checked;
+    console.log(rediono);
+    if(redioyes){
+      this.navCtrl.push(RegisterPage);
+    }else{
+      this.navCtrl.pop();
+    }
+  
   }
   }
   

@@ -31,6 +31,15 @@ $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
 
 	}
 };
+
+@font-face {
+  font-family: RSU_Regular;
+  src: url(../assets/font/RSU_Regular.ttf) format("ttf");
+  font-weight: 200
+  }
+  body {
+      font-family: RSU_Regular !important;
+  }
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These

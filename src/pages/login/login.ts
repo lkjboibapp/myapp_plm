@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController,IonicPage,NavParams,AlertController } from 'ionic-angular';
 
-import { RegisterPage } from '../register/register';
+import { LicencePage } from '../licence/licence';
 import { ELearningPage } from '../e-learning/e-learning';
 import { Http } from '@angular/http';
 import { ForgotPassPage } from '../forgot-pass/forgot-pass';
@@ -63,7 +63,7 @@ export class LoginPage {
  
  
   LoginPage(){
-    this.navCtrl.push(RegisterPage);
+    this.navCtrl.push(LicencePage);
   }
   ELearningPage(){
     this.navCtrl.push(ELearningPage);

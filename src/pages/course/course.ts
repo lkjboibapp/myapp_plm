@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
-import { ItemCouse } from '../../models/itemCouse';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
-import { ItemsCouse } from '../../providers/providers';
 
 
 @Component({
@@ -17,19 +15,11 @@ export class CoursePage {
   public results: any;
   public text: any;
 
-  currentItems: ItemCouse[];
 
-  constructor(public http: Http,
-    public items: ItemsCouse,
-    public navCtrl: NavController,
-    private alertCtrl: AlertController) {
-
-
-  }
-
-  ngAfterViewInit() {
+  constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
     this.ETPhoneHome();
     this.CourseOnline();
+
   }
 
   ETPhoneHome() {
@@ -41,7 +31,7 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-        console.log("show time = ", this.results);
+        console.log("show time = ",this.results);
       },
         err => {
           console.log("Erroersdfdf");
@@ -66,21 +56,21 @@ export class CoursePage {
 
   getItems(ev: any) {
     let val = ev.target.value;
-
-    if (val && val.trim() != '') {
-      this.results = this.results.filter((item) => {
-        return (item.cate_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      });
-    } else if (val == '') {
+    
+    if (val && val.trim() != '') 
+      {
+        this.results = this.results.filter((item) => {
+          return (item.cate_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        });
+      }else if (val =='') {
       this.ETPhoneHome();
     }
   }
 
 
-  selectChangHandler(event: any) {
-    // console.log("selectChangHandler = ",event.target.value);
+  selectChangHandler(event:any){
+    console.log("selectChangHandler = ",event.target.value);
     let text = event.target.value;
-    console.log("tezt", text);
     this.text = this.results_course.filter((item) => {
       return (item.cate_id.toLowerCase().indexOf(text.toLowerCase()) > -1);
     });
@@ -90,8 +80,8 @@ export class CoursePage {
 
   openItem(id) {
     this.navCtrl.push('DetailCoursePage', {
-      item: id
+      test : id
     });
   }
-
+ 
 }

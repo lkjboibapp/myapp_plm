@@ -10,10 +10,10 @@ import { ContactPage } from '../contact/contact';
 })
 export class TabsControllerPage {
 
-  tab1Root: any = CoursePage;
-  tab2Root: any = ELearningPage;
+  tab2Root: any = CoursePage;
+  tab1Root: any = ELearningPage;
   tab3Root: any = ContactPage;
   constructor(public navCtrl: NavController) {
   }
-  
+
 }

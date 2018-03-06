@@ -16,9 +16,9 @@ import { ItemsCouse } from '../../providers/providers';
 })
 export class DetailCoursePage {
 
-    constructor(public navCtrl: NavController, navParams: NavParams, items: ItemsCouse) {
-  }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailCoursePage');
+  item: any;
+
+  constructor(public navCtrl: NavController, navParams: NavParams, items: ItemsCouse) {
+    this.item = navParams.get('item');
   }
 }

@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
-
+import { ItemCouse } from '../../models/itemCouse';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
+import { ItemsCouse } from '../../providers/providers';
+
 
 @Component({
   selector: 'page-course',
@@ -15,8 +17,9 @@ export class CoursePage {
   public results: any;
   public text: any;
 
+  currentItems: ItemCouse[];
 
-  constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
+  constructor(public http: Http,public items: ItemsCouse, public navCtrl: NavController, private alertCtrl: AlertController) {
     this.ETPhoneHome();
     this.CourseOnline();
 
@@ -25,7 +28,7 @@ export class CoursePage {
   ETPhoneHome() {
     let path = 'http://localhost/Service/ServiceMobile/ServiceCourse.php/getCategory';
     let encodedPath = encodeURI(path);
-    let timeoutMS = 200;
+    let timeoutMS = 2000;
 
     this.http.get(encodedPath)
       .timeout(timeoutMS)
@@ -41,7 +44,7 @@ export class CoursePage {
   CourseOnline() {
     let path = 'http://localhost/Service/ServiceMobile/Course_online.php/get';
     let encodedPath = encodeURI(path);
-    let timeoutMS = 200;
+    let timeoutMS = 2000;
 
     this.http.get(encodedPath)
       .timeout(timeoutMS)
@@ -67,6 +70,7 @@ export class CoursePage {
     }
   }
 
+
   selectChangHandler(event:any){
     console.log("selectChangHandler = ",event.target.value);
     let text = event.target.value;
@@ -76,5 +80,11 @@ export class CoursePage {
 
     console.log("show text =", this.text);
   }
-  
+
+  openItem(item: ItemCouse) {
+    this.navCtrl.push('DetailCoursePage', {
+      item: item
+    });
+  }
+ 
 }

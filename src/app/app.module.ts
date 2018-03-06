@@ -20,6 +20,7 @@ import { VdoPage } from '../pages/vdo/vdo';
 import { LicencePage } from '../pages/licence/licence';
 import { FeaturedlinksPage} from '../pages/featuredlinks/featuredlinks';
 
+import { NewsDetailPage } from '../pages/news-detail/news-detail';
 
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -29,6 +30,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Items } from '../mocks/providers/items';
 import { ItemsCouse } from '../mocks/providers/itemCouse';
 import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent} from "@ionic-native/google-maps";
+
+import { VideoPlayer } from '@ionic-native/video-player';
 
 import { Api } from '../providers/providers';
 import { AlertController } from 'ionic-angular';
@@ -106,6 +109,7 @@ export function createTranslateLoader(http: HttpClient) {
     GoogleMaps,
     SplashScreen,
     InAppBrowser,
+    VideoPlayer,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -62,7 +62,7 @@ export class LoginPage {
  }
  
  
-  LoginPage(){
+ LicencePage(){
     this.navCtrl.push(LicencePage);
   }
   ELearningPage(){

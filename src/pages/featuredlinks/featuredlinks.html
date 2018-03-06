@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <ion-title>หน่วยงานที่เกี่ยวข้อง</ion-title>
   </ion-navbar>
 </ion-header>
@@ -7,7 +7,7 @@
 
 <ion-content padding>
   <ion-card padding item-center  *ngFor="let item of featuredlinks">
-    
+
     <button ion-button class="setsizeimg"  clear (click)=" OpenUrl(item.link_url);" >
     <!-- <img [src]="item.cms_picture" /> -->
     <ion-img item-center class="setsizeimg" src="assets/imgs/nom.png">
@@ -16,6 +16,6 @@
     <label>{{item.link_name}}</label> -->
 
    </button>
-   
+
   </ion-card>
 </ion-content>

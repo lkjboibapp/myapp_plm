@@ -1,6 +1,36 @@
 // http://ionicframework.com/docs/v2/theming/
 
 
+
+$SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+
+
+$balanced: #8FAF37;
+$SIDEMENU_TOP: #53932e;
+$SIDEMENU_BUTTOM: #c5c83d;
+$SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+
+
+#side_menu100{
+    background: -webkit-linear-gradient(left top, $SIDEMENU_TOP,$SIDEMENU_BUTTOM);
+    background: -o-linear-gradient(bottom right, $SIDEMENU_TOP,$SIDEMENU_BUTTOM);
+    background: -moz-linear-gradient(bottom right, $SIDEMENU_TOP,$SIDEMENU_BUTTOM);
+    background: linear-gradient(to bottom right, $SIDEMENU_TOP,$SIDEMENU_BUTTOM);
+};
+
+#side-menu21{
+  background: none;
+	color: white;
+	font-weight: 400;
+	border: 0xp;
+	.item-content {
+		background: none;
+		&.activated {
+			background: $SIDEMENU_TRANSPARENCY;
+		}
+
+	}
+};
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These

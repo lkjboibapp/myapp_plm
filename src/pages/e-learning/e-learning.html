@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -74,8 +74,8 @@
                         <ion-row>
                           <ion-col col-auto>
                             <!-- <img [src]="item.cms_picture" /> -->
-                            <ion-card  item-center  class="setsizeimg">
-                              <img padding  src="assets/imgs/nom.png" />
+                            <ion-card item-center class="setsizeimg">
+                              <img padding src="assets/imgs/nom.png" />
                             </ion-card>
                             <h2>{{ item.cms_title}}</h2>
                             <p>{{ item.cms_short_title}}</p>
@@ -126,11 +126,11 @@
           </ion-row>
           <ion-row>
             <ion-col>
-                    <!-- <iframe width="500" height="400" ng-src="{item.vdo_path}"></iframe> -->
-                    <video  controls="controls" preload="metadata" webkit-playsinline="webkit-playsinline" class="videoPlayer">
-                      <source src="https://player.vimeo.com/external/76336826.sd.mp4?s=dd361715fad172bf26ba0ad91635c4f9" type="video/mp4" />
-                    </video>
-                    <!-- <p>{{ item.vdo_path }}</p> -->
+              <!-- <iframe width="500" height="400" ng-src="{item.vdo_path}"></iframe> -->
+              <video controls="controls" preload="metadata" webkit-playsinline="webkit-playsinline" class="videoPlayer">
+                <source src="https://player.vimeo.com/external/76336826.sd.mp4?s=dd361715fad172bf26ba0ad91635c4f9" type="video/mp4" />
+              </video>
+              <!-- <p>{{ item.vdo_path }}</p> -->
             </ion-col>
           </ion-row>
         </ion-grid>

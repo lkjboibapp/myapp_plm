@@ -6,33 +6,41 @@ page-faq {
         padding: 10px;
     }
     .accordion-list {
-        background: rgb(253, 242, 219);
+        background: rgb(179, 218, 75);
         height: 100%;
-    }
+        //font-family: 'Prompt', sans-serif;
+    } //สีด้านล่างสุด
     .section{
-        background: rgb(253, 242, 219);
+        background: rgb(179, 218, 75);
         color: #000000;
-    
+
+        //สีที่ค้นหา
+
     }
     .section1{
         background: #dbfda3;
+
         color: #000000;
-    
+        //font-family: 'Prompt', sans-serif;
+
     }
     .section-active {
-        background: #bad873;
+        background: #8FAF37;
         color: #000;
-    }
- 
+        //font-family: 'Prompt', sans-serif;
+    } //สีเมื่อกดเลือกหัวข้อในการอ่าน
+
     .child {
         background: #e8e7e6;
         color: #000;
         margin-bottom: 4px;
+        //font-family: 'Prompt', sans-serif;
     }
     .child-item {
         background: #e6e6e6;
         color: #000;
         padding: 15px;
+        //font-family: 'Prompt', sans-serif;
     }
     .label {
         margin: 0px;
@@ -40,5 +48,5 @@ page-faq {
     .list {
         margin-bottom: 4px;
     }
- 
+
 }

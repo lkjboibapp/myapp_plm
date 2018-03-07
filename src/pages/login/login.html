@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color ="secondary">
+  <ion-navbar color="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,41 +8,39 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page10" class="section1" >
+<ion-content padding id="page10" class="section1">
   <form id="login-form13">
-      
+
     <ion-list id="login-list2">
-        <ion-thumbnail item-start class="section">
-            <img src="assets/img/symbol.png">
-          </ion-thumbnail>
-          
-          <ion-item *ngFor="let item of user">  
-          <p> {{ item.username}} {{ item.password}} </p>
-        </ion-item>
-          <ion-item id="login-input12" class="section2">
-        <ion-label  >
+      <ion-thumbnail item-start class="section">
+        <img src="assets/img/symbol.png">
+      </ion-thumbnail>
+
+      <ion-item class="section2">
+        <ion-label>
           username
         </ion-label>
-        <ion-input type="username" placeholder=""></ion-input>
+        <ion-input type="text" name="username" [(ngModel)]="userData.username"></ion-input>
       </ion-item>
-      <ion-item id="login-input13">
+      <ion-item>
         <ion-label>
           Password
         </ion-label>
-        <ion-input type="password" placeholder=""></ion-input>
+        <ion-input type="password" name="password" [(ngModel)]="userData.password"></ion-input>
+
       </ion-item>
-    
+
     </ion-list>
     <div class="spacer" style="height:10px;" id="login-spacer1"></div>
 
-     <button ion-button full color="positive"round (click)="ELearningPage()">เข้าสู่ระบบ </button>
+    <button ion-button full color="positive" round (click)="login()">เข้าสู่ระบบ</button>
 
-     <button ion-button full color="light"  round (click)="LicencePage()">สมัครเรียน </button>
-    
+    <button ion-button full color="light" round (click)="LicencePage()">สมัครเรียน </button>
+
     <button id="login-button2" ion-button clear color="positive" block href-inappbrowser="/signup" (click)="ForgotPassPage()">
       ลืมรหัสผ่าน
     </button>
- 
-    
+
+
   </form>
 </ion-content>

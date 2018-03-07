@@ -4,42 +4,63 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      contact
+      บัญชีผู้ใช้
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page4">
-  <img src="assets/img/7JrKqTrYSnCdbeBmNa2K_user.jpg" style="display:block;width:30%;height:auto;margin-left:auto;margin-right:auto;" />
+  <img src="assets/img/7JrKqTrYSnCdbeBmNa2K_user.jpg" style="display:block;width:30%;height:auto;margin-left:auto;margin-right:auto;"
+  />
   <form id="contact-form1">
     <ion-item id="textname">
       <ion-label>
-        name : TestName
+        ชื่อ : <p>นาย ทีมโมบาย</p>
       </ion-label>
     </ion-item>
     <ion-item id="textlast">
       <ion-label>
-        lastname: Testlast
+        นามสกุล: <p>เชอร์วิส</p>
       </ion-label>
     </ion-item>
     <ion-item id="textemail">
       <ion-label>
-        E-mail : khasun@email.co.th
+        อีเมล์ : <p>testmobile@google.com</p>
+      </ion-label>
+    </ion-item>
+    <ion-item id="textidcard">
+      <ion-label>
+        เลขบัตรประชาชน : <p>1234567890123</p>
+      </ion-label>
+    </ion-item>
+    <ion-item id="textcourse">
+      <ion-label>
+        เลือกหลักสูตร : <p>All select</p>
+      </ion-label>
+    </ion-item>
+    <ion-item id="textgovernment">
+      <ion-label>
+        หน่วยงาน : <p>BWS</p>
+      </ion-label>
+    </ion-item>
+    <ion-item id="textprofessiont">
+      <ion-label>
+        กลุ่มงาน (อาชีพ) : <p>นักเรียน/นักศึกษา</p>
       </ion-label>
     </ion-item>
     <ion-item color="none" id="contact-list-item10">
       <ion-icon name="facebook" item-left>
-      <img src="assets/imgs/facebook.png" style="display:block;width:20%;height:20%;">
-    </ion-icon>
-    Facebook
+        <img src="assets/imgs/facebook.png" style="display:block;width:20%;height:20%;">
+      </ion-icon>
+      Facebook
     </ion-item>
     <ion-item color="none" id="contact-list-item11">
       <ion-icon name="google" item-left>
-      <img src="assets/imgs/google.png" style="display:block;width:20%;height:20%;">
-    </ion-icon>
-    Google
+        <img src="assets/imgs/google.png" style="display:block;width:20%;height:20%;">
+      </ion-icon>
+      Google
     </ion-item>
-    <button id="editprofile"  round ion-button (click)="nextPage()" color="stable" block>
-        แก้ไขข้อมูลส่วนตัว
-        </button>
+    <button id="editprofile" round ion-button (click)="nextPage()" color="stable" block>
+      แก้ไขข้อมูลส่วนตัว
+    </button>
   </form>
 </ion-content>

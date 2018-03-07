@@ -35,8 +35,8 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-        console.log("show time = ", data.data[0]['cate_id']);
-        //console.log("show time = ", data.data[0]);
+        //console.log("show time = ", data.data[0]['cate_id']);
+        console.log("Data = ", data.data);
       },
         err => {
           console.log("Erroersdfdf");
@@ -52,7 +52,7 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results_course = data.data;
-        console.log("show results_course = ", this.results_course);
+        // console.log("show results_course = ", this.results_course);
       },
         err => {
           console.log("err json load");
@@ -84,9 +84,10 @@ export class CoursePage {
   }
 
   openItem(i) {
-    console.log("log"+i);
+    // console.log("i = ", i.course_detail);
     this.navCtrl.push('DetailCoursePage', {
-      test : i
+      course_title: i.course_title,
+      course_detail: i.course_detail
     });
   }
  

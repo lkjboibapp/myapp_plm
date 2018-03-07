@@ -5,27 +5,28 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar color="secondary">
-    <ion-title>DetailCoursePage</ion-title>
+    <ion-title>{{course_title}}</ion-title>
   </ion-navbar>
-
 </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-grid>
 
+      <ion-row>
+        <ion-card>
+          <ion-col>
+            <img src="assets/imgs/nom.png" />
+          </ion-col>
+        </ion-card>
+      </ion-row>
 
-<ion-content >
-    <ion-card >
-        <ion-card >
-            <!-- <div class="item-profile" text-center  #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
-            </div> -->
-
-             <!-- <img  height="100%" src="assets/imgs/nom.png"/> -->
-
-          </ion-card>
-
-          <div class="item-detail" padding>
-            {{text}}
-          </div>
-          
-    </ion-card>
+      <ion-row>
+        <ion-col>
+          <p [innerHTML]="course_detail"></p>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+  </ion-card>
 </ion-content>

@@ -25,43 +25,30 @@ export class FeaturedlinksPage {
   featuredlinks: any;
   constructor(private inAppBrowser: InAppBrowser,public navCtrl: NavController,public modalCtrl: ModalController, public http: Http) {
 
-    this.ETPhoneHome();
-
-
     this.http = http;
-    console.log('======================================');
   }
 
-  ionViewDidLoad() {
+  ngAfterViewInit() {
     console.log('ionViewDidLoad FeaturedlinksPage');
+    this.ETPhoneHome();
   }
 
   ETPhoneHome() {
     let path = 'http://localhost/service/ServiceMobile/ServiceFeaturedLinks.php/getFeaturedLinks';
     let encodedPath = encodeURI(path);
-    let timeoutMS = 10000;
   
     this.http.get(encodedPath)
-      .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         let responseData = data;
         this.featuredlinks = responseData.data;
-        console.log(this.featuredlinks);
       },
 
         err => {
           console.log('error in ETPhoneHome');
         });
   }
-  // openWebpage() {
-  //   const options: InAppBrowserOptions = {
-  //     zoom: 'no'
-  //   }
-  //   const browser = this.inAppBrowser.create(url, '_self', options);
-  // }
   OpenUrl(url)
   {
-   
     const options: InAppBrowserOptions = {
           zoom: 'no'
         }

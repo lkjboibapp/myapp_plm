@@ -5,7 +5,6 @@ import { DocumentsPage } from '../documents/documents';
 import { VdoPage } from '../vdo/vdo';
 import { FeaturedlinksPage } from '../featuredlinks/featuredlinks';
 
-
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { ItemNews } from '../../models/itemnews';
@@ -33,17 +32,18 @@ export class ELearningPage {
     public items: Items,
     public modalCtrl: ModalController,
     public http: Http) {
-    console.log('======================================');
+
     this.imageArray = [
-      { 'image': '../../assets/img/a.jpg' },
-      { 'image': '../../assets/img/bu.jpg' },
-      { 'image': '../../assets/img/tim.png' },
-      { 'image': '../../assets/img/b.jpg' },
-      { 'image': '../../assets/img/c.jpg' },
-      { 'image': '../../assets/img/d.jpg' },
-      { 'image': '../../assets/img/e.jpg' }
+                        { 'image': '../../assets/img/a.jpg' },
+                        { 'image': '../../assets/img/bu.jpg' },
+                        { 'image': '../../assets/img/tim.png' },
+                        { 'image': '../../assets/img/b.jpg' },
+                        { 'image': '../../assets/img/c.jpg' },
+                        { 'image': '../../assets/img/d.jpg' },
+                        { 'image': '../../assets/img/e.jpg' }
       // { 'image': '../../assets/img/t.jpg' }
     ]
+
     this.resultsVDO = "";
   }
 
@@ -81,9 +81,7 @@ export class ELearningPage {
   ETPhoneHome() {
     let path = 'http://localhost/Service/ServiceMobile/ServiceNew_v3.php/getNews';
     let encodedPath = encodeURI(path);
-    let timeoutMS = 20000;
     this.http.get(encodedPath)
-      .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         let responseData = data;
         this.news = responseData.data;
@@ -97,10 +95,8 @@ export class ELearningPage {
   FeaturedHome() {
     let path = 'http://localhost/service/ServiceMobile/ServiceFeaturedLinks.php/getFeaturedLinks';
     let encodedPath = encodeURI(path);
-    let timeoutMS = 10000;
 
     this.http.get(encodedPath)
-      .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         let responseData = data;
         this.featuredlinks = responseData.data;
@@ -116,14 +112,10 @@ export class ELearningPage {
     let path = 'http://localhost/Service/ServiceMobile/ServiceVDO.php/getvdo';
     let encodedPath = encodeURI(path);
     // console.log(encodedPath)
-    let timeoutMS = 100;
 
     this.http.get(encodedPath)
-      .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.resultsVDO = data.data;
-
-        // console.log("vdo = ", this.resultsVDO)
       },
         err => {
           console.log("err ResulteVDO");

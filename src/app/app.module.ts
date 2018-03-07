@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ELearningPage } from '../pages/e-learning/e-learning';
 import { CoursePage } from '../pages/course/course';
+// import{ EditprofilePage } from '../pages/editprofile/editprofile';
 import { ContactPage } from '../pages/contact/contact';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { AboutPage } from '../pages/about/about';
@@ -52,6 +53,7 @@ export function createTranslateLoader(http: HttpClient) {
     ContactPage,
     TabsControllerPage,
     AboutPage,
+    // EditprofilePage,
     FaqPage,
     UsabilityPage,
     ContactusPage,
@@ -88,6 +90,7 @@ export function createTranslateLoader(http: HttpClient) {
     ContactPage,
     TabsControllerPage,
     AboutPage,
+    // EditprofilePage,
     FaqPage,
     UsabilityPage,
     ContactusPage,

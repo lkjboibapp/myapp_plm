@@ -11,13 +11,9 @@ import { CoursePage } from '../pages/course/course';
 import { AboutPage } from '../pages/about/about';
 import { UsabilityPage } from '../pages/usability/usability';
 import { FaqPage } from '../pages/faq/faq';
-import { RegisterPage } from '../pages/register/register';
 import { ContactusPage } from '../pages/contactus/contactus';
-import { LoginPage } from '../pages/login/login';
-import { LicencePage } from '../pages/licence/licence';
 import { PrivatemessagePage } from '../pages/privatemessage/privatemessage';
-
-
+import { LoginPage } from '../pages/login/login';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 
 
@@ -59,18 +55,11 @@ export class MyApp {
   } goToContactus(params) {
     if (!params) params = {};
     this.navCtrl.push(ContactusPage);
-  } goToRegister(params) {
-    if (!params) params = {};
-    this.navCtrl.push(RegisterPage);
-  } goToLogin(params) {
-    if (!params) params = {};
-    this.navCtrl.push(LoginPage);
-  } goToLicence(params) {
-    if (!params) params = {};
-    this.navCtrl.push(LicencePage);
   } goToPrivatemessage(params){
     if(!params) params ={};
     this.navCtrl.push(PrivatemessagePage);
-
+  } goToLogin(params) {
+    if (!params) params = {};
+    this.navCtrl.push(LoginPage);
   }
 }

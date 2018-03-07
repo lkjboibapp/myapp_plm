@@ -9,6 +9,37 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="section1">
+    <ion-title class="section" >หน้าจอลืมรหัสผ่าน</ion-title>
+    
+    <ion-list>
+    <ion-item  class ="section3">
+      <ion-label stacked>อีเมล์/E-mail</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>ชื่อ</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
 
+    <ion-item>
+        <ion-label stacked>นามสกุล</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-label stacked>รหัสบัตรประชาชน/ID card</ion-label>
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      
+        <ion-item *ngFor="let item of user">  
+            <p> {{ item.E-mail}} </p>
+          </ion-item>   
+      </ion-list>
+         
+          <button ion-button color="light" name="question_status" class ="section2">ขอรหัสผ่านใหม่</button>
+
+          <button ion-button color="light" name="question_status" (click)="ELearningPage()">หน้าแรก </button>
+    
+          
 </ion-content>

@@ -68,8 +68,7 @@ export function createTranslateLoader(http: HttpClient) {
     ForgotPassPage,
     RegisterPage,
     LicencePage,
-    FeaturedlinksPage,
-    AuthServiceProvider
+    FeaturedlinksPage
   ],
   imports: [
     BrowserModule,

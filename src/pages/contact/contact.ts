@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Http } from '@angular/http';
 import{EditprofilePage} from '../editprofile/editprofile';
 
 @Component({
@@ -9,7 +10,7 @@ import{EditprofilePage} from '../editprofile/editprofile';
 export class ContactPage {
 
   constructor(public navCtrl: NavController) {}
-  nextPage(){
-      this.navCtrl.push(EditprofilePage);
+  editprofilePage(){
+     this.navCtrl.push(EditprofilePage);
   }
 }

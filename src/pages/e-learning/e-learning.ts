@@ -21,7 +21,6 @@ import { InAppBrowser, InAppBrowserOptions } from "@ionic-native/in-app-browser"
 export class ELearningPage {
 
   currentItems: ItemNews[];
-
   news: any;
   imageArray: any = [];
   featuredlinks: any;
@@ -85,7 +84,6 @@ export class ELearningPage {
       .map(res => res.json()).subscribe(data => {
         let responseData = data;
         this.news = responseData.data;
-        console.log(responseData.data);
       },
         err => {
           console.log('error in ETPhoneHome');

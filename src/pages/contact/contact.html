@@ -11,31 +11,35 @@
 <ion-content padding id="page4">
   <img src="assets/img/7JrKqTrYSnCdbeBmNa2K_user.jpg" style="display:block;width:30%;height:auto;margin-left:auto;margin-right:auto;" />
   <form id="contact-form1">
-    <ion-item id="contact-textarea1">
+    <ion-item id="textname">
       <ion-label>
         name : TestName
       </ion-label>
-      <ion-textarea placeholder=""></ion-textarea>
     </ion-item>
-    <ion-item id="contact-textarea2">
+    <ion-item id="textlast">
       <ion-label>
         lastname: Testlast
       </ion-label>
-      <ion-textarea placeholder=""></ion-textarea>
     </ion-item>
-    <ion-item id="contact-textarea3">
+    <ion-item id="textemail">
       <ion-label>
         E-mail : khasun@email.co.th
       </ion-label>
-      <ion-textarea placeholder=""></ion-textarea>
     </ion-item>
     <ion-item color="none" id="contact-list-item10">
-      <ion-icon name="facebook" item-left></ion-icon>
-      Facebook
+      <ion-icon name="facebook" item-left>
+      <img src="assets/imgs/facebook.png" style="display:block;width:20%;height:20%;">
+    </ion-icon>
+    Facebook
     </ion-item>
     <ion-item color="none" id="contact-list-item11">
-      <ion-icon name="twitter" item-left></ion-icon>
-      Twitter
+      <ion-icon name="google" item-left>
+      <img src="assets/imgs/google.png" style="display:block;width:20%;height:20%;">
+    </ion-icon>
+    Google
     </ion-item>
+    <button id="editprofile"  round ion-button (click)="nextPage()" color="stable" block>
+        แก้ไขข้อมูลส่วนตัว
+        </button>
   </form>
 </ion-content>

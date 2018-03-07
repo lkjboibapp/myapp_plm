@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import{EditprofilePage} from '../editprofile/editprofile';
 
 @Component({
   selector: 'page-contact',
@@ -7,7 +8,8 @@ import { NavController } from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController) {}
+  nextPage(){
+      this.navCtrl.push(EditprofilePage);
   }
-  
 }

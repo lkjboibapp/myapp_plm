@@ -32,6 +32,7 @@ import { ItemsCouse } from '../mocks/providers/itemCouse';
 import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent} from "@ionic-native/google-maps";
 
 import { Api } from '../providers/providers';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service'
 import { AlertController } from 'ionic-angular';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
@@ -39,6 +40,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Camera } from '@ionic-native/camera';
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -66,7 +68,8 @@ export function createTranslateLoader(http: HttpClient) {
     ForgotPassPage,
     RegisterPage,
     LicencePage,
-    FeaturedlinksPage
+    FeaturedlinksPage,
+    AuthServiceProvider
   ],
   imports: [
     BrowserModule,
@@ -114,7 +117,8 @@ export function createTranslateLoader(http: HttpClient) {
     SplashScreen,
     InAppBrowser,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Camera
+    Camera,
+    AuthServiceProvider
   ]
 })
 export class AppModule {}

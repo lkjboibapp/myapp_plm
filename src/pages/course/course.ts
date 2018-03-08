@@ -17,17 +17,17 @@ export class CoursePage {
 
 
   constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
-   
+
 
   }
 
-  ngAfterViewInit(){
-    this.ETPhoneHome();
+  ngAfterViewInit() {
+    this.Category();
     this.CourseOnline();
   }
 
-  ETPhoneHome() {
-    let path = 'http://localhost/Service/ServiceMobile/ServiceCourse.php/getCategory';
+  Category() {
+    let path = 'http://localhost/Service/ServiceMobile/ServiceCategory.php/getCategory';
     let encodedPath = encodeURI(path);
     let timeoutMS = 2000;
 
@@ -35,7 +35,6 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-        //console.log("show time = ", data.data[0]['cate_id']);
         console.log("Data = ", data.data);
       },
         err => {
@@ -61,34 +60,39 @@ export class CoursePage {
 
   getItems(ev: any) {
     let val = ev.target.value;
-    console.log("t1",val);
-    if (val && val.trim() != '') 
-      {
-        this.results = this.results.filter((item) => {
-          return (item.cate_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
-        });
-      }else if (val =='') {
-      this.ETPhoneHome();
+    console.log("t1", val);
+    if (val && val.trim() != '') {
+      this.results = this.results.filter((item) => {
+        return (item.cate_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
+    } else if (val == '') {
+      this.Category();
     }
   }
 
 
-  selectChangHandler(event:any){
-    console.log("selectChangHandler = ",event.target.value);
+  selectChangHandler(event: any) {
+    console.log("selectChangHandler = ", event.target.value);
     let text = event.target.value;
     this.text = this.results_course.filter((item) => {
       return (item.cate_id.toLowerCase().indexOf(text.toLowerCase()) > -1);
     });
 
+    console.log(text);
+    
     // console.log("show text =", this.text);
   }
 
   openItem(i) {
     // console.log("i = ", i.course_detail);
     this.navCtrl.push('DetailCoursePage', {
+      course_id: i.course_id,
       course_title: i.course_title,
-      course_detail: i.course_detail
+      course_short_title: i.course_short_title,
+      course_detail: i.course_detail,
+      course_picture: i.course_picture,
+
     });
   }
- 
+
 }

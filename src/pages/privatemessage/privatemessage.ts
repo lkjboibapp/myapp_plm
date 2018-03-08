@@ -13,9 +13,7 @@ export class PrivatemessagePage {
   constructor( public navCtrl: NavController, public modalCtrl: ModalController) {
    
   }
-
   
-
   ionViewDidLoad() {
   }
 

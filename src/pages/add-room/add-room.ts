@@ -25,45 +25,41 @@ export class AddRoomPage {
   data: any = {};
 
   constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              public alertCtrl: AlertController, 
-              public http: Http) 
-          {
-            this.http = http;
-          }
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public http: Http) {
+    this.http = http;
+  }
 
-  ionViewDidLoad() 
-    {
-      this.addroom();
+  ionViewDidLoad() {
+    this.addroom();
 
-      this.data.pm_to = '';
-      this.data.pm_topic = '';
-      this.data.pm_quest = '';
-      this.data.question_status = '';
-      this.data.all_file = '';
-      this.data.response = '';
+    this.data.pm_to = '';
+    this.data.pm_topic = '';
+    this.data.pm_quest = '';
+    this.data.question_status = '';
+    this.data.all_file = '';
+    this.data.response = '';
 
-    }
+  }
 
-  addroom() 
-    {
-      let path = 'http://localhost/service/ServiceMobile/Tbl_User.php/getUserPassWord';
-      let encodedPath = encodeURI(path);
-      let timeoutMS = 10000;
+  addroom() {
+    let path = 'http://localhost/service/ServiceMobile/Tbl_User.php/getUserPassWord';
+    let encodedPath = encodeURI(path);
+    let timeoutMS = 10000;
 
-      this.http.get(encodedPath)
-        .timeout(timeoutMS)
-        .map(res => res.json()).subscribe(data => {
-          let responseData = data;
-          this.pm = responseData.data;
-          // console.log(responseData.data);
-        },
-          err => {
-                    console.log('error in ETPhoneHome');
-                  });
-    }
-  submit() 
-  {
+    this.http.get(encodedPath)
+      .timeout(timeoutMS)
+      .map(res => res.json()).subscribe(data => {
+        let responseData = data;
+        this.pm = responseData.data;
+        // console.log(responseData.data);
+      },
+        err => {
+          console.log('error in ETPhoneHome');
+        });
+  }
+  submit() {
     var link = 'http://localhost/service/ServiceMobile/Private_Message.php/InsertPrivateMessage'
     var myData = JSON.stringify(
       {

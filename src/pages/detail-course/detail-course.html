@@ -75,18 +75,21 @@
           </button>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col col-75>
-          <label>
-            บทที่
-          </label>
-        </ion-col>
-        <ion-col col-auto>
-          <button ion-button clear item-end>
-            เข้าสู่บทเรียน
-          </button>
-        </ion-col>
-      </ion-row>
+      <ion-list  *ngFor="let p of results_course">
+          <ion-row >
+                <ion-col col-75>
+                
+                    {{p.title}}
+                </ion-col>
+                <ion-col col-auto>
+                  <button ion-button clear item-end clear (click)="openVDO(p)">
+                    ทดสอบบบบบบบ
+                  </button>
+                </ion-col>
+            </ion-row>
+
+      </ion-list>
+     
       <ion-row>
         <ion-col col-75>
           <label>
@@ -124,18 +127,4 @@
           </video>
           <p>{{ item.vdo_path }}</p> -->
 
-  <label>
-    <ion-list>
-      <ion-item-sliding *ngFor="let p of results_course">
-        <button ion-item>
-          <a>
-            <h2 item-center>{{ p.content}}</h2>
-          </a>
-        </button>
-      </ion-item-sliding>
-    </ion-list>
-  </label>
-  <!-- </ion-card>
-    </ion-item>
-  </ion-list> -->
 </ion-content>

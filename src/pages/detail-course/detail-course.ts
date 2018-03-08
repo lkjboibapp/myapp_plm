@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
 
 
-import { VdoPage } from '../vdo/vdo';
+import {FileLeanPage} from '../file-lean/file-lean';
 
 /**
  * Generated class for the DetailCoursePage page.
@@ -29,7 +29,6 @@ export class DetailCoursePage {
 
   //  ส่วนดึงข้อมมูลจาก database
   public results_course: any;
-  public resultsLessonFile: any;
 
   //รอรับค่าที่ส่งมา
   public course_detail: any;
@@ -52,7 +51,7 @@ export class DetailCoursePage {
 
   ngAfterViewInit() {
     this.CourseOnline();
-    this.LessonVDO();
+    
 
     this.course_id = this.navParams.get("course_id");
     this.course_title = this.navParams.get("course_title");
@@ -92,21 +91,11 @@ export class DetailCoursePage {
     // asdlm:any;
   }
 
-  LessonVDO() {
-   
-        let path = 'http://localhost/Service/ServiceMobile/ServiceFile.php/getFile/2';
-        let encodedPath = encodeURI(path);
-        // let timeoutMS = 2000;
-
-        this.http.get(encodedPath)
-          // .timeout(timeoutMS)
-          .map(res => res.json()).subscribe(data => {
-            this.resultsLessonFile = data.data;
-            console.log("show resultsLessonFile = ", this.resultsLessonFile);
-          },
-            err => {
-              console.log("err json load");
-            });
-
+  openVDO(id) {
+    // console.log("i = ", i.course_detail);
+    this.navCtrl.push('FileLeanPage', {
+      id: id.id,
+    });
   }
+
 }

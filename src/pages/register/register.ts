@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
+
+import { LoginPage } from '../login/login'
+
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
@@ -11,57 +15,54 @@ import 'rxjs/add/operator/timeout';
   templateUrl: 'register.html'
 })
 export class RegisterPage {
-  public results_filter: any;
-  public results: any;
-  information: any[];//ของเสีย
-  faq: any;
-  child: any ;
-  constructor(public navCtrl: NavController, private http: Http,public alertCtrl: AlertController) 
-  {
-  this.ETPhoneHome();
-  // console.log('คือ======================================');
+
+  responseData: any;
+  userData = { "username": "", "password": "", "name": "", "email": "" };
+
+  constructor(public navCtrl: NavController,
+    private http: Http,
+    public alertCtrl: AlertController,
+    public authService: AuthServiceProvider,
+    public toastCtrl: ToastController) {
   }
 
-  // ETPhoneHome() {
-  //   let localData = this.http.get('assets/information.json').map(res => res.json().items);
-  //   localData.subscribe(data => {
-  //     this.information = data;
-  //   })
-  //   }
-  ETPhoneHome() {
-    let path = 'http://localhost/ServiceMobile/ServiceMobile/ServiceFAQ.php/getfaq_type';
-    let encodedPath = encodeURI(path);
-    //  console.log("คือencodedPath"+encodedPath)path
-    let timeoutMS = 10000;
+  signup() {
 
-    this.http.get(encodedPath)
-        .timeout(timeoutMS)
-        .map(res => res.json()).subscribe(data => {
-            this.faq = data.data;
-            // console.log("คือdata"+data)[object Object]
-        },
-        err => {
-            console.log("Error");
+    if (this.userData.username && this.userData.password && this.userData.email && this.userData.name) {
+
+      this.authService.postData(this.userData, 'login').then((result) => {
+        this.responseData = result;
+        console.log("responseData", this.responseData)
+
+        if (this.responseData.userData) {
+          console.log(this.responseData);
+          localStorage.setItem('userData', JSON.stringify(this.responseData));
+          this.navCtrl.push(LoginPage);
+        }
+        else {
+          //  console.log("User already exists");
+          this.presentToast("login not valid");
+        }
+      }
+        , (err) => {
+          // Error log
         });
-        //1
-        // let localData = this.http.get('assets/information.json').map(res => res.json().items);
-        // localData.subscribe(data => {
-        //   this.faq = data;
-        // })
-}
-getItems(ev: any) {
-      let val = ev.target.value;
-      if (val && val.trim() != '') {
-        // console.log("คือval"+val)คำค้นหา
-       this.faq = this.faq.filter((item) => {
-        //  console.log("คือthis.faq.filter"+this.faq.filter)function filter()
-         return (item.faq_type_title_TH.toLowerCase().indexOf(val.toLowerCase()) > -1);
-       });
-    }else if (val =='') {
-        this.ETPhoneHome();
-     }
-   }
-   alert() {
+    }
+    else {
+      //  console.log("User already exists");
+      this.presentToast("Give valid details");
+    }
+  }
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+
+  alert() {
     let alert = this.alertCtrl.create({
       title: 'ยืนยันการสมัครเรียน',
       message: "คลิกตกลงเพื่อทำการสมัครเรียน",
@@ -82,11 +83,10 @@ getItems(ev: any) {
       ]
     });
     alert.present();
-   }
   }
-  
-  
+}
 
-  
 
-  
+
+
+

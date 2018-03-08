@@ -10,6 +10,32 @@
 </ion-header>
 <ion-content padding id="page10" class="section">
   <form id="login-form13">
+
+    <ion-list>
+      <ion-item>
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="text" name="name" [(ngModel)]="userData.name"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="text" name="email" [(ngModel)]="userData.email"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label stacked>Username</ion-label>
+        <ion-input type="text" name="username" [(ngModel)]="userData.username"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" name="password" [(ngModel)]="userData.password"></ion-input>
+      </ion-item>
+    
+      <button ion-button full color="success" (click)="signup()">Sign up</button>
+    </ion-list>
+
+
     <ion-list id="login-list2">
       <ion-item>
         <ion-label floating>เลขบัตรประชาชน</ion-label>

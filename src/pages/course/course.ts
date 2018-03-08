@@ -15,14 +15,25 @@ export class CoursePage {
   public results: any;
   public text: any;
 
+  userDetails: any;
 
   constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
 
 
+    const data = JSON.parse(localStorage.getItem('userData'));
+    this.userDetails = data.data;
+
+    console.log("userDetails", this.userDetails);
   }
 
+<<<<<<< HEAD
   ngAfterViewInit() {
     this.Category();
+=======
+  ngAfterViewInit(){
+    
+    this.ETPhoneHome();
+>>>>>>> 03d62508ef5a63c4cec09fc3c511fe5016af1867
     this.CourseOnline();
   }
 
@@ -35,7 +46,11 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
+<<<<<<< HEAD
         console.log("Data = ", data.data);
+=======
+        //console.log("show time = ", data.data[0]['cate_id']);
+>>>>>>> 03d62508ef5a63c4cec09fc3c511fe5016af1867
       },
         err => {
           console.log("Erroersdfdf");

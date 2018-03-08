@@ -34,7 +34,7 @@ export class LoginPage {
     if (this.userData.username && this.userData.password) {
       this.authService.postData(this.userData, "login").then((result) => {
         this.resposeData = result;
-        // console.log("userData = ", this.resposeData.data);
+        console.log("userData = ", this.userData);
         if (this.resposeData.data) {
           localStorage.setItem('userData', JSON.stringify(this.resposeData))
           // console.log("JSON.stringify",JSON.stringify(this.resposeData));

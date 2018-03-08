@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 import { AlertController } from 'ionic-angular';
+
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+
 
 import { Http } from '@angular/http';
 
@@ -22,24 +25,29 @@ import 'rxjs/add/operator/timeout';
 export class AddRoomPage {
 
   pm: any;
-  data: any = {};
+  // data: any = {};
+
+  resposeData: any;
+  data = { "pm_quest": "", "question_status": "", "pm_to": "", "pm_topic": "" };
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
-    public http: Http) {
+    public http: Http,
+    public authService: AuthServiceProvider,
+    public toastCtrl: ToastController) {
     this.http = http;
   }
 
   ionViewDidLoad() {
     this.addroom();
 
-    this.data.pm_to = '';
-    this.data.pm_topic = '';
-    this.data.pm_quest = '';
-    this.data.question_status = '';
-    this.data.all_file = '';
-    this.data.response = '';
+    // this.data.pm_to = '';
+    // this.data.pm_topic = '';
+    // this.data.pm_quest = '';
+    // this.data.question_status = '';
+    // this.data.all_file = '';
+    // this.data.response = '';
 
   }
 
@@ -59,36 +67,59 @@ export class AddRoomPage {
           console.log('error in ETPhoneHome');
         });
   }
+  // submit() {
+          //   var link = 'http://localhost/service/ServiceMobile/Private_Message.php/InsertPrivateMessage'
+          //   var myData = JSON.stringify(
+          //     {
+          //       pm_to: this.data.pm_to,
+          //       pm_topic: this.data.pm_topic,
+          //       question_status: this.data.question_status,
+          //       pm_quest: this.data.pm_quest,
+          //       all_file: this.data.all_file
+          //     });
+
+          //   this.http.post(link, myData)
+          //     .subscribe(data => {
+          //       this.data.response = data["_body"];
+          //       console.log("! show data = ", this.data.response);
+
+          //       let alert = this.alertCtrl.create({
+          //         title: this.data.response,
+          //         buttons: ['OK']
+          //       });
+          //       alert.present();
+
+          //       this.data.pm_to = '';
+          //       this.data.pm_topic = '';
+          //       this.data.pm_quest = '';
+          //       this.data.question_status = '';
+          //       this.data.all_file = '';
+          //       this.data.response = '';
+          //     }, error => {
+          //       console.log("Oooops!");
+          //     });
+  // }
+
+  
+  
   submit() {
-    var link = 'http://localhost/service/ServiceMobile/Private_Message.php/InsertPrivateMessage'
-    var myData = JSON.stringify(
-      {
-        pm_to: this.data.pm_to,
-        pm_topic: this.data.pm_topic,
-        question_status: this.data.question_status,
-        pm_quest: this.data.pm_quest,
-        all_file: this.data.all_file
-      });
+    this.authService.messagePostData(this.data, 'InsertPrivateMessage').then((result) => {
+      console.log("result", result['result']);
+      let alert = this.alertCtrl.create({
+        title: result['result'],
+                  buttons: ['OK']
+                });
+                alert.present();
+    }, (err) => {
+      console.log(err);
+    });
+  }
 
-    this.http.post(link, myData)
-      .subscribe(data => {
-        this.data.response = data["_body"];
-        console.log("! show data = ", this.data.response);
-
-        let alert = this.alertCtrl.create({
-          title: this.data.response,
-          buttons: ['OK']
-        });
-        alert.present();
-
-        this.data.pm_to = '';
-        this.data.pm_topic = '';
-        this.data.pm_quest = '';
-        this.data.question_status = '';
-        this.data.all_file = '';
-        this.data.response = '';
-      }, error => {
-        console.log("Oooops!");
-      });
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
   }
 }

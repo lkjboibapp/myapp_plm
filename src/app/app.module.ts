@@ -7,6 +7,7 @@ import { CoursePage } from '../pages/course/course';
 import{ EditprofilePage } from '../pages/editprofile/editprofile';
 import { ContactPage } from '../pages/contact/contact';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 import { AboutPage } from '../pages/about/about';
 import { FaqPage } from '../pages/faq/faq';
 import { RegisterPage } from '../pages/register/register';
@@ -54,6 +55,7 @@ export function createTranslateLoader(http: HttpClient) {
     CoursePage,
     ContactPage,
     TabsControllerPage,
+    DashboardPage,
     AboutPage,
     EditprofilePage,
     FaqPage,
@@ -91,6 +93,7 @@ export function createTranslateLoader(http: HttpClient) {
     CoursePage,
     ContactPage,
     TabsControllerPage,
+    DashboardPage,
     AboutPage,
     EditprofilePage,
     FaqPage,

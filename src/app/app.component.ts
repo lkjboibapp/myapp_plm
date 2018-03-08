@@ -8,6 +8,7 @@ import { BannerPage } from '../pages/banner/banner';
 import { NewsPage } from '../pages/news/news';
 import { DocumentsPage } from '../pages/documents/documents';
 import { CoursePage } from '../pages/course/course';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 import { AboutPage } from '../pages/about/about';
 import { UsabilityPage } from '../pages/usability/usability';
 import { FaqPage } from '../pages/faq/faq';
@@ -43,6 +44,9 @@ export class MyApp {
   } goToDocuments(params) {
     if (!params) params = {};
     this.navCtrl.push(DocumentsPage);
+  } goToDashboard(params) {
+    if (!params) params = {};
+    this.navCtrl.push(DashboardPage);
   } goToAbout(params) {
     if (!params) params = {};
     this.navCtrl.push(AboutPage);

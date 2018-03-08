@@ -23,7 +23,6 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
     public NavPar: NavParams,
     public alerCtrl: AlertController,
-    public http: Http,
     public authService: AuthServiceProvider,
     public toastCtrl: ToastController) { }
 
@@ -35,7 +34,7 @@ export class LoginPage {
     if (this.userData.username && this.userData.password) {
       this.authService.postData(this.userData, "login").then((result) => {
         this.resposeData = result;
-        console.log("userData = ",result);
+        console.log("userData = ", this.resposeData.data);
         if (this.resposeData.data) {
           localStorage.setItem('userData', JSON.stringify(this.resposeData))
           console.log("JSON.stringify",JSON.stringify(this.resposeData));
@@ -44,11 +43,9 @@ export class LoginPage {
         else {
           this.presentToast("Please give valid username and password");
         }
-
-
-
       }, (err) => {
         //Connection failed message
+        this.presentToast("ไม่มีการเชื่อมต่อ......")
       });
     }
     else {

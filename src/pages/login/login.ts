@@ -34,10 +34,10 @@ export class LoginPage {
     if (this.userData.username && this.userData.password) {
       this.authService.postData(this.userData, "login").then((result) => {
         this.resposeData = result;
-        console.log("userData = ", this.resposeData.data);
+        // console.log("userData = ", this.resposeData.data);
         if (this.resposeData.data) {
           localStorage.setItem('userData', JSON.stringify(this.resposeData))
-          console.log("JSON.stringify",JSON.stringify(this.resposeData));
+          // console.log("JSON.stringify",JSON.stringify(this.resposeData));
           this.navCtrl.push(TabsControllerPage);
         }
         else {
@@ -53,8 +53,6 @@ export class LoginPage {
     }
     }
     
-  
-
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
@@ -63,13 +61,14 @@ export class LoginPage {
     toast.present();
   }
 
-
   LicencePage() {
     this.navCtrl.push(LicencePage);
   }
+
   ELearningPage() {
     this.navCtrl.push(ELearningPage);
   }
+  
   ForgotPassPage() {
     this.navCtrl.push(ForgotPassPage);
   }

@@ -14,7 +14,7 @@
     <article>
         <h3>หมวดหมู่หลักสูตร</h3>
       <select (change)="selectChangHandler($event)">
-        <option *ngFor="let item of results" value="{{ item.cate_id }}">{{ item.name }}</option>
+        <option *ngFor="let item of results" value="{{ item.cate_id }}">{{ item.cate_title }}</option>
       </select>
     </article>
 

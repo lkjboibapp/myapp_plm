@@ -10,23 +10,132 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
+
+  <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button>
+        ภาพรวมหลักสูตร
+      </ion-segment-button>
+      <ion-segment-button>
+        ประเมิน
+      </ion-segment-button>
+      <ion-segment-button>
+        ผลการสอบและพิมพ์ใบประกาศ
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
   <ion-card>
     <ion-grid>
-
       <ion-row>
         <ion-card>
           <ion-col>
-            <img src="assets/imgs/nom.png" />
+            <img src="course_picture" />
           </ion-col>
         </ion-card>
       </ion-row>
-
-      <ion-row>
+      <!-- <ion-row>
         <ion-col>
+          {{course_detail}}
           <p [innerHTML]="course_detail"></p>
         </ion-col>
-      </ion-row>
-      
+      </ion-row> -->
     </ion-grid>
   </ion-card>
+
+  <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button>
+        รายละเอียด
+      </ion-segment-button>
+      <ion-segment-button>
+        เนื้อหาของคอร์สนี้
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <label>
+    <ion-card padding>
+      {{course_detail}}
+    </ion-card>
+  </label>
+
+  <label>
+    <ion-grid>
+      <ion-row>
+
+        <ion-col col-75>
+          <label>
+            แบบทดสอบก่อนเรียน
+          </label>
+        </ion-col>
+        <ion-col col-auto>
+          <button ion-button clear item-end>
+            ทำแบบทดสอบ
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-75>
+          <label>
+            บทที่
+          </label>
+        </ion-col>
+        <ion-col col-auto>
+          <button ion-button clear item-end>
+            เข้าสู่บทเรียน
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-75>
+          <label>
+            บททดสอบหลังเรียน
+          </label>
+        </ion-col>
+        <ion-col col-auto>
+          <button ion-button clear item-end>
+            ทำแบบทดสอบ
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-75>
+          <label>
+            แบบสอบถาม
+          </label>
+        </ion-col>
+        <ion-col col-auto>
+          <button ion-button clear item-end>
+            ทำแบบสอบถาม
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </label>
+
+
+  <!-- <ion-list>
+    <ion-item *ngFor="let item of results" (click)="openItem(item)">
+        <ion-card> -->
+  <!-- <iframe width="500" height="400" ng-src="{item.vdo_path}"></iframe> -->
+  <!-- <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer">
+            <source src="{item.vdo_path}" type="video/mp4" />
+          </video>
+          <p>{{ item.vdo_path }}</p> -->
+
+  <label>
+    <ion-list>
+      <ion-item-sliding *ngFor="let p of results_course">
+        <button ion-item>
+          <a>
+            <h2 item-center>{{ p.content}}</h2>
+          </a>
+        </button>
+      </ion-item-sliding>
+    </ion-list>
+  </label>
+  <!-- </ion-card>
+    </ion-item>
+  </ion-list> -->
 </ion-content>

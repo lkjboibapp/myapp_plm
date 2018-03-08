@@ -22,6 +22,7 @@ import { VdoPage } from '../pages/vdo/vdo';
 import { LicencePage } from '../pages/licence/licence';
 import { FeaturedlinksPage} from '../pages/featuredlinks/featuredlinks';
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
+import { AddRoomPage } from '../pages/add-room/add-room';
 
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -70,7 +71,8 @@ export function createTranslateLoader(http: HttpClient) {
     ForgotPassPage,
     RegisterPage,
     LicencePage,
-    FeaturedlinksPage
+    FeaturedlinksPage,
+    AddRoomPage
   ],
   imports: [
     BrowserModule,
@@ -108,7 +110,8 @@ export function createTranslateLoader(http: HttpClient) {
     RegisterPage,
     ForgotPassPage,
     LicencePage,
-    FeaturedlinksPage
+    FeaturedlinksPage,
+    AddRoomPage
   ],
   providers: [
     Api,

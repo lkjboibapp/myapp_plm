@@ -3,6 +3,8 @@ import { NavController,AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 
 
+
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
 
@@ -14,12 +16,12 @@ export class AboutPage {
   // public about: any;
   // public items_filter : any ;
   // items :any;
- 
+
   constructor(public navCtrl: NavController,public alerCtrl: AlertController, public http: Http) {
     // this.ETPhoneHome();
 // console.log('======================================');
  }
- 
+
 //  ETPhoneHome() {
 //    let path = 'http://localhost/Service/ServiceMobile/about.php/getabout';
 //      let encodedPath = encodeURI(path);
@@ -36,14 +38,14 @@ export class AboutPage {
 //            err => {
 //                console.log('error in ETPhoneHome');
 //            });
-//          }     
-         
+//          }
+
 
 //          getItems(ev:any) {
 //              // Reset items back to all of the items
 //              // set val to the value of the searchbar
 //              let val = ev.target.value;
-             
+
 //              // if the value is an empty string don't filter the items
 //              if (val && val.trim() != '') {
 //                  val = val.toLowerCase();
@@ -59,5 +61,5 @@ export class AboutPage {
 //      }
 //  }
 }
-  
+
 

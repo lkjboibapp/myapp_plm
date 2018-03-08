@@ -19,7 +19,8 @@
 <!-- test -->
 <ion-content  class="section">
     <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar >
-  <ion-list class="accordion-list">
+      <br>
+      <ion-list  class="accordion-list">
      <!-- First Level -->
      <ion-list-header *ngFor="let item of faq; let i = index" no-lines no-padding>
        <!-- Toggle Button -->

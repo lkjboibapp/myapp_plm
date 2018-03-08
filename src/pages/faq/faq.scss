@@ -6,19 +6,27 @@ page-faq {
         padding: 10px;
     }
     .accordion-list {
-        background: rgb(179, 218, 75);
-        height: 100%;
+        //background: rgb(179, 218, 75);
+        //height: 100%;
+        background-image: url('../assets/img/bg2.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
         //font-family: 'Prompt', sans-serif;
     } //สีด้านล่างสุด
     .section{
-        background: rgb(179, 218, 75);
+        //background: rgb(179, 218, 75);
+        background-image: url('../assets/img/bg.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
         color: #000000;
 
         //สีที่ค้นหา
 
     }
     .section1{
-        background: #dbfda3;
+        //background: #dbfda3;
+        //background: rgb(195, 241, 255);
+
 
         color: #000000;
         //font-family: 'Prompt', sans-serif;

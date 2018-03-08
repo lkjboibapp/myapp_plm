@@ -19,15 +19,9 @@ export class LoginPage {
   resposeData: any;
   userData = { "username": "", "password": "" };
 
-
-  constructor(public navCtrl: NavController,
-    public NavPar: NavParams,
-    public alerCtrl: AlertController,
-    public authService: AuthServiceProvider,
-    public toastCtrl: ToastController) { }
+  constructor(public navCtrl: NavController,public NavPar: NavParams,public alerCtrl: AlertController,public authService: AuthServiceProvider,public toastCtrl: ToastController) { }
 
   ngAfterViewInit() {
-    
   }
 
   login() {
@@ -49,6 +43,7 @@ export class LoginPage {
       });
     }
     else {
+      console.log("userData = ", this.userData);
       this.presentToast("Give username and password");
     }
     }

@@ -17,9 +17,9 @@ export class UsabilityPage {
 
   constructor(public navCtrl: NavController, public alerCtrl: AlertController, public http: Http) {
 }
+
   ngAfterViewInit() {
     this.ETPhoneHome();
-
   }
 
   ETPhoneHome() {
@@ -31,23 +31,19 @@ export class UsabilityPage {
         let responseData = data;
         this.usability = responseData.data;
         // console.log("show data = ",responseData.data);
-        console.log("ETPhoneHome", this.usability);
       },
         err => {
           console.log('error in ETPhoneHome');
         });
   }
 
-
   getItems(ev: any) {
     // Reset items back to all of the items
     // set val to the value of the searchbar
     let val = ev.target.value;
-
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       val = val.toLowerCase();
-      console.log(val)
 
       // console.log("test usa", this.usability);
       this.usability = this.usability.filter((item) => {

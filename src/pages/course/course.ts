@@ -15,13 +15,19 @@ export class CoursePage {
   public results: any;
   public text: any;
 
+  userDetails: any;
 
   constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
    
 
+    const data = JSON.parse(localStorage.getItem('userData'));
+    this.userDetails = data.data;
+
+    console.log("userDetails", this.userDetails);
   }
 
   ngAfterViewInit(){
+    
     this.ETPhoneHome();
     this.CourseOnline();
   }
@@ -36,7 +42,6 @@ export class CoursePage {
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
         //console.log("show time = ", data.data[0]['cate_id']);
-        console.log("Data = ", data.data);
       },
         err => {
           console.log("Erroersdfdf");

@@ -26,14 +26,8 @@ export class CoursePage {
     console.log("userDetails", this.userDetails);
   }
 
-<<<<<<< HEAD
   ngAfterViewInit() {
     this.Category();
-=======
-  ngAfterViewInit(){
-    
-    this.ETPhoneHome();
->>>>>>> 03d62508ef5a63c4cec09fc3c511fe5016af1867
     this.CourseOnline();
   }
 
@@ -46,11 +40,9 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-<<<<<<< HEAD
+
         console.log("Data = ", data.data);
-=======
         //console.log("show time = ", data.data[0]['cate_id']);
->>>>>>> 03d62508ef5a63c4cec09fc3c511fe5016af1867
       },
         err => {
           console.log("Erroersdfdf");
@@ -81,7 +73,7 @@ export class CoursePage {
         return (item.cate_id.toLowerCase().indexOf(val.toLowerCase()) > -1);
       });
     } else if (val == '') {
-      this.Category();
+      // this.Category();
     }
   }
 

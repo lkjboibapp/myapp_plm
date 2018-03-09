@@ -4,10 +4,9 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 
-
+let banService = 'http://localhost/service/ServiceMobile/Service_Imgslide.php/';
 let apiUrl = 'http://localhost/Service/ServiceMobile/login.php/';
-
-var Private_Message = 'http://localhost/service/ServiceMobile/Private_Message.php/'
+var Private_Message = 'http://localhost/service/ServiceMobile/Private_Message.php/';
 
 @Injectable()
 export class AuthServiceProvider {
@@ -16,8 +15,8 @@ export class AuthServiceProvider {
     console.log('Hello AuthServiceProvider Provider');
   }
 
-  postData(credentials, type){
-    console.log("credentials",credentials);
+  postData(credentials, type) {
+    console.log("credentials", credentials);
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.post(apiUrl + type, JSON.stringify(credentials), { headers: headers })
@@ -31,8 +30,8 @@ export class AuthServiceProvider {
   }
 
   messagePostData(credentials, type) {
-    console.log("MessagePostData = ", credentials,"type = ", type);
-    
+    console.log("MessagePostData = ", credentials, "type = ", type);
+
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.post(Private_Message + type, JSON.stringify(credentials), { headers: headers })
@@ -45,8 +44,8 @@ export class AuthServiceProvider {
 
   }
 
-  messageGetData(credentials,type) {
-    
+  messageGetData(credentials, type) {
+
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.get(Private_Message + type, { headers: headers })
@@ -58,5 +57,21 @@ export class AuthServiceProvider {
     });
 
   }
+
+  bannerGetData(credentials, type) {
+    console.log("type", type);
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      this.http.get(banService + type, { headers: headers })
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
+
 
 }

@@ -30,9 +30,9 @@ export class PosttestPage {
 
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PretestPage');
-  }
+  // ionViewDidLoad() {
+  //   console.log('ionViewDidLoad PretestPage');
+  // }
 
   ngAfterViewInit() {
   this.ResultsPretest();  

@@ -1,10 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, IonicPage, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { Http } from '@angular/http';
 
 import { LicencePage } from '../licence/licence';
 import { TabsControllerPage } from '../tabs-controller/tabs-controller';
 import { ELearningPage } from '../e-learning/e-learning';
-import { Http } from '@angular/http';
+import { CoursePage } from '../course/course';
+
+
 import { ForgotPassPage } from '../forgot-pass/forgot-pass';
 
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
@@ -17,7 +20,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 export class LoginPage {
 
   resposeData: any;
-  userData = { "username": "", "password": "" };
+  userData = { username: "", password: "" };
 
   constructor(public navCtrl: NavController,public NavPar: NavParams,public alerCtrl: AlertController,public authService: AuthServiceProvider,public toastCtrl: ToastController) { }
 
@@ -53,6 +56,15 @@ export class LoginPage {
       duration: 2000
     });
     toast.present();
+  }
+
+  enterNickname() {
+    this.navCtrl.setRoot(CoursePage, {
+      nickname: this.userData.username
+
+     
+    });
+    console.log("1s",this.userData.username)
   }
 
   LicencePage() {

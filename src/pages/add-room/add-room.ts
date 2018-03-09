@@ -42,13 +42,6 @@ export class AddRoomPage {
   ionViewDidLoad() {
     this.addroom();
 
-    // this.data.pm_to = '';
-    // this.data.pm_topic = '';
-    // this.data.pm_quest = '';
-    // this.data.question_status = '';
-    // this.data.all_file = '';
-    // this.data.response = '';
-
   }
 
   addroom() {
@@ -104,7 +97,6 @@ export class AddRoomPage {
   
   submit() {
     this.authService.messagePostData(this.data, 'InsertPrivateMessage').then((result) => {
-      console.log("result", result['result']);
       let alert = this.alertCtrl.create({
         title: result['result'],
                   buttons: ['OK']

@@ -31,11 +31,25 @@ export class AuthServiceProvider {
   }
 
   messagePostData(credentials, type) {
-    console.log("MessagePostData", credentials);
+    console.log("MessagePostData = ", credentials,"type = ", type);
     
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.post(Private_Message + type, JSON.stringify(credentials), { headers: headers })
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
+  messageGetData(credentials,type) {
+    
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      this.http.get(Private_Message + type, { headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {

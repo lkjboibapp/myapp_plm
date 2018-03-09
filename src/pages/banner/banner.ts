@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 
 import { AlertController } from 'ionic-angular';
 
+import { BannerDetailPage } from '../banner-detail/banner-detail';
+
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 @Component({
@@ -27,15 +29,9 @@ export class BannerPage {
   }
 
 
-  alert(item){
-    console.log(item);
-    let alert = this.alertCtrl.create({
-      title: item.imgslide_title,
-      buttons: ['OK']
-    });
-    alert.present();
-    // console.log("123123 = ", this.data_result[0]['imgslide_title']);
-
+  bannerdetail(item){
+    localStorage.setItem('itemBannerDetail', JSON.stringify(item))
+    this.navCtrl.push(BannerDetailPage);
   }
 
 }

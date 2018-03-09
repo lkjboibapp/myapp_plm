@@ -24,6 +24,7 @@ import { FeaturedlinksPage} from '../pages/featuredlinks/featuredlinks';
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
 import { AddRoomPage } from '../pages/add-room/add-room';
 import { BannerDetailPage } from '../pages/banner-detail/banner-detail';
+import { NewsDetailPage } from '../pages/news-detail/news-detail';
 
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -74,7 +75,8 @@ export function createTranslateLoader(http: HttpClient) {
     LicencePage,
     FeaturedlinksPage,
     AddRoomPage,
-    BannerDetailPage
+    BannerDetailPage,
+    NewsDetailPage
   ],
   imports: [
     BrowserModule,
@@ -114,7 +116,8 @@ export function createTranslateLoader(http: HttpClient) {
     LicencePage,
     FeaturedlinksPage,
     AddRoomPage,
-    BannerDetailPage
+    BannerDetailPage,
+    NewsDetailPage
   ],
   providers: [
     Api,

@@ -28,7 +28,6 @@ export class BannerPage {
     });
   }
 
-
   bannerdetail(item){
     localStorage.setItem('itemBannerDetail', JSON.stringify(item))
     this.navCtrl.push(BannerDetailPage);

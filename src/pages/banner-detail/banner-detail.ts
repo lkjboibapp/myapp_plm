@@ -14,18 +14,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BannerDetailPage {
 
-  BannerDetail:any;
+  BannerDetail: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
+
+  }
+
+  ionViewDidLoad() {
     const data = JSON.parse(localStorage.getItem('itemBannerDetail'));
     this.BannerDetail = data['imgslide_title'];
 
     console.log("qwerty = ", this.BannerDetail);
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BannerDetailPage');
   }
 
 }

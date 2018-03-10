@@ -14,7 +14,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BannerDetailPage {
 
-  BannerDetail: any;
+  imgslide_id: any;
+  data:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -22,10 +23,12 @@ export class BannerDetailPage {
   }
 
   ionViewDidLoad() {
-    const data = JSON.parse(localStorage.getItem('itemBannerDetail'));
-    this.BannerDetail = data['imgslide_title'];
 
-    console.log("qwerty = ", this.BannerDetail);
+    this.data = this.navParams.get("id");
+
+    this.imgslide_id = this.data.imgslide_id;
+
+    
   }
 
 }

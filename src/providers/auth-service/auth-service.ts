@@ -62,7 +62,7 @@ export class AuthServiceProvider {
     console.log("type", type);
     return new Promise((resolve, reject) => {
       let headers = new Headers();
-      this.http.get(banService + type, { headers: headers })
+      this.http.post(banService + type, { headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {

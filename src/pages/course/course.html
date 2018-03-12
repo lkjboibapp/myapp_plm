@@ -8,11 +8,11 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page3" class="section">
-  <ion-searchbar padding (ionInput)="getItems($event)"></ion-searchbar>
+<ion-content  id="page3" class="section">
+  <ion-searchbar  (ionInput)="getItems($event)"></ion-searchbar>
 <label paddinng >
     <article>
-        <h3>หมวดหมู่หลักสูตร</h3>
+        <h3 style="text-align:center;">หมวดหมู่หลักสูตร</h3>
       <select (change)="selectChangHandler($event)">
         <option *ngFor="let item of results" value="{{ item.cate_id }}">{{ item.cate_title }}</option>
       </select>

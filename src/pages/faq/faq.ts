@@ -14,19 +14,14 @@ export class FaqPage {
   public results: any;
   information: any[];//ของเสีย
   faq: any;
+  faqtitle: any;
   child: any ;
   constructor(public navCtrl: NavController, private http: Http) 
   {
   this.ETPhoneHome();
+  this.ETPhoneHomeQuery();
   // console.log('คือ======================================');
   }
-
-  // ETPhoneHome() {
-  //   let localData = this.http.get('assets/information.json').map(res => res.json().items);
-  //   localData.subscribe(data => {
-  //     this.information = data;
-  //   })
-  //   }
   ETPhoneHome() {
     let path = 'http://localhost/Service/ServiceMobile/ServiceFAQ.php/getfaq_type';
     let encodedPath = encodeURI(path);
@@ -37,16 +32,27 @@ export class FaqPage {
         .timeout(timeoutMS)
         .map(res => res.json()).subscribe(data => {
             this.faq = data.data;
-           //console.log("คือdata"+data)[object Object]
+          //  console.log("คือdata"+this.faq)
         },
         err => {
             console.log("Error");
         });
-        //1
-        // let localData = this.http.get('assets/information.json').map(res => res.json().items);
-        // localData.subscribe(data => {
-        //   this.faq = data;
-        // })
+}
+ETPhoneHomeQuery() {
+  let path = 'http://localhost/Service/ServiceMobile/ServiceFAQ.php/getfaq';
+  let encodedPath1 = encodeURI(path);
+  //  console.log("คือencodedPath"+encodedPath)path
+  let timeoutMS = 10000;
+
+  this.http.get(encodedPath1)
+      .timeout(timeoutMS)
+      .map(res => res.json()).subscribe(datat => {
+          this.faqtitle = datat.datat;
+        //  console.log("คือหัวข้อdata"+data)
+      },
+      err => {
+          console.log("Error");
+      });
 }
 getItems(ev: any) {
       let val = ev.target.value;

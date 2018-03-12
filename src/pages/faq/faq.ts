@@ -10,12 +10,8 @@ import 'rxjs/add/operator/timeout';
   templateUrl: 'faq.html'
 })
 export class FaqPage {
-  public results_filter: any;
-  public results: any;
-  information: any[];//ของเสีย
   faq: any;
   faqtitle: any;
-  child: any ;
   constructor(public navCtrl: NavController, private http: Http) 
   {
   this.ETPhoneHome();
@@ -32,23 +28,24 @@ export class FaqPage {
         .timeout(timeoutMS)
         .map(res => res.json()).subscribe(data => {
             this.faq = data.data;
-          //  console.log("คือdata"+this.faq)
+        console.log("faq="+this.faq[0])
         },
         err => {
             console.log("Error");
         });
 }
+
 ETPhoneHomeQuery() {
   let path = 'http://localhost/Service/ServiceMobile/ServiceFAQ.php/getfaq';
-  let encodedPath1 = encodeURI(path);
+  let encodedPath = encodeURI(path);
   //  console.log("คือencodedPath"+encodedPath)path
   let timeoutMS = 10000;
 
-  this.http.get(encodedPath1)
+  this.http.get(encodedPath)
       .timeout(timeoutMS)
-      .map(res => res.json()).subscribe(datat => {
-          this.faqtitle = datat.datat;
-        //  console.log("คือหัวข้อdata"+data)
+      .map(res => res.json()).subscribe(data => {
+          this.faq = data.data;
+      console.log("faq="+this.faq[0])
       },
       err => {
           console.log("Error");
@@ -57,7 +54,7 @@ ETPhoneHomeQuery() {
 getItems(ev: any) {
       let val = ev.target.value;
       if (val && val.trim() != '') {
-        console.log("คือval"+val)
+        console.log("คือgetItems"+val)
        this.faq = this.faq.filter((item) => {
         //  console.log("คือthis.faq.filter"+this.faq.filter)function filter()
          return (item.faq_type_title_TH.toLowerCase().indexOf(val.toLowerCase()) > -1);
@@ -68,7 +65,7 @@ getItems(ev: any) {
    }
    toggleSection(i) {//iคือ Array
     this.faq[i].open = ! this.faq[i].open;
-    console.log("คือ"+this.faq)
+    console.log("คือ toggleSection"+i)
   }
   }
   

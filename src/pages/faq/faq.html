@@ -10,13 +10,6 @@
   </ion-navbar>
   <link href="https://fonts.googleapis.com/css?family=Prompt" rel="stylesheet">
 </ion-header>
-
-        <!-- <div>
-            <button ion-item *ngFor="let item of faq" (click)="itemSelected(item)">
-           <h3>{{ item.faq_type_title_TH}}</h3>
-        </button>
-        </div> -->
-<!-- test -->
 <ion-content  class="section">
     <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar >
       <br>
@@ -27,21 +20,21 @@
        <button class="section1" ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}" color="stable" block>
          <ion-icon item-left name="md-arrow-dropright" *ngIf="!item.open"></ion-icon>
          <ion-icon item-left name="md-arrow-dropdown" *ngIf="item.open"></ion-icon>
-           <!-- {{ item.name }} -->
-           <h3>{{ item.faq_type_title_TH}}</h3>
+         <!-- หัวข้อ -->
+         <h3>{{ item.faq_type_title_TH}}</h3> 
        </button>
+       
+       <!-- สไลด์เนื้อหา -->
        <ion-list *ngIf="item.faq_type_title_TH && item.open" no-lines>
          <!-- Second Level -->
-           <!-- Direct Add Button as Fallback -->
-           <ion-item *ngIf="!item.faq_type_title_TH" ion-item detail-none class="child-item" text-wrap>
-             <p text-lowercase>{{ item.faq_type_title_TH}}</p>
+           <ion-item *ngIf="!item.faq_THtopic"  detail-none class="child-item" text-wrap>
+             <p text-lowercase>{{ item.faq_THtopic}}</p>
            </ion-item>
 
-           <ion-list *ngIf="item.faq_type_title_TH && this.faq">
+           <ion-list *ngIf="item.faq_THtopic && this.faq">
              <!-- Third Level -->
              <ion-item *ngFor="let item of faq; let k = index" detail-none class="child-item" text-wrap>
-                <h5>{{ item.faq_type_title_TH}}</h5>
-               <!-- Direct Add Button -->
+                <h5>{{ item.faq_THtopic}}</h5>
              </ion-item>
            </ion-list>
        </ion-list>

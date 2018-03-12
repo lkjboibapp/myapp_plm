@@ -59,11 +59,11 @@ export class LoginPage {
   }
 
   enterNickname() {
-    this.navCtrl.setRoot(CoursePage, {
-      nickname: this.userData.username
+    // this.navCtrl.setRoot(CoursePage, {
+    //   nickname: this.userData.username
 
      
-    });
+    // });
     console.log("1s",this.userData.username)
   }
 

@@ -13,7 +13,7 @@
   <form (ngSubmit)="enterNickname()">
 
     <ion-list id="login-list2">
-        <img src="assets/img/bglogin2.jpg" style="width:100%;height:auto;" />
+        <img src="assets/img/bglogin5.jpg" style="width:auto;height:auto;" />
 
       <ion-item  class="section2">
         <ion-input type="text" name="username" placeholder="Username" [(ngModel)]="userData.username"></ion-input>
@@ -29,9 +29,9 @@
         <button ion-button full color="secondary" round (click)="login()">เข้าสู่ระบบ</button>
         <button ion-button full color="light" round (click)="LicencePage()">สมัครเรียน </button>
 
-        <button id="login-button2" ion-button clear color="secondary" block href-inappbrowser="/signup" (click)="ForgotPassPage()">
+        <p id="login-button2" style="color:#8FAF37 ;text-align:center;" block href-inappbrowser="/signup" (click)="ForgotPassPage()">
           ลืมรหัสผ่าน
-       </button>
+        </p>
 
 
   </form>

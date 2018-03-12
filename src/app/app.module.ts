@@ -4,7 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ELearningPage } from '../pages/e-learning/e-learning';
 import { CoursePage } from '../pages/course/course';
-import{ EditprofilePage } from '../pages/editprofile/editprofile';
+import { EditprofilePage } from '../pages/editprofile/editprofile';
 import { ContactPage } from '../pages/contact/contact';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
 import { DashboardPage } from '../pages/dashboard/dashboard';
@@ -20,20 +20,21 @@ import { NewsPage } from '../pages/news/news';
 import { DocumentsPage } from '../pages/documents/documents';
 import { VdoPage } from '../pages/vdo/vdo';
 import { LicencePage } from '../pages/licence/licence';
-import { FeaturedlinksPage} from '../pages/featuredlinks/featuredlinks';
+import { FeaturedlinksPage } from '../pages/featuredlinks/featuredlinks';
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
 import { AddRoomPage } from '../pages/add-room/add-room';
 import { BannerDetailPage } from '../pages/banner-detail/banner-detail';
 import { NewsDetailPage } from '../pages/news-detail/news-detail';
+import { PrivateMessageReturnPage } from '../pages/private-message-return/private-message-return';
 
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpModule,Http } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Items } from '../mocks/providers/items';
 import { ItemsCouse } from '../mocks/providers/itemCouse';
-import {GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent} from "@ionic-native/google-maps";
+import { GoogleMaps, GoogleMap, LatLng, GoogleMapsEvent } from "@ionic-native/google-maps";
 
 import { Api } from '../providers/providers';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service'
@@ -76,7 +77,8 @@ export function createTranslateLoader(http: HttpClient) {
     FeaturedlinksPage,
     AddRoomPage,
     BannerDetailPage,
-    NewsDetailPage
+    NewsDetailPage,
+    PrivateMessageReturnPage
   ],
   imports: [
     BrowserModule,
@@ -117,7 +119,8 @@ export function createTranslateLoader(http: HttpClient) {
     FeaturedlinksPage,
     AddRoomPage,
     BannerDetailPage,
-    NewsDetailPage
+    NewsDetailPage,
+    PrivateMessageReturnPage
   ],
   providers: [
     Api,
@@ -127,9 +130,9 @@ export function createTranslateLoader(http: HttpClient) {
     GoogleMaps,
     SplashScreen,
     InAppBrowser,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     Camera,
     AuthServiceProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

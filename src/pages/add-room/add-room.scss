@@ -5,9 +5,11 @@ page-add-room {
     .buttonSize{width: 100px; padding-top: 10px;  left:  65%;}
 
     .section{
-        background: rgb(223, 247, 185);
-        color: #000000;
-    
-    }
+      //background: rgb(179, 218, 75);
+      color: #000000;
+      background-image: url('../assets/img/bg2.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+  }
 
 }

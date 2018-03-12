@@ -46,6 +46,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Camera } from '@ionic-native/camera';
+import { CourServiceProvider } from '../providers/cour-service/cour-service';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -135,7 +136,8 @@ export function createTranslateLoader(http: HttpClient) {
     InAppBrowser,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Camera,
-    AuthServiceProvider
+    AuthServiceProvider,
+    CourServiceProvider
   ]
 })
 export class AppModule { }

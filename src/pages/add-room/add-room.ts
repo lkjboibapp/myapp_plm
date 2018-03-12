@@ -5,6 +5,7 @@ import { AlertController } from 'ionic-angular';
 
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
+import { PrivatemessagePage } from '../privatemessage/privatemessage';
 
 import { Http } from '@angular/http';
 
@@ -95,17 +96,28 @@ export class AddRoomPage {
 
   
   
-  submit() {
-    this.authService.messagePostData(this.data, 'InsertPrivateMessage').then((result) => {
-      let alert = this.alertCtrl.create({
-        title: result['result'],
-                  buttons: ['OK']
-                });
-                alert.present();
-    }, (err) => {
-      console.log(err);
-    });
-  }
+  submit() 
+    {
+      this.authService.messagePostData(this.data, 'InsertPrivateMessage').then((result) => {
+        let alert = this.alertCtrl.create(
+          {
+            title: result['result'],
+    //กดตกลงเพือย้อนกลับหน้าหลักข้อความ        
+            buttons: [
+                        {
+                          text: 'ตกลง',
+                          handler: () => {
+                            this.navCtrl.push(PrivatemessagePage);
+                            // Your Imagination should go here
+                          }
+                        }
+                      ]
+                  });
+        alert.present();
+      }, (err) => {
+        console.log(err);
+      });
+    }
 
   presentToast(msg) {
     let toast = this.toastCtrl.create({

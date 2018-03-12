@@ -4,42 +4,34 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Login
+      ลงชื่อเข้าใช้
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page10" class="section1">
-  <form id="login-form13">
+<ion-content  id="page10" class="bg">
+
+  <form (ngSubmit)="enterNickname()">
 
     <ion-list id="login-list2">
-      <ion-thumbnail item-start class="section">
-        <img src="assets/img/symbol.png">
-      </ion-thumbnail>
+        <img src="assets/img/bglogin2.jpg" style="width:100%;height:auto;" />
 
-      <ion-item class="section2">
-        <ion-label>
-          username
-        </ion-label>
-        <ion-input type="text" name="username" [(ngModel)]="userData.username"></ion-input>
+      <ion-item  class="section2">
+        <ion-input type="text" name="username" placeholder="Username" [(ngModel)]="userData.username"></ion-input>
+        <ion-icon color="secondary" name="md-person" item-left></ion-icon>
       </ion-item>
-      <ion-item>
-        <ion-label>
-          Password
-        </ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="userData.password"></ion-input>
 
+      <ion-item>
+        <ion-input type="password" name="password" placeholder="Password" [(ngModel)]="userData.password"></ion-input>
+        <ion-icon color="secondary" name="md-lock" item-left></ion-icon>
       </ion-item>
 
     </ion-list>
-    <div class="spacer" style="height:10px;" id="login-spacer1"></div>
+        <button ion-button full color="secondary" round (click)="login()">เข้าสู่ระบบ</button>
+        <button ion-button full color="light" round (click)="LicencePage()">สมัครเรียน </button>
 
-    <button ion-button full color="positive" round (click)="login()">เข้าสู่ระบบ</button>
-
-    <button ion-button full color="light" round (click)="LicencePage()">สมัครเรียน </button>
-
-    <button id="login-button2" ion-button clear color="positive" block href-inappbrowser="/signup" (click)="ForgotPassPage()">
-      ลืมรหัสผ่าน
-    </button>
+        <button id="login-button2" ion-button clear color="secondary" block href-inappbrowser="/signup" (click)="ForgotPassPage()">
+          ลืมรหัสผ่าน
+       </button>
 
 
   </form>

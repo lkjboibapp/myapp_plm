@@ -1,14 +1,14 @@
 page-login {
     .section{
-        background: rgb(219, 250, 169);
+        background: #8FAF37;
         color: #000000;
-        height: 30%;
-        width: 30%;
-        margin-left: 36%;
+        //height: 100%;
+        //width: 100%;
+        //margin-left: 36%;
     }
     .section1{
-        background: rgb(223, 247, 185);
-        color: #000000;
+        background: #8FAF37;
+        color: #000000
 
     }
     .section2{
@@ -19,6 +19,13 @@ page-login {
     }
     .section3{
         margin-top: 30%;
+    }
+    .bg{
+      //background: #8FAF37;
+      //background: gradient(#fff 0%, #8FAF37 100%)
+      /*background-image: url('../assets/img/bglogin2.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;*/
     }
 }
 

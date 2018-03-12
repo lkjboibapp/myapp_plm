@@ -1,10 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, IonicPage, NavParams, AlertController, ToastController } from 'ionic-angular';
+import { Http } from '@angular/http';
 
 import { LicencePage } from '../licence/licence';
 import { TabsControllerPage } from '../tabs-controller/tabs-controller';
 import { ELearningPage } from '../e-learning/e-learning';
-import { Http } from '@angular/http';
+import { CoursePage } from '../course/course';
+
+
 import { ForgotPassPage } from '../forgot-pass/forgot-pass';
 
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
@@ -17,24 +20,18 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 export class LoginPage {
 
   resposeData: any;
-  userData = { "username": "", "password": "" };
+  userData = { username: "", password: "" };
 
-
-  constructor(public navCtrl: NavController,
-    public NavPar: NavParams,
-    public alerCtrl: AlertController,
-    public authService: AuthServiceProvider,
-    public toastCtrl: ToastController) { }
+  constructor(public navCtrl: NavController,public NavPar: NavParams,public alerCtrl: AlertController,public authService: AuthServiceProvider,public toastCtrl: ToastController) { }
 
   ngAfterViewInit() {
-    
   }
 
   login() {
     if (this.userData.username && this.userData.password) {
       this.authService.postData(this.userData, "login").then((result) => {
         this.resposeData = result;
-        console.log("userData = ", this.userData);
+        // console.log("userData = ", this.userData);
         if (this.resposeData.data) {
           localStorage.setItem('userData', JSON.stringify(this.resposeData))
           // console.log("JSON.stringify",JSON.stringify(this.resposeData));
@@ -59,6 +56,15 @@ export class LoginPage {
       duration: 2000
     });
     toast.present();
+  }
+
+  enterNickname() {
+    this.navCtrl.setRoot(CoursePage, {
+      nickname: this.userData.username
+
+     
+    });
+    console.log("1s",this.userData.username)
   }
 
   LicencePage() {

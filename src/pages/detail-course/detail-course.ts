@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, AlertController, NavParams, App, ViewController } from 'ionic-angular';
-import { ItemsCouse } from '../../providers/providers';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
 
 
 import {FileLeanPage} from '../file-lean/file-lean';
+import {PretestPage} from '../pretest/pretest';
+import {PosttestPage} from '../posttest/posttest';
 
 /**
  * Generated class for the DetailCoursePage page.
@@ -41,7 +42,6 @@ export class DetailCoursePage {
   constructor(public http: Http,
     private alertCtrl: AlertController,
     public navCtrl: NavController, public navParams: NavParams,
-    items: ItemsCouse,
     public viewCtrl: ViewController,
     public appCtrl: App) {
 
@@ -92,10 +92,28 @@ export class DetailCoursePage {
   }
 
   openVDO(id) {
-    // console.log("i = ", i.course_detail);
     this.navCtrl.push('FileLeanPage', {
       id: id.id,
     });
   }
+
+  openPretest(id) {
+    this.navCtrl.push('PretestPage', {
+      id: id.id,
+    });
+  }
+
+  openPosttest(id) {
+    this.navCtrl.push('PosttestPage', {
+      id: id.id,
+    });
+  }
+
+  openQuestion(id) {
+    this.navCtrl.push('QuestionnairePage', {
+      id: id.id,
+    });
+  }
+
 
 }

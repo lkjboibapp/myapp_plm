@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+
+import { AlertController } from 'ionic-angular';
+
 import { AddRoomPage } from '../add-room/add-room'
 
 @IonicPage()
@@ -10,11 +14,16 @@ import { AddRoomPage } from '../add-room/add-room'
 })
 export class PrivatemessagePage {
  
-  constructor( public navCtrl: NavController, public modalCtrl: ModalController) {
+  [x: string]: {};
+  public data:any
+
+  constructor( public navCtrl: NavController, public modalCtrl: ModalController,
+    public authService: AuthServiceProvider, public alertCtrl: AlertController,) {
    
   }
   
   ionViewDidLoad() {
+    this.messageData();
   }
 
   addRoom() {
@@ -22,7 +31,22 @@ export class PrivatemessagePage {
     this.navCtrl.push(AddRoomPage);
   }
 
+  messageData() {
+    this.authService.messageGetData(this.data,'getPrivateMessage').then((result) => {
+      this.data_result = result['data'];
+      console.log(this.data_result);
+    }, (err) => {
+      console.log(err);
+    });
+  }
 
+  joinRoom(key) {
+    console.log("key",key);
+    // this.navCtrl.setRoot(HomePage, {
+    //   key: key,
+    //   nickname: this.navParams.get("nickname")
+    // });
+  }
  
 }
 

@@ -8,4 +8,20 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page11"></ion-content>
+<ion-content class="bg">
+  <ion-list *ngFor="let item of data_result" (click)="bannerdetail(item)">
+    <ion-card>
+      <ion-item >
+        <ion-grid >
+          <ion-row>
+            <ion-col>
+             
+                {{item.imgslide_title}}
+              
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+</ion-content>

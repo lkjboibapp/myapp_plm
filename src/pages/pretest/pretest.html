@@ -1,0 +1,23 @@
+<!--
+  Generated template for the PretestPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Pretest</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  {{pretest}}
+  <ion-list>
+      <ion-item *ngFor="let pre of resultsPretest" >
+          {{pre.ques_title}}
+      </ion-item>
+    </ion-list>
+</ion-content>

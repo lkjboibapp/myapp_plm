@@ -1,21 +1,21 @@
 import { Component } from '@angular/core';
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
-import { ItemNews } from '../../models/itemnews';
-import { Items } from '../../providers/providers';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
 
-@IonicPage()
+import { NewsDetailPage } from '../news-detail/news-detail';
+
 @Component({
   selector: 'page-news',
   templateUrl: 'news.html'
 })
 export class NewsPage {
-  currentItems: ItemNews[];
+
 
   news: any;
-  constructor(public navCtrl: NavController, public items: Items, public modalCtrl: ModalController, public http: Http) {
+  constructor(public navCtrl: NavController,  public modalCtrl: ModalController, public http: Http) {
     this.ETPhoneHome();
     console.log('======================================');
   }
@@ -39,10 +39,11 @@ export class NewsPage {
 
   ionViewDidLoad() {
   }
-  openItem(item: ItemNews) {
-    this.navCtrl.push('NewsDetailPage', {
-      item: item
-    });
+  openItem(item) {
+
+    localStorage.setItem('itemNew', JSON.stringify(item))
+    this.navCtrl.push(NewsDetailPage);
+
   }
 
 }

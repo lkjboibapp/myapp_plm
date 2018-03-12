@@ -62,58 +62,70 @@
 
   <label>
     <ion-grid>
-      <ion-row>
 
-        <ion-col col-75>
+      <ion-list padding class="test" *ngFor="let p of results_course">
+
+        <label>
           <label>
-            แบบทดสอบก่อนเรียน
+            
+            <h3 text-center>
+              {{p.title}}
+            </h3>
           </label>
-        </ion-col>
-        <ion-col col-auto>
-          <button ion-button clear item-end>
-            ทำแบบทดสอบ
-          </button>
-        </ion-col>
-      </ion-row>
-      <ion-list  *ngFor="let p of results_course">
-          <ion-row >
-                <ion-col col-75>
-                
-                    {{p.title}}
-                </ion-col>
-                <ion-col col-auto>
-                  <button ion-button clear item-end clear (click)="openVDO(p)">
-                    ทดสอบบบบบบบ
-                  </button>
-                </ion-col>
-            </ion-row>
+          <ion-row>
+            <ion-col col-75>
+              <label>
+                แบบทดสอบก่อนเรียน
+              </label>
+            </ion-col>
+            <ion-col col-auto>
+              <button ion-button clear item-end (click)="openPretest(p)">
+                ทำแบบทดสอบ
+              </button>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col col-75>
+              {{p.title}}
+            </ion-col>
+            <ion-col col-auto>
+              <button ion-button clear item-end (click)="openVDO(p)">
+                ทดสอบบบบบบบ
+              </button>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-row>
+            <ion-col col-75>
+              <label>
+                บททดสอบหลังเรียน
+              </label>
+            </ion-col>
+            <ion-col col-auto>
+              <button ion-button clear item-end (click)="openPosttest(p)">
+                ทำแบบทดสอบ
+              </button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-75>
+              <label>
+                แบบสอบถาม
+              </label>
+            </ion-col>
+            <ion-col col-auto>
+              <button ion-button clear item-end (click)="openQuestion(p)">
+                ทำแบบสอบถาม
+              </button>
+            </ion-col>
+          </ion-row>
+        </label>
+
 
       </ion-list>
-     
-      <ion-row>
-        <ion-col col-75>
-          <label>
-            บททดสอบหลังเรียน
-          </label>
-        </ion-col>
-        <ion-col col-auto>
-          <button ion-button clear item-end>
-            ทำแบบทดสอบ
-          </button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-75>
-          <label>
-            แบบสอบถาม
-          </label>
-        </ion-col>
-        <ion-col col-auto>
-          <button ion-button clear item-end>
-            ทำแบบสอบถาม
-          </button>
-        </ion-col>
-      </ion-row>
+
     </ion-grid>
   </label>
 

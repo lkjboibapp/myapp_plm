@@ -33,13 +33,13 @@ export class ELearningPage {
     public http: Http) {
 
     this.imageArray = [
-                        { 'image': '../../assets/img/a.jpg' },
-                        { 'image': '../../assets/img/bu.jpg' },
-                        { 'image': '../../assets/img/tim.png' },
-                        { 'image': '../../assets/img/b.jpg' },
-                        { 'image': '../../assets/img/c.jpg' },
-                        { 'image': '../../assets/img/d.jpg' },
-                        { 'image': '../../assets/img/e.jpg' }
+      { 'image': '../../assets/img/a.jpg' },
+      { 'image': '../../assets/img/bu.jpg' },
+      { 'image': '../../assets/img/tim.png' },
+      { 'image': '../../assets/img/b.jpg' },
+      { 'image': '../../assets/img/c.jpg' },
+      { 'image': '../../assets/img/d.jpg' },
+      { 'image': '../../assets/img/e.jpg' }
       // { 'image': '../../assets/img/t.jpg' }
     ]
 
@@ -52,6 +52,12 @@ export class ELearningPage {
     this.ResulteVDO();
   }
 
+  //search
+  clickSearch(){
+    console.log("clickSearch");
+
+  }
+  
   goToBanner(params) {
     if (!params) params = {};
     this.navCtrl.push(BannerPage);

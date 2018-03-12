@@ -17,7 +17,7 @@ import 'rxjs/add/operator/timeout';
 export class RegisterPage {
 
   responseData: any;
-  userData = { "username": "", "password": "", "name": "", "email": "" };
+  userData = { "idcard": "", "email": "", "course": "", "perfix": "", "name": "", "lastname": "", "office": "", "job": "" };
 
   constructor(public navCtrl: NavController,
     private http: Http,
@@ -28,21 +28,21 @@ export class RegisterPage {
 
   signup() {
 
-    if (this.userData.username && this.userData.password && this.userData.email && this.userData.name) {
+    if (this.userData.idcard && this.userData.email && this.userData.course && this.userData.perfix && this.userData.name&& this.userData.lastname&& this.userData.office&& this.userData.job) {
 
       this.authService.postData(this.userData, 'login').then((result) => {
         this.responseData = result;
         console.log("responseData", this.responseData)
 
-        if (this.responseData.userData) {
-          console.log(this.responseData);
-          localStorage.setItem('userData', JSON.stringify(this.responseData));
-          this.navCtrl.push(LoginPage);
-        }
-        else {
-          //  console.log("User already exists");
-          this.presentToast("login not valid");
-        }
+        // if (this.responseData.userData) {
+        //   console.log(this.responseData);
+        //   localStorage.setItem('userData', JSON.stringify(this.responseData));
+        //   this.navCtrl.push(LoginPage);
+        // }
+        // else {
+        //   //  console.log("User already exists");
+        //   this.presentToast("login not valid");
+        // }
       }
         , (err) => {
           // Error log
@@ -64,23 +64,9 @@ export class RegisterPage {
 
   alert() {
     let alert = this.alertCtrl.create({
-      title: 'ยืนยันการสมัครเรียน',
-      message: "คลิกตกลงเพื่อทำการสมัครเรียน",
-      buttons: [
-        {
-          text: 'ไม่ยอมรับ',
-          role: 'cancel',
-          handler: () => {
-            console.log('ไม่ยอมรับ');
-          }
-        },
-        {
-          text: 'ยอมรับ',
-          handler: () => {
-            console.log('ยอมรับ');
-          }
-        }
-      ]
+      title: 'Low battery',
+      subTitle: '10% of battery remaining',
+      buttons: ['ตกลง']
     });
     alert.present();
   }

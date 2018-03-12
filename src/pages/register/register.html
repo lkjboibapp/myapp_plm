@@ -10,44 +10,18 @@
 </ion-header>
 <ion-content padding id="page10" class="section">
   <form id="login-form13">
-
-    <ion-list>
-      <ion-item>
-        <ion-label stacked>Name</ion-label>
-        <ion-input type="text" name="name" [(ngModel)]="userData.name"></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label stacked>Email</ion-label>
-        <ion-input type="text" name="email" [(ngModel)]="userData.email"></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label stacked>Username</ion-label>
-        <ion-input type="text" name="username" [(ngModel)]="userData.username"></ion-input>
-      </ion-item>
-    
-      <ion-item>
-        <ion-label stacked>Password</ion-label>
-        <ion-input type="password" name="password" [(ngModel)]="userData.password"></ion-input>
-      </ion-item>
-    
-      <button ion-button full color="success" (click)="signup()">Sign up</button>
-    </ion-list>
-
-
     <ion-list id="login-list2">
       <ion-item>
         <ion-label floating>เลขบัตรประชาชน</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" name="idcard" [(ngModel)]="userData.idcard"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>อีเมล์</ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-input type="email" name="email" [(ngModel)]="userData.email"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>เลือกหลักสูตร</ion-label>
-        <ion-select type="text">
+        <ion-select type="text" name="course" [(ngModel)]="userData.course">
           <ion-option>[Select all]</ion-option>
           <ion-option>PLM</ion-option>
           <ion-option>vvp</ion-option>
@@ -56,7 +30,7 @@
       </ion-item>
       <ion-item>
         <ion-label floating>คำนำหน้า</ion-label>
-        <ion-select type="text">
+        <ion-select type="text" name="perfix" [(ngModel)]="userData.perfix">
           <ion-option>นาย</ion-option>
           <ion-option>นาง</ion-option>
           <ion-option>นางสาว</ion-option>
@@ -64,19 +38,19 @@
       </ion-item>
       <ion-item>
         <ion-label floating>ชื่อ</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" name="name" [(ngModel)]="userData.name"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>นามสกุล</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" name="lastname" [(ngModel)]="userData.lastname"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>หน่วยงาน</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" name="office" [(ngModel)]="userData.office"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>กลุ่มงาน(อาชีพ)</ion-label>
-        <ion-select type="text">
+        <ion-select type="text" name="job" [(ngModel)]="userData.job">
           <ion-option>ธุรกิจส่วนตัว/เจ้าของกิจการ</ion-option>
           <ion-option>นักเรียน/นักศึกษา</ion-option>
           <ion-option>ข้าราชการ</ion-option>
@@ -88,6 +62,7 @@
     </ion-list>
     <div class="spacer" style="height:20px;" id="login-spacer1"></div>
     <button id="okregister" round ion-button (click)="alert()"  block>
+       <!-- <button ion-button full color="success" (click)="signup()">Sign up</button> -->
     สมัครเรียน
     </button>
   </form>

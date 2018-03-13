@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { DetailCoursePage } from '../detail-course/detail-course';
 import { AlertController } from 'ionic-angular';
 import { CourServiceProvider } from '../../providers/cour/cour-service';
 
@@ -64,6 +64,9 @@ export class NewCoursePage {
   //get item 
   getItemCourse(i: any) {
     console.log("i =>",i);
+    this.navCtrl.push(DetailCoursePage, {
+      item: i
+    });
   }
 
 }

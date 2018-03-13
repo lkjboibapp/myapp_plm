@@ -1,7 +1,9 @@
 
 <ion-header>
   <ion-navbar color="secondary">
-    <ion-title>{{course_title}}</ion-title>
+    <ion-title>
+      <!-- {{course_title}} -->
+    </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
@@ -51,20 +53,21 @@
 
   <label>
     <ion-card padding>
-      {{course_detail}}
+      <!-- {{course_detail}} -->
     </ion-card>
   </label>
 
   <label>
     <ion-grid>
 
-      <ion-list padding class="test" *ngFor="let p of results_course">
+      <ion-list padding class="test"
+       >
 
         <label>
           <label>
             
             <h3 text-center>
-              {{p.title}}
+              <!-- {{p.title}} -->
             </h3>
           </label>
           <ion-row>
@@ -82,7 +85,7 @@
 
           <ion-row>
             <ion-col col-75>
-              {{p.title}}
+              <!-- {{p.title}} -->
             </ion-col>
             <ion-col col-auto>
               <button ion-button clear item-end (click)="openVDO(p)">

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, NavParams, App, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, NavParams, App, ViewController, Item } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
@@ -10,7 +10,6 @@ import {PretestPage} from '../pretest/pretest';
 import {PosttestPage} from '../posttest/posttest';
 
 
-@IonicPage()
 @Component({
   selector: 'page-detail-course',
   templateUrl: 'detail-course.html',
@@ -31,6 +30,8 @@ export class DetailCoursePage {
   public course_picture: any;
   i: string;
 
+  public data :any;
+
   constructor(public http: Http,
     private alertCtrl: AlertController,
     public navCtrl: NavController, public navParams: NavParams,
@@ -42,14 +43,15 @@ export class DetailCoursePage {
 
   ngAfterViewInit() {
     this.CourseOnline();
-    
-    this.course_id = this.navParams.get("course_id");
-    this.course_title = this.navParams.get("course_title");
-    this.course_detail = this.navParams.get("course_detail");
-    this.course_short_title = this.navParams.get("course_short_title");
-    this.course_picture = this.navParams.get("course_picture");
+    this.data = this.navParams.get('Item');
+    console.log("data => ",this.data);
+    // this.course_id = this.navParams.get("course_id");
+    // this.course_title = this.navParams.get("course_title");
+    // this.course_detail = this.navParams.get("course_detail");
+    // this.course_short_title = this.navParams.get("course_short_title");
+    // this.course_picture = this.navParams.get("course_picture");
 
-    this.file.lesson_id = this.navParams.get("course_id");
+    // this.file.lesson_id = this.navParams.get("course_id");
     
   }
 

@@ -27,6 +27,7 @@ import { BannerDetailPage } from '../pages/banner-detail/banner-detail';
 import { NewsDetailPage } from '../pages/news-detail/news-detail';
 import { PrivateMessageReturnPage } from '../pages/private-message-return/private-message-return';
 import { NewCoursePage } from '../pages/new-course/new-course';
+import { DetailCoursePage } from '../pages/detail-course/detail-course';
 
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -81,7 +82,8 @@ export function createTranslateLoader(http: HttpClient) {
     BannerDetailPage,
     NewsDetailPage,
     PrivateMessageReturnPage,
-    NewCoursePage
+    NewCoursePage,
+    DetailCoursePage
   ],
   imports: [
     BrowserModule,
@@ -124,7 +126,8 @@ export function createTranslateLoader(http: HttpClient) {
     BannerDetailPage,
     NewsDetailPage,
     PrivateMessageReturnPage,
-    NewCoursePage
+    NewCoursePage,
+    DetailCoursePage
   ],
   providers: [
     Api,

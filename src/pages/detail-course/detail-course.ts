@@ -9,12 +9,6 @@ import {FileLeanPage} from '../file-lean/file-lean';
 import {PretestPage} from '../pretest/pretest';
 import {PosttestPage} from '../posttest/posttest';
 
-/**
- * Generated class for the DetailCoursePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -22,8 +16,6 @@ import {PosttestPage} from '../posttest/posttest';
   templateUrl: 'detail-course.html',
 })
 export class DetailCoursePage {
-
-
 
   //ตัวแปลรับค่าจาก html
   file: any = {};
@@ -45,14 +37,12 @@ export class DetailCoursePage {
     public viewCtrl: ViewController,
     public appCtrl: App) {
 
-
   }
 
 
   ngAfterViewInit() {
     this.CourseOnline();
     
-
     this.course_id = this.navParams.get("course_id");
     this.course_title = this.navParams.get("course_title");
     this.course_detail = this.navParams.get("course_detail");

@@ -46,7 +46,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Camera } from '@ionic-native/camera';
-import { CourServiceProvider } from '../providers/cour-service/cour-service';
+import { CourServiceProvider } from '../providers/cour/cour-service';
 
 
 export function createTranslateLoader(http: HttpClient) {

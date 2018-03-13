@@ -40,9 +40,6 @@ export class CoursePage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-
-        console.log("Data = ", data.data);
-        //console.log("show time = ", data.data[0]['cate_id']);
       },
         err => {
           console.log("Erroersdfdf");
@@ -86,7 +83,7 @@ export class CoursePage {
     });
 
     console.log(text);
-    
+
     // console.log("show text =", this.text);
   }
 

@@ -7,7 +7,6 @@ import 'rxjs/add/operator/map';
 let banService = 'http://localhost/service/ServiceMobile/Service_Imgslide.php/';
 let apiUrl = 'http://localhost/Service/ServiceMobile/login.php/';
 var Private_Message = 'http://localhost/service/ServiceMobile/Private_Message.php/';
-let CategoryCourseService = 'http://localhost/Service/ServiceMobile/ServiceCategory.php/';
 
 @Injectable()
 export class AuthServiceProvider {
@@ -74,18 +73,7 @@ export class AuthServiceProvider {
   }
 
 
-  CategoryCourse(credentials, type) {
-    return new Promise((resolve, reject) => {
-      let headers = new Headers();
-      this.http.post(CategoryCourseService + type, { headers: headers })
-        .subscribe(res => {
-          resolve(res.json());
-        }, (err) => {
-          reject(err);
-        });
-    });
-
-  }
+ 
 
 
 

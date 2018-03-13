@@ -15,12 +15,12 @@
 </ion-header>
 
 <ion-content padding class="section">
-  <ion-list *ngFor="let item of data_result" (click)="joinRoom(item)">
+  <ion-list  *ngFor="let item of data_result" (click)="joinRoom(item)">
     <ion-card>
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-item>
+            <ion-item >
               {{item.pm_topic}}
               <ion-icon name="ios-chatboxes-outline" item-end></ion-icon>
             </ion-item>

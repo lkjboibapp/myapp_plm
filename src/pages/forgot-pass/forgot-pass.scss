@@ -5,21 +5,31 @@ page-forgot-pass {
 
     }
     .section1{
-        background: rgb(223, 247, 185);
-        color: #000000;
+        background-color: rgb(153, 153, 153);
+        color: #fff;
+        text-align: center;
+
+
     }
     .section2{
        margin-left: 9%;
     }
-    .section3{
-        margin-top: 5%;
-     }
+
+
      .section4{
         height: 30%;
         width: 35%;
         margin-left: 36%;
      }
 
+     .section3{
+      //background: rgb(179, 218, 75);
+      color: #000000;
+      background-image: url('../assets/img/bg2.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        text-align:center;
+  }
     }
 
 

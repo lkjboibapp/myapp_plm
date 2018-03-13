@@ -7,7 +7,7 @@ page-banner {
         // background-repeat: no-repeat;
         // background-size: 100%;
 
-        
+
     }
 
     .alert-ios .alert-message, .alert-ios .alert-input-group {
@@ -18,7 +18,14 @@ page-banner {
      background: #8FAF37;
       background: gradient(#fff 0%, #8FAF37 100%);
 }
-  
+.section{
+  //background: rgb(179, 218, 75);
+  color: #000000;
+  font-family: 'Kanit', sans-serif;
+  background-image: url('../assets/img/bg2.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+}
 }
 
   .alert-ios .alert-message {

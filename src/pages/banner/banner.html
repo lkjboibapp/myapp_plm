@@ -4,20 +4,20 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      banner
+      ป้ายประชาสัมพันธ์
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content class="bg">
+<ion-content class="section">
   <ion-list *ngFor="let item of data_result" (click)="bannerdetail(item)">
     <ion-card>
       <ion-item >
         <ion-grid >
           <ion-row>
             <ion-col>
-             
+
                 {{item.imgslide_title}}
-              
+
             </ion-col>
           </ion-row>
         </ion-grid>

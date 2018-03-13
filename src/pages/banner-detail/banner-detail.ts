@@ -14,7 +14,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BannerDetailPage {
 
+  [x: string]: any;
   imgslide_id: any;
+  imgslide_detail :any;
   data:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -26,7 +28,11 @@ export class BannerDetailPage {
 
     this.data = this.navParams.get("id");
 
-    this.imgslide_id = this.data.imgslide_id;
+   //this.imgslide_title = this.data.imgslide_title;
+
+    this.imgslide_detail = this.data.imgslide_detail;
+
+    console.log("imgslide_detail =",this.imgslide_detail);
 
     
   }

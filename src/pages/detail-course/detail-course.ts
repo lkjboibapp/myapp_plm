@@ -38,13 +38,16 @@ export class DetailCoursePage {
     public viewCtrl: ViewController,
     public appCtrl: App) {
 
-  }
 
+  }
+ 
 
   ngAfterViewInit() {
     this.CourseOnline();
-    this.data = this.navParams.get('Item');
-    console.log("data => ",this.data);
+
+    this.data = this.navParams.get('item');
+    console.log("data => ", this.data.course_detail);
+    
     // this.course_id = this.navParams.get("course_id");
     // this.course_title = this.navParams.get("course_title");
     // this.course_detail = this.navParams.get("course_detail");

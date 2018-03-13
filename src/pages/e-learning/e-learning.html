@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-buttons end>
-      <button ion-button end icon-only (click)="clickSearch()">
+      <button ion-button end icon-only (click)="goToSearch()">
         <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
@@ -20,7 +20,7 @@
 
   <ion-list>
 
-    <ion-card >
+    <ion-card>
       <ion-item>
         <ion-grid>
           <ion-row>
@@ -154,7 +154,7 @@
                 หน่วยงานที่เกี่ยวข้อง
               </ion-item>
             </ion-col>
-            <ion-col>
+            <ion-col col-auto>
               <ion-item>
                 <button ion-button item-end clear on-click="getFeatured()">ดูทั้งหมด</button>
               </ion-item>

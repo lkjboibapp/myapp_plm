@@ -1,24 +1,27 @@
 page-documents {
     .section{
-        background: rgb(179, 218, 75);
+       //background: rgb(179, 218, 75);
         color: #000000;
-
+        background-image: url('../assets/img/bg2.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
         //สีที่ค้นหา
 
-    }
+
     .accordion-list {
         background: rgb(209, 240, 123);
         height: 100%;
         //font-family: 'Prompt', sans-serif;
     } //สีด้านล่างสุด
     .section1{
-        background: rgb(250, 239, 142);
+      background: rgb(145, 168, 80);
+      color: #000000;
 
-        color: #000000;
         //font-family: 'Prompt', sans-serif;
 
     }
-    
+
 
 }
 

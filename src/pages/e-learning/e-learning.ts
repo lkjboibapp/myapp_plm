@@ -4,6 +4,7 @@ import { NewsPage } from '../news/news';
 import { DocumentsPage } from '../documents/documents';
 import { VdoPage } from '../vdo/vdo';
 import { FeaturedlinksPage } from '../featuredlinks/featuredlinks';
+import { SearchPage } from '../search/search';
 
 import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { Http } from '@angular/http';
@@ -57,7 +58,13 @@ export class ELearningPage {
     console.log("clickSearch");
 
   }
-  
+
+
+  goToSearch(params) {
+    if (!params) params = {};
+    this.navCtrl.push(SearchPage);
+  }
+
   goToBanner(params) {
     if (!params) params = {};
     this.navCtrl.push(BannerPage);

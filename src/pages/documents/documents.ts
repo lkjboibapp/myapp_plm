@@ -12,10 +12,11 @@ import { Http } from '@angular/http';
 })
 export class DocumentsPage {
   public download: any;
+  public documents: any;
   public items_filter : any ;
   items :any;
- 
- 
+
+
   constructor(public navCtrl: NavController,public alerCtrl: AlertController, public http: Http) {
   }
     ngAfterViewInit(){
@@ -34,30 +35,30 @@ export class DocumentsPage {
               err => {
                   console.log('error in ETPhoneHome');
               });
-            }     
-            
+            }
+
 
             getItems(ev:any) {
                 // Reset items back to all of the items
                 // set val to the value of the searchbar
                 let val = ev.target.value;
-                
+
                 // if the value is an empty string don't filter the items
                 if (val && val.trim() != '') {
                     val = val.toLowerCase();
                     console.log(val)
 
                     // console.log("test usa", this.usability);
-                    this.download = this.download .filter((item) => {
+                    this.download = this.download.filter((item) => {
                         // console.log(item.usa_title.toLowerCase())
                         return (item.dty_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
                       });
                   }else if (val =='') {
                       this.ETPhoneHome();
              }
-        
+
       }
-     
+
       doAlert(item) {
         let alert = this.alerCtrl.create({
           buttons: ['Ok']

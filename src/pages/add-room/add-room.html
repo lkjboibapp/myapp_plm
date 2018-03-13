@@ -5,13 +5,10 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar color="secondary">
-    <ion-title>AddRoom</ion-title>
+    <ion-title>ส้รางข้อความใหม่</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding id="page9">
   <ion-list>
@@ -30,7 +27,6 @@
       <ion-label floating>หัวข้อ</ion-label>
       <ion-input type="text" name="pm_topic" [(ngModel)]="data.pm_topic"></ion-input>
     </ion-item>
-
 
     <ion-item class="rowArear">
       <ion-row row-auto>
@@ -54,7 +50,6 @@
       </ion-item>
     </ion-list>
 
-
     <ion-label>แนบไฟล์</ion-label>
     <ion-grid>
       <ion-row>
@@ -67,11 +62,9 @@
       </ion-row>
     </ion-grid>
 
-
     <ion-item>
       <button ion-button item-end navPop>ปิด</button>
       <button ion-button item-end (click)="submit()">ส่งข้อความ</button>
     </ion-item>
   </ion-list>
-
 </ion-content>

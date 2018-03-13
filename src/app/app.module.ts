@@ -48,6 +48,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Camera } from '@ionic-native/camera';
 import { CourServiceProvider } from '../providers/cour/cour-service';
+import { SearchPage } from '../pages/search/search';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -83,7 +84,8 @@ export function createTranslateLoader(http: HttpClient) {
     NewsDetailPage,
     PrivateMessageReturnPage,
     NewCoursePage,
-    DetailCoursePage
+    DetailCoursePage,
+    SearchPage
   ],
   imports: [
     BrowserModule,
@@ -127,7 +129,8 @@ export function createTranslateLoader(http: HttpClient) {
     NewsDetailPage,
     PrivateMessageReturnPage,
     NewCoursePage,
-    DetailCoursePage
+    DetailCoursePage,
+    SearchPage
   ],
   providers: [
     Api,

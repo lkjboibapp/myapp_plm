@@ -4,16 +4,17 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
-      Documents
+      เอกสารเผยแพร่
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page13" class="section">
-    <ion-list class="accordion-list">
+    <ion-list>
+        <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar>
         <ion-grid >
             <ion-row class="section1">
               <ion-col col-6 *ngFor="let item of download">
-                <ion-card class="sizeCol">
+                <ion-card >
                     <ion-card item-center>
                         <ion-card-content>
                             <img class="sizeCol" src="assets/img/symbol.png">
@@ -30,6 +31,6 @@
               </ion-col>
             </ion-row>
           </ion-grid>
-         
+
           </ion-list>
 </ion-content>

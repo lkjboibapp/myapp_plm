@@ -4,6 +4,8 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
 
+import { ELearningPage } from '../e-learning/e-learning';
+
 import { CourServiceProvider } from '../../providers/cour/cour-service';
 
 import { FileLeanPage } from '../file-lean/file-lean';
@@ -67,14 +69,14 @@ export class DetailCoursePage {
 
 
   CourseOnline() {
-    // var course_id = { course_id: this.data.course_id };
-    // console.log("course 123 ->",course_id);
-    // this.courService.getLesson(course_id, 'getLesson').then((result) => {
-    //   this.results_course = result['data'];
-    //   console.log("data ->", result['data']);
-    // }, (err) => {
-    //   console.log(err);
-    // });
+    var course_id = { course_id: this.data.course_id };
+    console.log("course 123 ->",course_id);
+    this.courService.getLesson(course_id, 'getLesson').then((result) => {
+      this.results_course = result['data'];
+      console.log("data ->", result['data']);
+    }, (err) => {
+      console.log(err);
+    });
 
     // let path = 'http://localhost/Service/ServiceMobile/ServiceLesson.php/getLesson';
     // let encodedPath = encodeURI(path);

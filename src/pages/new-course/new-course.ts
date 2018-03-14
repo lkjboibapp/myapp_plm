@@ -4,7 +4,7 @@ import { DetailCoursePage } from '../detail-course/detail-course';
 import { AlertController } from 'ionic-angular';
 import { CourServiceProvider } from '../../providers/cour/cour-service';
 import { LoginPage } from "../login/login";
-import { DashboardPage } from "../dashboard/dashboard";
+import { ELearningPage } from "../e-learning/e-learning";
 
 @Component({
   selector: 'page-new-course',
@@ -58,14 +58,14 @@ export class NewCoursePage {
         buttons: [{
           text: 'ตกลง',
           handler: () => {
-            this.navCtrl.push(LoginPage)
+            this.navCtrl.setRoot(LoginPage)
             console.log("inter OK");
             // Your Imagination should go here
           }
         }, {
           text: 'ยกเลิก',
           handler: () => {
-            this.navCtrl.push(DashboardPage);
+            this.navCtrl.setRoot(ELearningPage);
           }
         }
         ]

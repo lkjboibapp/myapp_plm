@@ -43,10 +43,10 @@ export class DetailCoursePage {
     public appCtrl: App) {
 
 
-    this.data = this.navParams.get('item');
-    this.course_detail = this.data.course_detail;
-    this.course_title = this.data.course_title;
-    this.course_title = this.data.course_title;
+    // this.data = this.navParams.get('item');
+    // this.course_detail = this.data.course_detail;
+    // this.course_title = this.data.course_title;
+    // this.course_title = this.data.course_title;
 
     // console.log("data => ", this.data.course_detail);
 
@@ -67,14 +67,14 @@ export class DetailCoursePage {
 
 
   CourseOnline() {
-    var course_id = { course_id: this.data.course_id };
-    console.log("course 123 ->",course_id);
-    this.courService.getLesson(course_id, 'getLesson').then((result) => {
-      this.results_course = result['data'];
-      console.log("data ->", result['data']);
-    }, (err) => {
-      console.log(err);
-    });
+    // var course_id = { course_id: this.data.course_id };
+    // console.log("course 123 ->",course_id);
+    // this.courService.getLesson(course_id, 'getLesson').then((result) => {
+    //   this.results_course = result['data'];
+    //   console.log("data ->", result['data']);
+    // }, (err) => {
+    //   console.log(err);
+    // });
 
     // let path = 'http://localhost/Service/ServiceMobile/ServiceLesson.php/getLesson';
     // let encodedPath = encodeURI(path);

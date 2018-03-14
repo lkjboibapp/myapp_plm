@@ -47,7 +47,7 @@
         กลุ่มงาน (อาชีพ) : <p>นักเรียน/นักศึกษา</p>
       </ion-label>
     </ion-item>
-    <ion-item color="none" id="contact-list-item10">
+    <!-- <ion-item color="none" id="contact-list-item10">
       <ion-icon name="facebook" item-left>
         <img src="assets/imgs/facebook.png" style="display:block;width:20%;height:20%;">
       </ion-icon>
@@ -58,9 +58,12 @@
         <img src="assets/imgs/google.png" style="display:block;width:21%;height:21%;">
       </ion-icon>
       Google
-    </ion-item>
+    </ion-item> -->
     <button id="editprofile" round ion-button (click)="editprofilePage()" color="stable" block>
       แก้ไขข้อมูลส่วนตัว
+    </button>
+    <button id="logout" round ion-button (click)="logoutPage()" color="danger" block>
+      ล๊อกเอาท์
     </button>
   </form>
 </ion-content>

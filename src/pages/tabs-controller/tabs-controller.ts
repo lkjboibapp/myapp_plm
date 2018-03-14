@@ -11,6 +11,7 @@ import { NewCoursePage } from '../new-course/new-course';
 })
 export class TabsControllerPage {
 
+
   tab2Root: any = CoursePage;
   tab1Root: any = ELearningPage;
   tab3Root: any = ContactPage;

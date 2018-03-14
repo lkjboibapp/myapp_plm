@@ -88,6 +88,8 @@ export function createTranslateLoader(http: HttpClient) {
     SearchPage
   ],
   imports: [
+
+
     BrowserModule,
     HttpClientModule,
     HttpModule,
@@ -98,7 +100,9 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      tabsHideOnSubPages: true,
+    }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],

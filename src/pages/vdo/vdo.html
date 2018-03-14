@@ -14,7 +14,7 @@
 
 
 <ion-content padding class="section">
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar>
   <br>
   <ion-list>
     <ion-item *ngFor="let item of results" (click)="openItem(item)">

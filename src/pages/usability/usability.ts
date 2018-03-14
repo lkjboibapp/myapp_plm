@@ -59,7 +59,7 @@ export class UsabilityPage {
     let alert = this.alerCtrl.create({
       title: item.usa_title,
       message: item.usa_detail,
-      buttons: ['Ok']
+      buttons: ['เข้าใจแล้ว !']
     });
     alert.present()
   }

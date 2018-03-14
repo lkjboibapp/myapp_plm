@@ -57,9 +57,9 @@ export class ContactusPage {
   }
 
   ngAfterViewInit() {
-  
+
       this.loadMap();
-   
+
   }
 
   submit() {
@@ -83,8 +83,8 @@ export class ContactusPage {
 
 
         let alert = this.alertCtrl.create({
-          title: 'ส่งข้อความเรียบร้อยแล้ว!!!',
-          buttons: ['OK']
+            title: 'ส่งข้อความเรียบร้อยแล้ว!!!',
+            buttons: ['ตกลง ']
         });
         alert.present();
 
@@ -118,7 +118,7 @@ export class ContactusPage {
   }
 
 }
-  
+
 
 
 

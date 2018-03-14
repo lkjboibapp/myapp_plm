@@ -42,14 +42,14 @@ export class RegisterPage {
         this.data.response = data["_body"];
         // console.log("! show data = ", this.data.response);
         // console.log("!userData  = ", this.userData.idcard);
-  
-  
+
+
         let alert = this.alertCtrl.create({
           title: 'ทำการสมัครเรียนเรียบร้อยแล้ว!!!',
-          buttons: ['OK']
+          buttons: ['ตกลง']
         });
         alert.present();
-  
+
         this.userData.idcard = '';
         this.userData.email = '';
         this.userData.course = '';
@@ -68,7 +68,7 @@ export class RegisterPage {
       //  console.log("User already exists");
       this.presentToast("Give valid details");
     }
- 
+
 }
   presentToast(msg) {
     let toast = this.toastCtrl.create({

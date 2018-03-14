@@ -16,7 +16,7 @@
 
         <ion-label floating class="fonts">เลขบัตรประชาชน</ion-label>
         <ion-input type="text" name="register_by_idcard" [(ngModel)]="userData.idcard"></ion-input>
-        <ion-icon color="secondary" name="md-card" item-left style="margin-top: 40px;" ></ion-icon>
+        <ion-icon color="secondary" name="md-contact" item-left style="margin-top: 40px;" ></ion-icon>
       </ion-item>
       <ion-item>
         <ion-label floating class="fonts">อีเมล์</ion-label>
@@ -25,6 +25,7 @@
       </ion-item>
       <ion-item>
         <ion-label floating class="fonts">เลือกหลักสูตร</ion-label>
+        <ion-icon color="secondary" name="md-bookmarks" item-left style="margin-top: 40px;" ></ion-icon>
         <ion-select type="text" name="register_by_course" [(ngModel)]="userData.course">
           <ion-option >[Select all]</ion-option>
           <ion-option > PLM</ion-option>
@@ -34,6 +35,7 @@
       </ion-item>
       <ion-item>
         <ion-label floating class="fonts">คำนำหน้า</ion-label>
+        <ion-icon color="secondary" name="md-person" item-left style="margin-top: 40px;" ></ion-icon>
         <ion-select type="text" name="register_by_perfix" [(ngModel)]="userData.perfix">
           <ion-option value="1">นาย</ion-option>
           <ion-option value="2">นาง</ion-option>
@@ -42,18 +44,22 @@
       </ion-item>
       <ion-item>
         <ion-label floating class="fonts">ชื่อ</ion-label>
+        <ion-icon color="secondary" name="md-person" item-left style="margin-top: 40px;" ></ion-icon>
         <ion-input type="text" name="register_by_name" [(ngModel)]="userData.name"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating class="fonts">นามสกุล</ion-label>
+        <ion-icon color="secondary" name="md-person" item-left style="margin-top: 40px;" ></ion-icon>
         <ion-input type="text" name="register_by_lastname" [(ngModel)]="userData.lastname"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating class="fonts">หน่วยงาน</ion-label>
+        <ion-icon color="secondary" name="md-briefcase" item-left style="margin-top: 40px;" ></ion-icon>
         <ion-input type="text" name="register_by_department" [(ngModel)]="userData.department"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating class="fonts">กลุ่มงาน(อาชีพ)</ion-label>
+        <ion-icon color="secondary" name="md-pricetags" item-left style="margin-top: 40px;" ></ion-icon>
         <ion-select type="text" name="register_by_job" [(ngModel)]="userData.job">
           <ion-option value="ธุรกิจส่วนตัว/เจ้าของกิจการ">ธุรกิจส่วนตัว/เจ้าของกิจการ</ion-option>
           <ion-option value="นักเรียน/นักศึกษา">นักเรียน/นักศึกษา</ion-option>
@@ -65,7 +71,7 @@
       </ion-item>
     </ion-list>
 
-    <button id="okregister" round ion-button (click)="submit()"  block>
+    <button id="okregister" round ion-button (click)="submit()" block>
        <!-- <button ion-button full color="success" (click)="signup()">Sign up</button> -->
     สมัครเรียน
     </button>

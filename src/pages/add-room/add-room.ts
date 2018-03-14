@@ -94,15 +94,15 @@ export class AddRoomPage {
           //     });
   // }
 
-  
-  
-  submit() 
+
+
+  submit()
     {
       this.authService.messagePostData(this.data, 'InsertPrivateMessage').then((result) => {
         let alert = this.alertCtrl.create(
           {
-            title: result['result'],
-    //กดตกลงเพือย้อนกลับหน้าหลักข้อความ        
+            title: 'ส่งข้อความเรียบร้อยแล้ว!!!',
+    //กดตกลงเพือย้อนกลับหน้าหลักข้อความ
             buttons: [
                         {
                           text: 'ตกลง',

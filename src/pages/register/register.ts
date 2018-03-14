@@ -3,9 +3,6 @@ import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { NavController, ToastController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
-
-// import { LoginPage } from '../login/login'
-
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 import 'rxjs/add/operator/map';
@@ -28,7 +25,6 @@ export class RegisterPage {
   }
   submit() {
     if (this.userData.idcard && this.userData.email && this.userData.course && this.userData.perfix && this.userData.name&& this.userData.lastname&& this.userData.department&& this.userData.job) {
-      console.log("555555")
       var link = 'http://localhost/service/ServiceMobile/Register.php/InsertRegister';
       var myData = JSON.stringify({
         identification: this.userData.idcard,
@@ -40,12 +36,12 @@ export class RegisterPage {
         department: this.userData.department,
         job: this.userData.job,
       });
-      console.log("myData"+myData);
+      // console.log("myData"+myData);
       this.http.post(link, myData)
       .subscribe(data => {
         this.data.response = data["_body"];
-        console.log("! show data = ", this.data.response);
-        console.log("!userData  = ", this.userData.idcard);
+        // console.log("! show data = ", this.data.response);
+        // console.log("!userData  = ", this.userData.idcard);
   
   
         let alert = this.alertCtrl.create({
@@ -65,7 +61,7 @@ export class RegisterPage {
         // this.data.contac_type = '';
         this.data.response = '';
       }, error => {
-        console.log("Oooops!");
+        // console.log("Oooops!");
       });
     }
     else {
@@ -81,16 +77,6 @@ export class RegisterPage {
     });
     toast.present();
   }
-
-
-  // alert() {
-  //   let alert = this.alertCtrl.create({
-  //     title: 'Low battery',
-  //     subTitle: '10% of battery remaining',
-  //     buttons: ['ตกลง']
-  //   });
-  //   alert.present();
-  // }
 }
 
 

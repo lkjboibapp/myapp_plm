@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color ="secondary" >
+  <ion-navbar color="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -12,15 +12,20 @@
   <form id="login-form13">
     <ion-list id="login-list2">
       <ion-item>
-        <ion-label floating>เลขบัตรประชาชน</ion-label>
+
+        <ion-label floating class="fonts">เลขบัตรประชาชน</ion-label>
+        <ion-icon color="secondary" name="md-contact" item-left style="margin-top: 40px;" ></ion-icon>
+
         <ion-input type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>อีเมล์</ion-label>
-        <ion-input type="email"></ion-input>
+        <ion-label floating class="fonts">อีเมล์</ion-label>
+        <ion-icon color="secondary" name="md-mail" item-left style="margin-top: 40px;"></ion-icon>
+        <ion-input type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>เลือกหลักสูตร</ion-label>
+        <ion-label floating class="fonts">เลือกหลักสูตร</ion-label>
+        <ion-icon color="secondary" name="md-bookmarks" item-left style="margin-top: 40px;"></ion-icon>
         <ion-select type="text">
           <ion-option>[Select all]</ion-option>
           <ion-option>PLM</ion-option>
@@ -29,7 +34,8 @@
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label floating>คำนำหน้า</ion-label>
+        <ion-label floating class="fonts">คำนำหน้า</ion-label>
+        <ion-icon color="secondary" name="md-person" item-left style="margin-top: 40px;"></ion-icon>
         <ion-select type="text">
           <ion-option>นาย</ion-option>
           <ion-option>นาง</ion-option>
@@ -37,19 +43,25 @@
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label floating>ชื่อ</ion-label>
+        <ion-label floating class="fonts">ชื่อ</ion-label>
+        <ion-icon color="secondary" name="md-person" item-left style="margin-top: 40px;"></ion-icon>
         <ion-input type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>นามสกุล</ion-label>
+        <ion-label floating class="fonts">นามสกุล</ion-label>
+        <ion-icon color="secondary" name="md-person" item-left style="margin-top: 40px;"></ion-icon>
         <ion-input type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>หน่วยงาน</ion-label>
+
+
+        <ion-label floating class="fonts">หน่วยงาน</ion-label>
+        <ion-icon color="secondary" name="md-briefcase" item-left style="margin-top: 40px;"></ion-icon>
         <ion-input type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>กลุ่มงาน(อาชีพ)</ion-label>
+        <ion-label floating class="fonts">กลุ่มงาน(อาชีพ)</ion-label>
+        <ion-icon color="secondary" name="md-pricetags" item-left style="margin-top: 40px;"></ion-icon>
         <ion-select type="text">
           <ion-option>ธุรกิจส่วนตัว/เจ้าของกิจการ</ion-option>
           <ion-option>นักเรียน/นักศึกษา</ion-option>
@@ -61,8 +73,8 @@
       </ion-item>
     </ion-list>
     <div class="spacer" style="height:20px;" id="login-spacer1"></div>
-    <button id="okregister" round ion-button (click)="alert()"  block>
-    บันทึก
+    <button id="okregister" round ion-button (click)="alert()" block>
+      บันทึก
     </button>
   </form>
 </ion-content>

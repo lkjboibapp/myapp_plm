@@ -4,7 +4,6 @@ import { Http } from '@angular/http';
 import{EditprofilePage} from '../editprofile/editprofile';
 import { ELearningPage } from '../e-learning/e-learning';
 import { LoginPage } from "../login/login";
-import { DashboardPage } from "../dashboard/dashboard";
 
 @Component({
   selector: 'page-contact',
@@ -25,65 +24,56 @@ export class ContactPage {
   rePage() {
     let loader = this.loadingCtrl.create({
       spinner: "ios",
-      content: "Loading Please Wait...",
+      content: "กรุณารอสักครู่...",
       duration: 500
     })
     loader.onDidDismiss(() => {
-      // console.log('Dismissed loading หยุดทำงานตัวโหลด เสดแล้วเรียก alert() ');
       this.alertLogin();
     });
 
     loader.present();
-    // this.alertLogin();
   }
 
-  //จะทำงานต่อจาก constructor เป็นลำดับที่ 2
   alertLogin() {
     if (this.userDetails == null) {
 
       let alert = this.alertCtrl.create({
         title: 'แจ้งเตือน',
-        subTitle: 'กรุณา Login ก่อนนะครับ',
+        subTitle: 'กรุณาเข้าสู่ระบบ!!!',
         buttons: [{
           text: 'ตกลง',
           handler: () => {
-            this.navCtrl.push(LoginPage)
-            console.log("inter OK");
-            // Your Imagination should go here
+            this.navCtrl.setRoot(LoginPage)
           }
         }, {
           text: 'ยกเลิก',
           handler: () => {
-            this.navCtrl.push(DashboardPage);
+            this.navCtrl.setRoot(ELearningPage);
           }
         }
         ]
       });
       alert.present();
     } else {
-      console.log("lkdcopdkcopdkc")
+      // console.log("lkdcopdkcopdkc")
     }
   }
   
   logoutPage(){
     let alert = this.alertCtrl.create({
       title: 'แจ้งเตือน',
-      subTitle: 'ต้องออกจากระบบใช่ไหม!!!',
+      subTitle: 'กด ตกลง เพื่อออกจากระบบ!!!',
       buttons: [{
         text: 'ตกลง',
         handler: () => {
-          console.log("inter OK");
-          console.log("ทำงาน1");
           this.navCtrl.setRoot(ELearningPage);
           return localStorage.setItem('userData',null);
-            // this.navCtrl.pop();
-            console.log("ทำงาน2");
+      
         }
       }, {
         text: 'ยกเลิก',
         handler: () => {
-          // this.navCtrl.push(DashboardPage);
-          console.log("ไม่ออก");
+      
           
         }
       }

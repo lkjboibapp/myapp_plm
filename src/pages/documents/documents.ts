@@ -51,7 +51,7 @@ export class DocumentsPage {
                     // console.log("test usa", this.usability);
                     this.download = this.download.filter((item) => {
                         // console.log(item.usa_title.toLowerCase())
-                        return (item.dty_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+                        return (item.dow_address.toLowerCase().indexOf(val.toLowerCase()) > -1);
                       });
                   }else if (val =='') {
                       this.ETPhoneHome();

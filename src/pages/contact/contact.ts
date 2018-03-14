@@ -39,7 +39,7 @@ export class ContactPage {
 
       let alert = this.alertCtrl.create({
         title: 'แจ้งเตือน',
-        subTitle: 'กรุณาเข้าสู่ระบบ',
+        subTitle: 'กรุณาเข้าสู่ระบบ!!!',
         buttons: [{
           text: 'ตกลง',
           handler: () => {

@@ -16,7 +16,11 @@ export class BannerPage {
   data: any;
   public data_result: any;
   constructor(public navCtrl: NavController, public authService: AuthServiceProvider, public alertCtrl: AlertController,) {
-     this.bannerService();
+  }
+
+  ngAfterViewInit(){
+    this.bannerService();
+
   }
 
   bannerService() {

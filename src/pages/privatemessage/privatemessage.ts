@@ -22,10 +22,12 @@ export class PrivatemessagePage {
   constructor(public navCtrl: NavController, public modalCtrl: ModalController,
     public authService: AuthServiceProvider, public alertCtrl: AlertController, ) {
 
+      
   }
 
   ionViewDidLoad() {
     this.messageData();
+
   }
 
   addRoom() {
@@ -40,6 +42,15 @@ export class PrivatemessagePage {
     }, (err) => {
       console.log(err);
     });
+  }
+
+  doRefresh(refresher) {
+    // console.log('Begin async operation ->', refresher);
+
+    setTimeout(() => {
+      // console.log('Async operation has ended');
+      refresher.complete();
+    }, 1000);
   }
 
   joinRoom(item) {

@@ -15,6 +15,13 @@
 </ion-header>
 
 <ion-content padding class="section">
+  
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+
   <ion-list  *ngFor="let item of data_result" (click)="joinRoom(item)">
     <ion-card>
       <ion-grid>

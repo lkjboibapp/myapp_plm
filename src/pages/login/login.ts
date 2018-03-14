@@ -22,9 +22,16 @@ export class LoginPage {
   resposeData: any;
   userData = { username: "", password: "" };
 
-  constructor(public navCtrl: NavController,public NavPar: NavParams,public alerCtrl: AlertController,public authService: AuthServiceProvider,public toastCtrl: ToastController) { }
+  constructor(public navCtrl: NavController,public NavPar: NavParams,
+    public alerCtrl: AlertController,public authService: AuthServiceProvider,
+    public toastCtrl: ToastController) 
+  {}
 
   ngAfterViewInit() {
+  }
+
+  ionViewDidLoad() {
+    console.log("this.navParams.get('message')");
   }
 
   login() {

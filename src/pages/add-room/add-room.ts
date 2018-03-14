@@ -107,7 +107,8 @@ export class AddRoomPage {
                         {
                           text: 'ตกลง',
                           handler: () => {
-                            this.navCtrl.push(PrivatemessagePage);
+                            // this.navCtrl.push(PrivatemessagePage);
+                            this.navCtrl.pop();
                             // Your Imagination should go here
                           }
                         }

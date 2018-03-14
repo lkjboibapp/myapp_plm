@@ -15,15 +15,10 @@ export class CoursePage {
   public results: any;
   public text: any;
 
-  userDetails: any;
 
   constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
 
 
-    const data = JSON.parse(localStorage.getItem('userData'));
-    this.userDetails = data.data;
-
-    console.log("userDetails", this.userDetails);
   }
 
   ngAfterViewInit() {

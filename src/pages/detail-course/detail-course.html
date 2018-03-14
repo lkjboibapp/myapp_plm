@@ -1,8 +1,7 @@
-
 <ion-header>
   <ion-navbar color="secondary">
     <ion-title>
-      <!-- {{course_title}} -->
+      {{course_title}}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -27,7 +26,9 @@
       <ion-row>
         <ion-card>
           <ion-col>
-            <img src="course_picture" />
+            <!-- <img src="asset/imgs/" /> -->
+            <img height="100%" src="assets/imgs/nom.png" />
+
           </ion-col>
         </ion-card>
       </ion-row>
@@ -40,6 +41,7 @@
     </ion-grid>
   </ion-card>
 
+  <!-- 
   <ion-toolbar>
     <ion-segment>
       <ion-segment-button>
@@ -49,85 +51,89 @@
         เนื้อหาของคอร์สนี้
       </ion-segment-button>
     </ion-segment>
-  </ion-toolbar>
+  </ion-toolbar> -->
 
-  <label>
-    <ion-card padding>
-      <!-- {{course_detail}} -->
-    </ion-card>
-  </label>
+  <div padding>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="kittens">
+        รายละเอียด
+      </ion-segment-button>
+      <ion-segment-button value="puppies">
+        เนื้อหาของคอร์สนี้
+      </ion-segment-button>
+    </ion-segment>
+  </div>
 
-  <label>
-    <ion-grid>
-
-      <ion-list padding class="test"
-       >
-
-        <label>
-          <label>
-            
-            <h3 text-center>
-              <!-- {{p.title}} -->
-            </h3>
-          </label>
-          <ion-row>
-            <ion-col col-75>
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'puppies'">
+      <label>
+        <ion-grid>
+          <ion-list padding class="test">
+            <label>
               <label>
-                แบบทดสอบก่อนเรียน
+                <h3 text-center>
+                  {{course_title}}
+                </h3>
               </label>
-            </ion-col>
-            <ion-col col-auto>
-              <button ion-button clear item-end (click)="openPretest(p)">
-                ทำแบบทดสอบ
-              </button>
-            </ion-col>
-          </ion-row>
-
-          <ion-row>
-            <ion-col col-75>
-              <!-- {{p.title}} -->
-            </ion-col>
-            <ion-col col-auto>
-              <button ion-button clear item-end (click)="openVDO(p)">
-                ทดสอบบบบบบบ
-              </button>
-            </ion-col>
-          </ion-row>
-
-
-          <ion-row>
-            <ion-col col-75>
-              <label>
-                บททดสอบหลังเรียน
-              </label>
-            </ion-col>
-            <ion-col col-auto>
-              <button ion-button clear item-end (click)="openPosttest(p)">
-                ทำแบบทดสอบ
-              </button>
-            </ion-col>
-          </ion-row>
-          <ion-row>
-            <ion-col col-75>
-              <label>
-                แบบสอบถาม
-              </label>
-            </ion-col>
-            <ion-col col-auto>
-              <button ion-button clear item-end (click)="openQuestion(p)">
-                ทำแบบสอบถาม
-              </button>
-            </ion-col>
-          </ion-row>
-        </label>
-
-
-      </ion-list>
-
-    </ion-grid>
-  </label>
-
-
+              <ion-row>
+                <ion-col col-75>
+                  <label>
+                    แบบทดสอบก่อนเรียน
+                  </label>
+                </ion-col>
+                <ion-col col-auto>
+                  <button ion-button clear item-end (click)="openPretest(p)">
+                    ทำแบบทดสอบ
+                  </button>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngFor="let p of results_course">
+                <ion-col col-75>
+                  {{p.title}}
+                </ion-col>
+                <ion-col col-auto>
+                  <button ion-button clear item-end (click)="openVDO(p)">
+                    ทดสอบบบบบบบ
+                  </button>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-75>
+                  <label>
+                    บททดสอบหลังเรียน
+                  </label>
+                </ion-col>
+                <ion-col col-auto>
+                  <button ion-button clear item-end (click)="openPosttest(p)">
+                    ทำแบบทดสอบ
+                  </button>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-75>
+                  <label>
+                    แบบสอบถาม
+                  </label>
+                </ion-col>
+                <ion-col col-auto>
+                  <button ion-button clear item-end (click)="openQuestion(p)">
+                    ทำแบบสอบถาม
+                  </button>
+                </ion-col>
+              </ion-row>
+            </label>
+          </ion-list>
+        </ion-grid>
+      </label>
+    </ion-list>
+    <ion-list *ngSwitchCase="'kittens'">
+      <label>
+        <ion-card padding>
+          {{course_detail}}
+        </ion-card>
+      </label>
+    </ion-list>
+  </div>
   <!-- <ion-list>
     <ion-item *ngFor="let item of results" (click)="openItem(item)">
         <ion-card> -->
@@ -136,5 +142,4 @@
             <source src="{item.vdo_path}" type="video/mp4" />
           </video>
           <p>{{ item.vdo_path }}</p> -->
-
 </ion-content>

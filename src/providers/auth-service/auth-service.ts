@@ -16,7 +16,7 @@ export class AuthServiceProvider {
   }
 
   postData(credentials, type) {
-    console.log("credentials", credentials);
+    console.log("login ->", credentials);
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.post(apiUrl + type, JSON.stringify(credentials), { headers: headers })
@@ -26,7 +26,6 @@ export class AuthServiceProvider {
           reject(err);
         });
     });
-
   }
 
   messagePostData(credentials, type) {

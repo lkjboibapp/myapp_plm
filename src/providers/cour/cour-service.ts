@@ -11,6 +11,8 @@ import { Injectable } from '@angular/core';
 
 let CategoryCourseService = 'http://localhost/Service/ServiceMobile/ServiceCategory.php/';
 let Course = 'http://localhost/Service/ServiceMobile/Course_online.php/';
+let getLesson = 'http://localhost/Service/ServiceMobile/ServiceLesson.php/';
+
 
 @Injectable()
 export class CourServiceProvider {
@@ -36,6 +38,22 @@ export class CourServiceProvider {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.post(Course + type, { headers: headers })
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+
+  }
+
+  getLesson(credentials, type) {
+
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      console.log("getLesson ->", credentials)
+      
+      this.http.post(getLesson + type, JSON.stringify(credentials), { headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {

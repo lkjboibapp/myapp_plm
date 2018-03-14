@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, NavParams, App, ViewController, Item } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, NavParams, App, ViewController, Item, LoadingController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
@@ -34,9 +34,9 @@ export class DetailCoursePage {
   i: string;
 
   public data: any;
+  public data_course_id: any;
 
-
-  constructor(public http: Http,
+  constructor(private loadingCtrl: LoadingController, public http: Http,
     public courService: CourServiceProvider,
     private alertCtrl: AlertController,
     public navCtrl: NavController,
@@ -44,52 +44,44 @@ export class DetailCoursePage {
     public viewCtrl: ViewController,
     public appCtrl: App) {
 
-
-    // this.data = this.navParams.get('item');
-    // this.course_detail = this.data.course_detail;
-    // this.course_title = this.data.course_title;
-    // this.course_title = this.data.course_title;
-
-    // console.log("data => ", this.data.course_detail);
-
+    this.data = this.navParams.get('item');
+    this.course_detail = this.data.course_detail;
+    this.course_title = this.data.course_title;
+    this.course_title = this.data.course_title;
+    this.data_course_id = { course_id: this.data.course_id };
 
   }
 
 
   ionViewDidLoad() {
-    this.CourseOnline();
-    // this.course_title = this.navParams.get("course_title");
-    // this.course_detail = this.navParams.get("course_detail");
-    // this.course_short_title = this.navParams.get("course_short_title");
-    // this.course_picture = this.navParams.get("course_picture");
-    // this.file.lesson_id = this.navParams.get("course_id");
+    this.rePage();
+  }
 
+  rePage() {
+    let loader = this.loadingCtrl.create({
+      spinner: "ios",
+      content: "Loading Please Wait...",
+      duration: 100
+    })
+    loader.onDidDismiss(() => {
+      this.CourseOnline();
+    });
+
+    loader.present();
   }
 
 
 
   CourseOnline() {
-    var course_id = { course_id: this.data.course_id };
-    console.log("course 123 ->",course_id);
-    this.courService.getLesson(course_id, 'getLesson').then((result) => {
+    // var course_id = { course_id: this.data.course_id };
+    // console.log("course 123 ->", this.data_course_id);
+    this.courService.getLesson(this.data_course_id, 'getLesson').then((result) => {
       this.results_course = result['data'];
       console.log("data ->", result['data']);
     }, (err) => {
       console.log(err);
     });
 
-    // let path = 'http://localhost/Service/ServiceMobile/ServiceLesson.php/getLesson';
-    // let encodedPath = encodeURI(path);
-    // let timeoutMS = 2000;
-    // this.http.get(encodedPath)
-    //   .timeout(timeoutMS)
-    //   .map(res => res.json()).subscribe(data => {
-    //     this.results_course = data.data;
-    //     console.log("show lesson = ", this.results_course);
-    //   },
-    //     err => {
-    //       console.log("err json load");
-    //     });
   }
 
   // ออกทุกหน้า

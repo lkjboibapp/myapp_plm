@@ -7,8 +7,8 @@ import 'rxjs/add/operator/timeout';
 import { ELearningPage } from '../e-learning/e-learning';
 
 import { CourServiceProvider } from '../../providers/cour/cour-service';
-
 import { FileLeanPage } from '../file-lean/file-lean';
+// import { FileLeanPage } from '../file-lean/file-lean';
 import { PretestPage } from '../pretest/pretest';
 import { PosttestPage } from '../posttest/posttest';
 
@@ -46,7 +46,6 @@ export class DetailCoursePage {
 
     this.data = this.navParams.get('item');
     this.course_detail = this.data.course_detail;
-    this.course_title = this.data.course_title;
     this.course_title = this.data.course_title;
     this.data_course_id = { course_id: this.data.course_id };
 
@@ -93,8 +92,8 @@ export class DetailCoursePage {
   }
 
   openVDO(id) {
-    this.navCtrl.push('FileLeanPage', {
-      id: id.id,
+    this.navCtrl.push(FileLeanPage, {
+      id: id,
     });
   }
 

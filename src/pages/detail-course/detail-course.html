@@ -32,40 +32,23 @@
           </ion-col>
         </ion-card>
       </ion-row>
-      <!-- <ion-row>
-        <ion-col>
-          {{course_detail}}
-          <p [innerHTML]="course_detail"></p>
-        </ion-col>
-      </ion-row> -->
+  
     </ion-grid>
   </ion-card>
 
-  <!--
-  <ion-toolbar>
-    <ion-segment>
-      <ion-segment-button>
-        รายละเอียด
-      </ion-segment-button>
-      <ion-segment-button>
-        เนื้อหาของคอร์สนี้
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar> -->
-
   <div padding>
     <ion-segment [(ngModel)]="pet">
-      <ion-segment-button value="kittens">
+      <ion-segment-button value="result">
         รายละเอียด
       </ion-segment-button>
-      <ion-segment-button value="puppies">
+      <ion-segment-button value="detail_course">
         เนื้อหาของคอร์สนี้
       </ion-segment-button>
     </ion-segment>
   </div>
 
   <div [ngSwitch]="pet">
-    <ion-list *ngSwitchCase="'puppies'">
+    <ion-list *ngSwitchCase="'detail_course'">
       <label>
         <ion-grid>
           <ion-list padding class="test">
@@ -93,7 +76,7 @@
                 </ion-col>
                 <ion-col col-auto>
                   <button ion-button clear item-end (click)="openVDO(p)">
-                    ทดสอบบบบบบบ
+                    ทำแบบทดสอบ
                   </button>
                 </ion-col>
               </ion-row>
@@ -126,7 +109,7 @@
         </ion-grid>
       </label>
     </ion-list>
-    <ion-list *ngSwitchCase="'kittens'">
+    <ion-list *ngSwitchCase="'result'">
       <label>
         <ion-card padding>
           {{course_detail}}
@@ -135,7 +118,7 @@
     </ion-list>
   </div>
   <!-- <ion-list>
-    <ion-item *ngFor="let item of results" (click)="openItem(item)">
+    <ion-item *ngFor=" let item of results" (click)="openItem(item)">
         <ion-card> -->
   <!-- <iframe width="500" height="400" ng-src="{item.vdo_path}"></iframe> -->
   <!-- <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer">

@@ -25,9 +25,10 @@ export class RegisterPage {
     public toastCtrl: ToastController) {
   }
   submit() {
-    if (this.userData.idcard && this.userData.email && this.userData.course && this.userData.perfix && this.userData.name&& this.userData.lastname&& this.userData.department&& this.userData.job) {
+    if (this.userData.idcard.length == 13 && this.userData.email && this.userData.course && this.userData.perfix && this.userData.name&& this.userData.lastname&& this.userData.department&& this.userData.job) {
       var link = 'http://localhost/service/ServiceMobile/Register.php/InsertRegister';
       var myData = JSON.stringify({
+       
         identification: this.userData.idcard,
         email: this.userData.email,
         title: this.userData.course,
@@ -68,7 +69,7 @@ export class RegisterPage {
     }
     else {
       //  console.log("User already exists");
-      this.presentToast("Give valid details");
+      this.presentToast("กรอกข้อมูลผิดพลาด");
     }
  
 }

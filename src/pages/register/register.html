@@ -12,10 +12,8 @@
   <form id="login-form13">
     <ion-list id="login-list2">
       <ion-item >
-
-
-        <ion-label floating class="fonts">เลขบัตรประชาชน</ion-label>
-        <ion-input type="text" name="register_by_idcard" [(ngModel)]="userData.idcard"></ion-input>
+        <ion-label floating class="fonts" >เลขบัตรประชาชน</ion-label>
+        <ion-input type="text" maxlength="13" name="register_by_idcard" [(ngModel)]="userData.idcard"></ion-input>
         <ion-icon color="secondary" name="md-card" item-left style="margin-top: 40px;" ></ion-icon>
       </ion-item>
       <ion-item>

@@ -1,8 +1,8 @@
 <ion-header>
   <ion-navbar color="secondary">
-    <button ion-button menuToggle>
+    <!-- <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button>
+    </button> -->
     <ion-title>
       ข้อความ
     </ion-title>
@@ -15,7 +15,6 @@
 </ion-header>
 
 <ion-content padding class="section">
-
   <ion-list *ngFor="let item of data_result" (click)="joinRoom(item)">
     <ion-card >
       <ion-grid>

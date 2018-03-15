@@ -12,62 +12,41 @@
 
 </ion-header>
 
+<ion-content class="section" #content>
+  <div class="chatwindow">
+    <ion-list no-lines>
 
-<ion-content padding class="section">
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col>active = {{active}}</ion-col>
-      </ion-row>
-      <hr>
-      <ion-row>
-        <ion-col>all_file = {{all_file}}</ion-col>
+      <ion-item *ngFor="let item of allmessages; let i = index" text-wrap>
 
-      </ion-row>
-      <hr>
-      <ion-row>
-        <ion-col>create_date = {{create_date}}</ion-col>
+        <ion-avatar item-left *ngIf="item.sentby === buddy.uid">
+          <img src="assets/imgs/nom.png">
+        </ion-avatar>
+        <div class="bubble me" *ngIf="item.sentby === buddy.uid">
+          <h3 *ngIf="!imgornot[i]">{{item.message}}</h3>
+          <img src="assets/imgs/nom.png" *ngIf="imgornot[i]">
+        </div>
+        
+        <ion-avatar item-right *ngIf="item.sentby != buddy.uid">
+          <img src="assets/imgs/nom.png">
+        </ion-avatar>
+        <div class="bubble you" *ngIf="item.sentby != buddy.uid">
+          <h3 *ngIf="!imgornot[i]">{{item.message}}</h3>
+          <img src="assets/imgs/nom.png" *ngIf="imgornot[i]">
+        </div>
 
-      </ion-row>
-      <hr>
-      <ion-row>
-        <ion-col>pm_alert = {{pm_alert}}</ion-col>
+      </ion-item>
 
-      </ion-row>
-      <hr>
-      <ion-row>
-        <ion-col>pm_id = {{pm_id}}</ion-col>
-
-      </ion-row>
-      <hr>
-      <ion-row>
-        <ion-col>pm_quest = {{pm_quest}}</ion-col>
-
-      </ion-row>
-      <hr>
-      <ion-row>
-        <ion-col> pm_to = {{pm_to}}</ion-col>
-
-      </ion-row>
-      <hr>
-      <ion-row>
-        <ion-col>pm_topic = {{pm_topic}}</ion-col>
-
-      </ion-row>
-      <hr>
-      <ion-row>
-        <ion-col>question_status = {{question_status}}</ion-col>
-
-      </ion-row>
-      <hr>
-      <ion-row>
-        <ion-col>update_date = {{update_date}}</ion-col>
-
-      </ion-row>
-      <hr>
-      <ion-row>
-        <ion-col>update_by = {{update_by}}</ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-card>
+    </ion-list>
+  </div>
 </ion-content>
+
+<ion-footer ion-fixed>
+  <ion-toolbar class="no-border" color="white">
+    <ion-input [(ngModel)]="newmessage" placeholder="Write your message ..."></ion-input>
+    <ion-buttons end>
+      <button ion-button (click)="addmessage()">
+        <ion-icon name="send" color="primary"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

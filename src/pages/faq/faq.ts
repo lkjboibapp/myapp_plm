@@ -44,7 +44,7 @@ export class FaqPage {
           .map(ress => ress.json()).subscribe(dataa => {
             console.log("TestETPhoneHome5");
               this.faq = dataa.data;
-              console.log("this.faqq คือ "+this.faqq);
+              console.log("this.wwww คือ "+this.faqq);
           },
           err => {
               console.log("Error");

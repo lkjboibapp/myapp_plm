@@ -32,7 +32,7 @@
             <h5>1{{ item.faq_THanswer}}</h5> -->
            <!-- </ion-item> -->
            <ion-list *ngIf="item.faq_THtopic && this.faq">
-             <ion-item *ngFor="let item of faqq; let i = index" detail-none class="child-item" text-wrap>
+             <ion-item *ngFor="let item of faqq; let k = index" detail-none class="child-item" text-wrap>
                 <h5>{{ item.faq_THtopic}}</h5>
                 <p text-lowercase>{{ item.faq_THanswer}}</p>
              </ion-item>

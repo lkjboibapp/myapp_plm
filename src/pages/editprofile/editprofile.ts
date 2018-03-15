@@ -16,7 +16,7 @@ export class EditprofilePage {
   information: any[];//ของเสีย
   faq: any;
   child: any ;
-  constructor(public navCtrl: NavController, private http: Http,public alertCtrl: AlertController) 
+  constructor(public navCtrl: NavController, private http: Http,public alertCtrl: AlertController)
   {
   this.ETPhoneHome();
   // console.log('คือ======================================');
@@ -64,19 +64,19 @@ getItems(ev: any) {
    alert() {
     let alert = this.alertCtrl.create({
       title: 'ยืนยันการสมัครเรียน',
-      message: "คลิกตกลงเพื่อทำการสมัครเรียน",
+      //message: "เพื่อทำการสมัครเรียน",
       buttons: [
         {
           text: 'ไม่ยอมรับ',
           role: 'cancel',
           handler: () => {
-            console.log('ไม่ยอมรับ');
+            console.log('ยกเลิก');
           }
         },
         {
           text: 'ยอมรับ',
           handler: () => {
-            console.log('ยอมรับ');
+            console.log('ยืนยัน');
           }
         }
       ]
@@ -84,9 +84,8 @@ getItems(ev: any) {
     alert.present();
    }
   }
-  
-  
 
-  
 
-  
+
+
+

@@ -6,6 +6,7 @@ import 'rxjs/add/operator/map';
 
 let banService = 'http://localhost/service/ServiceMobile/Service_Imgslide.php/';
 let apiUrl = 'http://localhost/Service/ServiceMobile/login.php/';
+let contactUrl = 'http://localhost/Service/ServiceMobile/ServiceContact.php/';
 var Private_Message = 'http://localhost/service/ServiceMobile/Private_Message.php/';
 
 @Injectable()
@@ -20,6 +21,18 @@ export class AuthServiceProvider {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.post(apiUrl + type, JSON.stringify(credentials), { headers: headers })
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+  contactData(credentials, type) {
+    console.log("login ->", credentials);
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      this.http.post(contactUrl + type, JSON.stringify(credentials), { headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {

@@ -15,36 +15,42 @@
 <ion-content style="width:100%;height:80%;" >
   <div #map id="map"></div>
 </ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label floating>ชื่อ</ion-label>
-      <ion-input type="text" name="contac_by_name" [(ngModel)]="data.contac_by_name"></ion-input>
+  <ion-list >
+
+    <ion-item >
+        <div class="spacer" style="width:268px;height:17px;" id="menu-spacer2"></div>
+      <ion-icon color="secondary" name="md-person" item-left ></ion-icon>
+      <ion-input type="text" name="contac_by_name" placeholder=": ชื่อ" [(ngModel)]="data.contac_by_name"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>นามสกุล</ion-label>
-      <ion-input type="text" name="contac_by_surname" [(ngModel)]="data.contac_by_surname"></ion-input>
+      <ion-icon color="secondary" name="md-person" item-left ></ion-icon>
+      <ion-input type="text" name="contac_by_surname" placeholder=": นามสกุล" [(ngModel)]="data.contac_by_surname"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>เบอร์โทรศัพท์</ion-label>
-      <ion-input type="text" name="contac_by_tel" [(ngModel)]="data.contac_by_tel"></ion-input>
+
+      <ion-icon color="secondary" name="md-call" item-left ></ion-icon>
+      <ion-input type="text" name="contac_by_tel" placeholder=": เบอร์โทรศัพท์" [(ngModel)]="data.contac_by_tel"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>อีเมล์</ion-label>
-      <ion-input type="text" name="contac_by_email" [(ngModel)]="data.contac_by_email"></ion-input>
+
+      <ion-icon color="secondary" name="md-mail" item-left ></ion-icon>
+      <ion-input type="text" name="contac_by_email" placeholder=": อีเมล์" [(ngModel)]="data.contac_by_email"></ion-input>
     </ion-item>
 
 
     <ion-item>
-      <ion-label floating>หัวข้อ</ion-label>
-      <ion-input type="text" name="contac_subject" [(ngModel)]="data.contac_subject"></ion-input>
+
+      <ion-icon color="secondary" name="md-bookmarks" item-left ></ion-icon>
+      <ion-input type="text" name="contac_subject" placeholder=": หัวข้อ" [(ngModel)]="data.contac_subject"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>ประเภท</ion-label>
-      <ion-select type="text" name="contac_type" [(ngModel)]="data.contac_type">
+
+      <ion-icon color="secondary" name="md-pricetags" item-left ></ion-icon>
+      <ion-select type="text" name="contac_type" placeholder="ประเภท" [(ngModel)]="data.contac_type">
         <ion-option value="1">1</ion-option>
         <ion-option value="2">2</ion-option>
         <ion-option value="3">3</ion-option>
@@ -57,7 +63,7 @@
     <ion-item class="rowArear">
       <ion-row row-auto>
         <ion-col col-auto>
-          <span class="input-label">รายละเอียด :</span>
+          <span class="input-label">รายละเอียด</span>
         </ion-col>
       </ion-row>
       <ion-row row-auto>

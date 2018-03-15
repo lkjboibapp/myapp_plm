@@ -68,19 +68,19 @@
               </ion-col>
             </ion-row>
             <ion-row>
-              <ion-col>
+              <ion-col >
                 <ion-slides autoplay="200" loop="true" on-release="true" speed="10000">
-                  <ion-slide>
-                    <h1>Slide 2</h1>
+                  <ion-slide >
+                    <h1>NEWS </h1>
                   </ion-slide>
                   <ion-grid *ngFor="let item of news">
                     <ion-card class="setCard" (click)="openItem(item)">
-                      <ion-slide padding>
-                        <ion-row>
+                      <ion-slide  class="section2">
+                        <ion-row  >
                           <ion-col col-auto>
                             <!-- <img [src]="item.cms_picture" /> -->
                             <ion-card item-center class="setsizeimg">
-                              <img padding src="assets/imgs/nom.png" />
+                              <img  src="assets/img/room.jpg" />
                             </ion-card>
                             <h2>{{ item.cms_title}}</h2>
                             <p>{{ item.cms_short_title}}</p>

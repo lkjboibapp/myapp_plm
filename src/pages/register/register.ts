@@ -4,6 +4,7 @@ import { NavController, ToastController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { ELearningPage } from '../e-learning/e-learning';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
@@ -45,9 +46,11 @@ export class RegisterPage {
   
   
         let alert = this.alertCtrl.create({
-          title: 'ทำการสมัครเรียนเรียบร้อยแล้ว!!!',
+          title: 'แจ้งเตือน',
+          subTitle: 'ทำการสมัครเรียนเรียบร้อยแล้ว!!!',
           buttons: ['OK']
         });
+        this.navCtrl.setRoot(ELearningPage);
         alert.present();
   
         this.userData.idcard = '';
@@ -58,7 +61,6 @@ export class RegisterPage {
         this.userData.lastname = '';
         this.userData.department = '';
         this.userData.job = '';
-        // this.data.contac_type = '';
         this.data.response = '';
       }, error => {
         // console.log("Oooops!");

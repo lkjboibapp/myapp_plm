@@ -56,11 +56,6 @@ export class DetailCoursePage {
 
   ionViewDidLoad() {
     this.CourseOnline();
-    // this.course_title = this.navParams.get("course_title");
-    // this.course_detail = this.navParams.get("course_detail");
-    // this.course_short_title = this.navParams.get("course_short_title");
-    // this.course_picture = this.navParams.get("course_picture");
-    // this.file.lesson_id = this.navParams.get("course_id");
 
   }
 
@@ -76,18 +71,6 @@ export class DetailCoursePage {
       console.log(err);
     });
 
-    // let path = 'http://localhost/Service/ServiceMobile/ServiceLesson.php/getLesson';
-    // let encodedPath = encodeURI(path);
-    // let timeoutMS = 2000;
-    // this.http.get(encodedPath)
-    //   .timeout(timeoutMS)
-    //   .map(res => res.json()).subscribe(data => {
-    //     this.results_course = data.data;
-    //     console.log("show lesson = ", this.results_course);
-    //   },
-    //     err => {
-    //       console.log("err json load");
-    //     });
   }
 
   // ออกทุกหน้า
@@ -99,27 +82,31 @@ export class DetailCoursePage {
   }
 
   openVDO(id) {
-    this.navCtrl.push('FileLeanPage', {
-      id: id.id,
-    });
+    console.log("FileLeanPage");
+    // this.navCtrl.push('FileLeanPage', {
+    //   id: id.id,
+    // });
   }
 
   openPretest(id) {
-    this.navCtrl.push('PretestPage', {
-      id: id.id,
-    });
+    console.log("PretestPage");
+    // this.navCtrl.push('PretestPage', {
+    //   id: id.id,
+    // });
   }
 
   openPosttest(id) {
-    this.navCtrl.push('PosttestPage', {
-      id: id.id,
-    });
+    console.log("PosttestPage");
+    // this.navCtrl.push('PosttestPage', {
+    //   id: id.id,
+    // });
   }
 
   openQuestion(id) {
-    this.navCtrl.push('QuestionnairePage', {
-      id: id.id,
-    });
+    console.log("QuestionnairePage");
+    // this.navCtrl.push('QuestionnairePage', {
+    //   id: id.id,
+    // });
   }
 
 

@@ -10,13 +10,19 @@ import { LoginPage } from "../login/login";
   templateUrl: 'contact.html'
 })
 export class ContactPage {
-  
+
   userDetails:any;
+  
+  email:any;
+  orgchat:any;
 
   constructor(private loadingCtrl: LoadingController, public navCtrl: NavController,public alertCtrl: AlertController) {
     const data = JSON.parse(localStorage.getItem('userData'));
-    this.userDetails = data;
-    console.log(this.userDetails)
+    this.userDetails = data.data;
+    this.email = data.data.email;
+    this.orgchat = data.data.orgchat;
+
+    console.log(this.email);
 
     this.rePage();
   }

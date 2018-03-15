@@ -5,17 +5,21 @@
 </ion-header>
 
 
-<ion-content padding class="section">
+<ion-content class="section">
+    <ion-card >
   <ion-card padding item-center  *ngFor="let item of featuredlinks">
-
+     
     <button ion-button class="setsizeimg"  clear (click)=" OpenUrl(item.link_url);" >
     <!-- <img [src]="item.cms_picture" /> -->
-    <ion-img item-center class="setsizeimg" src="assets/imgs/nom.png">
+    <ion-img item-center class="setsizeimg" src="assets/img/p.png">
     </ion-img>
     <!-- <label>{{item.link_url}}</label>
     <label>{{item.link_name}}</label> -->
 
    </button>
 
+          <p item-center> {{ item.link_name}} </p>
+
   </ion-card>
+</ion-card >
 </ion-content>

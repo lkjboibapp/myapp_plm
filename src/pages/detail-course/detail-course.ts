@@ -47,26 +47,19 @@ export class DetailCoursePage {
     this.course_detail = this.data.course_detail;
     this.course_title = this.data.course_title;
     this.course_title = this.data.course_title;
-
-    console.log("data => ", this.data.course_detail);
-
-
   }
 
 
   ionViewDidLoad() {
     this.CourseOnline();
-
   }
 
 
 
   CourseOnline() {
     var course_id = { course_id: this.data.course_id };
-    console.log("course 123 ->",course_id);
     this.courService.getLesson(course_id, 'getLesson').then((result) => {
       this.results_course = result['data'];
-      console.log("data ->", result['data']);
     }, (err) => {
       console.log(err);
     });
@@ -82,10 +75,10 @@ export class DetailCoursePage {
   }
 
   openVDO(id) {
-    console.log("FileLeanPage");
-    // this.navCtrl.push('FileLeanPage', {
-    //   id: id.id,
-    // });
+    // console.log("หน้า/ ไฟล์ FileLeanPage ->");
+    this.navCtrl.push(FileLeanPage, {
+      id: id.id,
+    });
   }
 
   openPretest(id) {

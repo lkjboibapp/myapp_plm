@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -8,7 +7,7 @@ let banService = 'http://localhost/service/ServiceMobile/Service_Imgslide.php/';
 let apiUrl = 'http://localhost/Service/ServiceMobile/login.php/';
 let contactUrl = 'http://localhost/Service/ServiceMobile/ServiceContact.php/';
 var Private_Message = 'http://localhost/service/ServiceMobile/Private_Message.php/';
-
+var docCumentURL = 'http://localhost/Service/ServiceMobile/Private_Message_return.php/privatemassage';
 @Injectable()
 export class AuthServiceProvider {
 
@@ -16,6 +15,20 @@ export class AuthServiceProvider {
     console.log('Hello AuthServiceProvider Provider');
   }
 
+  docCumentData(credentials, type) {
+    console.log("login ->", credentials);
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      this.http.post(docCumentURL + type, JSON.stringify(credentials), { headers: headers })
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  //หน้าlogin
   postData(credentials, type) {
     console.log("login ->", credentials);
     return new Promise((resolve, reject) => {
@@ -28,6 +41,8 @@ export class AuthServiceProvider {
         });
     });
   }
+
+  //page contact service
   contactData(credentials, type) {
     console.log("login ->", credentials);
     return new Promise((resolve, reject) => {
@@ -60,7 +75,7 @@ export class AuthServiceProvider {
 
     return new Promise((resolve, reject) => {
       let headers = new Headers();
-      this.http.get(Private_Message + type, { headers: headers })
+      this.http.post(Private_Message + type,JSON.stringify(credentials),{ headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {
@@ -85,7 +100,7 @@ export class AuthServiceProvider {
   }
 
 
- 
+
 
 
 

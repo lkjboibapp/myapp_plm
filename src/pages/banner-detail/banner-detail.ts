@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 /**
  * Generated class for the BannerDetailPage page.
@@ -16,8 +16,8 @@ export class BannerDetailPage {
 
   [x: string]: any;
   imgslide_id: any;
-  imgslide_detail :any;
-  data:any;
+  imgslide_detail: any;
+  data: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
 
@@ -28,13 +28,13 @@ export class BannerDetailPage {
 
     this.data = this.navParams.get("id");
 
-   //this.imgslide_title = this.data.imgslide_title;
+    //this.imgslide_title = this.data.imgslide_title;
 
     this.imgslide_detail = this.data.imgslide_detail;
 
-    console.log("imgslide_detail =",this.imgslide_detail);
+    console.log("imgslide_detail =", this.imgslide_detail);
 
-    
+
   }
 
 }

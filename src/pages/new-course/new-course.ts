@@ -4,7 +4,7 @@ import { DetailCoursePage } from '../detail-course/detail-course';
 import { AlertController } from 'ionic-angular';
 import { CourServiceProvider } from '../../providers/cour/cour-service';
 import { LoginPage } from "../login/login";
-import { DashboardPage } from "../dashboard/dashboard";
+import { ELearningPage } from '../e-learning/e-learning';
 
 @Component({
   selector: 'page-new-course',
@@ -20,12 +20,12 @@ export class NewCoursePage {
 
   userDetails: any;
   constructor(private loadingCtrl: LoadingController, public navCtrl: NavController,
-              public courService: CourServiceProvider, public navParams: NavParams,
-              public alertCtrl: AlertController, public viewCtrl: ViewController) {
+    public courService: CourServiceProvider, public navParams: NavParams,
+    public alertCtrl: AlertController, public viewCtrl: ViewController) {
 
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data;
-    console.log(this.userDetails)
+    // console.log(this.userDetails)
 
 
     this.rePage();
@@ -58,14 +58,13 @@ export class NewCoursePage {
         buttons: [{
           text: 'ตกลง',
           handler: () => {
-            this.navCtrl.push(LoginPage)
-            console.log("inter OK");
+            this.navCtrl.setRoot(LoginPage)
             // Your Imagination should go here
           }
         }, {
           text: 'ยกเลิก',
           handler: () => {
-            this.navCtrl.push(DashboardPage);
+            this.navCtrl.setRoot(ELearningPage);
           }
         }
         ]

@@ -29,7 +29,7 @@ export class AddRoomPage {
   // data: any = {};
 
   resposeData: any;
-  data = { "pm_quest": "", "question_status": "", "pm_to": "", "pm_topic": "" };
+  data = { "pm_quest": "", "question_status": "", "pm_to": "", "pm_topic": "","create_by":""};
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -37,7 +37,9 @@ export class AddRoomPage {
     public http: Http,
     public authService: AuthServiceProvider,
     public toastCtrl: ToastController) {
-    this.http = http;
+    const data = JSON.parse(localStorage.getItem('userData'));
+    let data_id = data.data;
+    this.data.create_by = data_id['id'];
   }
 
   ionViewDidLoad() {
@@ -53,51 +55,18 @@ export class AddRoomPage {
     this.http.get(encodedPath)
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
-        let responseData = data;
-        this.pm = responseData.data;
-        // console.log(responseData.data);
+        this.pm = data.data;
       },
         err => {
           console.log('error in ETPhoneHome');
         });
   }
-  // submit() {
-          //   var link = 'http://localhost/service/ServiceMobile/Private_Message.php/InsertPrivateMessage'
-          //   var myData = JSON.stringify(
-          //     {
-          //       pm_to: this.data.pm_to,
-          //       pm_topic: this.data.pm_topic,
-          //       question_status: this.data.question_status,
-          //       pm_quest: this.data.pm_quest,
-          //       all_file: this.data.all_file
-          //     });
-
-          //   this.http.post(link, myData)
-          //     .subscribe(data => {
-          //       this.data.response = data["_body"];
-          //       console.log("! show data = ", this.data.response);
-
-          //       let alert = this.alertCtrl.create({
-          //         title: this.data.response,
-          //         buttons: ['OK']
-          //       });
-          //       alert.present();
-
-          //       this.data.pm_to = '';
-          //       this.data.pm_topic = '';
-          //       this.data.pm_quest = '';
-          //       this.data.question_status = '';
-          //       this.data.all_file = '';
-          //       this.data.response = '';
-          //     }, error => {
-          //       console.log("Oooops!");
-          //     });
-  // }
-
-
 
   submit()
     {
+    // console.log("this.data.create_by->", this.data.create_by);
+      
+    // console.log("this.data->", this.data);
       this.authService.messagePostData(this.data, 'InsertPrivateMessage').then((result) => {
         let alert = this.alertCtrl.create(
           {

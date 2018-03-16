@@ -14,12 +14,8 @@
   <ion-list>
     <ion-item>
       <ion-label>ผู้รับ</ion-label>
-      <ion-select name="pm_to" [(ngModel)]="data.pm_to" okText="ตกลง" cancelText="ยกเลิก">
-        <ion-option *ngFor="let item of pm">
-          <ion-item>
-            <ion-option value="item.superuser">{{ item.username}}</ion-option>
-          </ion-item>
-        </ion-option>
+      <ion-select  name="pm_to" [(ngModel)]="data.pm_to" okText="ตกลง" cancelText="ยกเลิก" >
+            <ion-option *ngFor="let item of pm" value={{item.id}} aria-placeholder="เลือก">{{ item.username}}</ion-option>
       </ion-select>
     </ion-item>
 

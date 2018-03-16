@@ -28,6 +28,7 @@ import { NewsDetailPage } from '../pages/news-detail/news-detail';
 import { PrivateMessageReturnPage } from '../pages/private-message-return/private-message-return';
 import { NewCoursePage } from '../pages/new-course/new-course';
 import { DetailCoursePage } from '../pages/detail-course/detail-course';
+import { FileLeanPage } from '../pages/file-lean/file-lean';
 
 import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -49,6 +50,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { CourServiceProvider } from '../providers/cour/cour-service';
 import { SearchPage } from '../pages/search/search';
+
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -85,7 +89,8 @@ export function createTranslateLoader(http: HttpClient) {
     PrivateMessageReturnPage,
     NewCoursePage,
     DetailCoursePage,
-    SearchPage
+    SearchPage,
+    FileLeanPage
   ],
   imports: [
 
@@ -120,6 +125,7 @@ export function createTranslateLoader(http: HttpClient) {
     ContactusPage,
     PrivatemessagePage,
     LoginPage,
+    FileLeanPage,
     BannerPage,
     NewsPage,
     DocumentsPage,
@@ -147,7 +153,11 @@ export function createTranslateLoader(http: HttpClient) {
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     Camera,
     AuthServiceProvider,
-    CourServiceProvider
+    CourServiceProvider,
+    FileTransfer,
+    FileTransferObject,
+    File,
+    Camera
   ]
 })
 export class AppModule { }

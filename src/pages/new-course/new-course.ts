@@ -19,16 +19,15 @@ export class NewCoursePage {
   public filter_course: any;
 
   userDetails: any;
+
+
   constructor(private loadingCtrl: LoadingController, public navCtrl: NavController,
     public courService: CourServiceProvider, public navParams: NavParams,
     public alertCtrl: AlertController, public viewCtrl: ViewController) {
 
+    this.rePage();
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data;
-    // console.log(this.userDetails)
-
-
-    this.rePage();
 
   }
 
@@ -45,7 +44,7 @@ export class NewCoursePage {
     });
 
     loader.present();
-    // this.alertLogin();
+   
   }
 
   //จะทำงานต่อจาก constructor เป็นลำดับที่ 2

@@ -57,8 +57,6 @@ export class AuthServiceProvider {
   }
 
   messagePostData(credentials, type) {
-    console.log("MessagePostData = ", credentials, "type = ", type);
-
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.post(Private_Message + type, JSON.stringify(credentials), { headers: headers })
@@ -72,7 +70,6 @@ export class AuthServiceProvider {
   }
 
   messageGetData(credentials, type) {
-
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.post(Private_Message + type,JSON.stringify(credentials),{ headers: headers })

@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, ModalController, NavController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, LoadingController} from 'ionic-angular';
 
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 import { AlertController } from 'ionic-angular';
 
 import { AddRoomPage } from '../add-room/add-room'
-
+import { LoginPage } from "../login/login";
+import { ELearningPage } from '../e-learning/e-learning';
 import { PrivateMessageReturnPage } from '../private-message-return/private-message-return';
 
 @IonicPage()
@@ -16,39 +17,80 @@ import { PrivateMessageReturnPage } from '../private-message-return/private-mess
 })
 export class PrivatemessagePage {
 
-  [x: string]: {};
-  public data: any
-
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController,
+  data_result: any;
+  public data_id :any;
+  public data: any 
+  constructor(private loadingCtrl: LoadingController,public navCtrl: NavController, public modalCtrl: ModalController,
     public authService: AuthServiceProvider, public alertCtrl: AlertController, ) {
-
-      
+  
+    this.data = JSON.parse(localStorage.getItem('userData'));
+    this.data_id = this.data.data;
+    // this.alertLogin();
   }
 
   ionViewDidLoad() {
-    this.messageData();
+    this.rePage();
+  }
+  
+  rePage() {
+    let loader = this.loadingCtrl.create({
+      spinner: "ios",
+      content: "Loading Please Wait...",
+      duration: 500
+    })
+    loader.onDidDismiss(() => {
+      // console.log('Dismissed loading หยุดทำงานตัวโหลด เสดแล้วเรียก alert() ');
+      this.alertLogin();
+      
+      this.messageData();
+    });
+
+    loader.present();
 
   }
 
+  alertLogin() {
+    if (this.data_id == null) {
+
+      let alert = this.alertCtrl.create({
+        title: 'แจ้งเตือน',
+        subTitle: 'กรุณา Login ก่อนนะครับ',
+        buttons: [{
+          text: 'ตกลง',
+          handler: () => {
+            this.navCtrl.setRoot(LoginPage)
+            // Your Imagination should go here
+          }
+        }, {
+          text: 'ยกเลิก',
+          handler: () => {
+            this.navCtrl.setRoot(ELearningPage);
+          }
+        }
+        ]
+      });
+      alert.present();
+    } else {
+      console.log("lkdcopdkcopdkc")
+    }
+  }
+
   addRoom() {
-    // console.log("addroom");
     this.navCtrl.push(AddRoomPage);
   }
 
   messageData() {
-    this.authService.messageGetData(this.data, 'getPrivateMessage').then((result) => {
+    let id_course = { create_by: this.data_id.id };
+    this.authService.messageGetData(id_course, 'getPrivateMessage').then((result) => {
       this.data_result = result['data'];
-      console.log(this.data_result);
     }, (err) => {
       console.log(err);
     });
   }
 
   doRefresh(refresher) {
-    // console.log('Begin async operation ->', refresher);
-
+    this.messageData();
     setTimeout(() => {
-      // console.log('Async operation has ended');
       refresher.complete();
     }, 1000);
   }

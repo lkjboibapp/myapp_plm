@@ -96,7 +96,6 @@ export class PrivatemessagePage {
   }
 
   joinRoom(item) {
-    console.log("key = ", item);
     this.navCtrl.push(PrivateMessageReturnPage, { key: item });
     // this.navCtrl.setRoot(PrivateMessageReturnPage, { key: item });   ไม่มีปุมย้อนกลับ
   }

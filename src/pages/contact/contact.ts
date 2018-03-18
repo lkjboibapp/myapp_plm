@@ -12,15 +12,17 @@ import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
 })
 export class ContactPage {
 
+  public result: any;
  public result_contact: any;
   userDetails: any;
+
+  email: any;
+  orgchart: any;
 
   prefix: any;
   name: any;
   lastname: any;
-  email: any;
   idcard: any;
-  orgchat: any;
   departmaent: any;
   job: any;
 
@@ -32,24 +34,43 @@ export class ContactPage {
 
 
     this.userDetails = data;
-    console.log("this.userDetails11111->",this.userDetails);
+  
     let Details = this.userDetails.data;
+    // console.log("let Details->",Details);
+
     this.email = Details.email;
-    this.orgchat = Details.orgchat_lv2;
+    this.orgchart = Details.orgchart_lv2;
+  
+    this.queryContact();
 
-
-    console.log("result_contact99999->",this.result_contact);
+    // console.log("let Details->",Detailss);
     
-   
-
-
   }
 
   queryContact() {
     let Qdata = this.userDetails.data;
+    // console.log("let Qdata->",Qdata);
     var user_id = { user_id: Qdata.id };
+    // console.log("var user_id->",user_id);
     this.authService.contactData(user_id, 'getProfile').then((result) => {
+
     this.result_contact = result;
+    console.log("this.authService->",this.result_contact.data);
+    // let Qperfix = this.result_contact;
+    // let Qdata = Qperfix.data;
+    // console.log("result->",Qdata);
+    // this.name = Qdata.Array.firstname;
+    // console.log("let name->",name);
+
+
+      
+      // let Qperfix = this.result_contact;
+      // let data = Qperfix['data'];
+      // console.log(" Qperfix->",data);
+
+      // this.prefix = Qperfix.position;
+      // // this.orgchat = Details.orgchat_lv2;
+      // console.log(" this.prefix->",   Qperfix.title_id);
       
     }, (err) => {
       console.log(err);
@@ -64,15 +85,7 @@ export class ContactPage {
     })
     loader.onDidDismiss(() => {
       this.alertLogin();
-      this.queryContact();
       
-      // let Qperfix = this.result_contact;
-      // let data = Qperfix['data'];
-      // console.log(" Qperfix->",data);
-
-      // this.prefix = Qperfix.position;
-      // // this.orgchat = Details.orgchat_lv2;
-      // console.log(" this.prefix->",   Qperfix.title_id);
 
     });
 

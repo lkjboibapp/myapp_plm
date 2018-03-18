@@ -14,12 +14,12 @@
   <form id="contact-form1">
     <ion-item id="textname">
       <ion-label>
-        ชื่อ : <p>นาย ทีมโมบาย</p>
+        ชื่อ : <p>{{prefix}} {{name}}</p>
       </ion-label>
     </ion-item>
     <ion-item id="textlast">
       <ion-label>
-        นามสกุล: <p>เชอร์วิส</p>
+        นามสกุล: <p>{{lastname}}</p>
       </ion-label>
     </ion-item>
     <ion-item id="textemail">
@@ -29,22 +29,22 @@
     </ion-item>
     <ion-item id="textidcard">
       <ion-label>
-        เลขบัตรประชาชน : <p>1234567890123</p>
+        เลขบัตรประชาชน : <p>{{idcard}}</p>
       </ion-label>
     </ion-item>
     <ion-item id="textcourse">
       <ion-label>
-        เลือกหลักสูตร : <p>{{orgchat}}</p>
+        เลือกหลักสูตร : <p>{{orgchart}}</p>
       </ion-label>
     </ion-item>
     <ion-item id="textgovernment">
       <ion-label>
-        หน่วยงาน : <p>BWS</p>
+        หน่วยงาน : <p>{{departmaent}}</p>
       </ion-label>
     </ion-item>
     <ion-item id="textprofessiont">
       <ion-label>
-        กลุ่มงาน (อาชีพ) : <p>นักเรียน/นักศึกษา</p>
+        กลุ่มงาน (อาชีพ) : <p>{{job}}</p>
       </ion-label>
     </ion-item>
     <!-- <ion-item color="none" id="contact-list-item10">

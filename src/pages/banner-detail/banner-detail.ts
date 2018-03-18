@@ -28,7 +28,7 @@ export class BannerDetailPage {
 
     this.data = this.navParams.get("id");
 
-    //this.imgslide_title = this.data.imgslide_title;
+    this.imgslide_title = this.data.imgslide_title;
 
     this.imgslide_detail = this.data.imgslide_detail;
 

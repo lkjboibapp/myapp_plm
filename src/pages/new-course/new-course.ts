@@ -66,18 +66,27 @@ export class NewCoursePage {
             this.navCtrl.setRoot(ELearningPage);
           }
         }
-        ]
+        ],
+        enableBackdropDismiss: false // <- Here! :)
       });
       alert.present();
     } else {
-      console.log("lkdcopdkcopdkc")
+      this.CategoryCourse();
+      this.courseService();
+      console.log("service ok")
     }
+  }
+  showAlert(title, subTitle) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: subTitle,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
   //จะทำงานก็ต่อเมื่อโหลดข้อมูลเสดเรียบร้อยแล้วถึงจะทำงาน
   ngAfterViewInit() {
-    this.CategoryCourse();
-    this.courseService();
   }
 
   //call service CategoryCourse

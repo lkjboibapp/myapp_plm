@@ -11,9 +11,10 @@ import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
   templateUrl: 'contact.html'
 })
 export class ContactPage {
-
+  public data_id: any;
+  public data: any; 
   public result: any;
- public result_contact: any;
+  public result_contact: any;//data_result: any;
   userDetails: any;
 
   email: any;
@@ -28,73 +29,31 @@ export class ContactPage {
 
   constructor(private loadingCtrl: LoadingController, public authService: AuthServiceProvider, public navCtrl: NavController, public alertCtrl: AlertController) {
     this.rePage();
-
-
-    const data = JSON.parse(localStorage.getItem('userData'));
-
-
-    this.userDetails = data;
-  
-    let Details = this.userDetails.data;
-    // console.log("let Details->",Details);
-
-    this.email = Details.email;
-    this.orgchart = Details.orgchart_lv2;
-  
-    this.queryContact();
-
-    // console.log("let Details->",Detailss);
-    
+    this.data = JSON.parse(localStorage.getItem('userData'));
+    this.data_id = this.data;
+    console.log(" this.data_id->" + this.data_id);
   }
 
-  queryContact() {
-    let Qdata = this.userDetails.data;
-    // console.log("let Qdata->",Qdata);
-    var user_id = { user_id: Qdata.id };
-    // console.log("var user_id->",user_id);
-    this.authService.contactData(user_id, 'getProfile').then((result) => {
-
-    this.result_contact = result;
-    console.log("this.authService->",this.result_contact.data);
-    // let Qperfix = this.result_contact;
-    // let Qdata = Qperfix.data;
-    // console.log("result->",Qdata);
-    // this.name = Qdata.Array.firstname;
-    // console.log("let name->",name);
-
-
-      
-      // let Qperfix = this.result_contact;
-      // let data = Qperfix['data'];
-      // console.log(" Qperfix->",data);
-
-      // this.prefix = Qperfix.position;
-      // // this.orgchat = Details.orgchat_lv2;
-      // console.log(" this.prefix->",   Qperfix.title_id);
-      
-    }, (err) => {
-      console.log(err);
-    });
-  }
 
   rePage() {
-    let loader = this.loadingCtrl.create({
+    console.log("ทำงานน่ะ1");
+    let lodepage = this.loadingCtrl.create({
       spinner: "ios",
       content: "กรุณารอสักครู่...",
       duration: 500
     })
-    loader.onDidDismiss(() => {
+    console.log("ทำงานน่ะ2");
+    lodepage.onDidDismiss(() => {
+      console.log("ทำงานน่ะ3");
       this.alertLogin();
-      
-
     });
+    console.log("ทำงานน่ะ4");
+    lodepage.present();
 
-    loader.present();
   }
 
   alertLogin() {
-    if (this.userDetails == null) {
-
+    if (this.data_id == null) {
       let alert = this.alertCtrl.create({
         title: 'แจ้งเตือน',
         subTitle: 'กรุณาเข้าสู่ระบบ!!!',
@@ -109,12 +68,56 @@ export class ContactPage {
             this.navCtrl.setRoot(ELearningPage);
           }
         }
-        ]
+        ],
+        enableBackdropDismiss: false
       });
       alert.present();
     } else {
-      // console.log("lkdcopdkcopdkc")
+      console.log("ล๊อกอินแล้ว");
+      this.queryContact();
+      
     }
+  }
+
+  queryContact() {
+    let data_id = this.data_id.data;
+    console.log("let data_id->", this.data_id.data);
+    this.email = data_id.email;
+    this.orgchart = data_id.orgchart_lv2;
+  
+
+    // console.log("let Details->",Detailss);
+    // let Details = this.userDetails.data;
+    // console.log("let Details->", this.userDetails.data);//{id:"1",usernae:"admin",password:"1313125462315641321"}
+
+    let id_contact = { user_id: data_id.id };
+    console.log("let id_contact->",id_contact);
+    this.authService.contactData(id_contact, 'getProfile').then((result) => {
+      this.result_contact = this.result;
+      // this.result_contact = data;      
+      console.log(" this.result_contact->", this.result_contact);
+
+    //   this.result_contact = result;
+    //   console.log("this.authService->", this.result_contact.data);
+    //   let Qperfix = this.result_contact;
+    //   let Qdata = Qperfix.data;
+    //   console.log("result->", Qdata);
+    //   this.name = Qdata.Array.firstname;
+    //   console.log("let name->", name);
+
+
+
+      // let Qperfix = this.result_contact;
+      // let data = Qperfix['data'];
+      // console.log(" Qperfix->",data);
+
+      // this.prefix = Qperfix.position;
+      // // this.orgchat = Details.orgchat_lv2;
+      // console.log(" this.prefix->",   Qperfix.title_id);
+
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   logoutPage() {

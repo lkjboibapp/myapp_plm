@@ -60,7 +60,7 @@ export class FeaturedlinksPage {
       // console.log("test usa", this.usability);
       this.featuredlinks = this.featuredlinks.filter((item) => {
         // console.log(item.usa_title.toLowerCase())
-        return (item.link_name.item.link_url.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (item.link_name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       });
     } else if (val == '') {
       this.ETPhoneHome();

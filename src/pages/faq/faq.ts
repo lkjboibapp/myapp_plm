@@ -18,13 +18,13 @@ export class FaqPage {
         // console.log('คือ======================================');
     }
     ETPhoneHome() {
-        let path = 'http://localhost/Service/ServiceMobile/ServiceFAQ.php/getfaq';
+        let path = 'http://localhost/Service/ServiceMobile/ServiceFAQ.php/getfaq_type';
         let encodedPath = encodeURI(path);
         let timeoutMS = 10000;
         this.http.get(encodedPath)
             .timeout(timeoutMS)
             .map(res => res.json()).subscribe(dataf => {
-                this.faqq = dataf.data;
+                this.faq = dataf.data;
                 // console.log("TestETPhoneHome8");
             },
                 err => {
@@ -33,7 +33,7 @@ export class FaqPage {
     }
 
     ETPhoneHomeQuery() {
-      let pathh = 'http://localhost/Service/ServiceMobile/ServiceFAQ.php/getfaq_type';
+      let pathh = 'http://localhost/Service/ServiceMobile/ServiceFAQ.php/getfaq';
       console.log("TestETPhoneHome2");
       let encodedPathh = encodeURI(pathh);
       console.log("TestETPhoneHome3");
@@ -43,7 +43,7 @@ export class FaqPage {
           .timeout(timeoutMSS)
           .map(ress => ress.json()).subscribe(dataa => {
             console.log("TestETPhoneHome5");
-              this.faq = dataa.data;
+              this.faqq = dataa.data;
               console.log("this.wwww คือ "+this.faqq);
           },
           err => {

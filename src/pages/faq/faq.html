@@ -21,20 +21,20 @@
          <ion-icon item-left name="md-arrow-dropright" *ngIf="!item.open"></ion-icon>
          <ion-icon item-left name="md-arrow-dropdown" *ngIf="item.open"></ion-icon>
          <!-- หัวข้อ -->
-         <h3>{{ item.faq_THtopic}}</h3>
+         <h3>{{ item.faq_type_title_TH}}</h3>
        </button>
        
        <!-- สไลด์เนื้อหา -->
-       <ion-list *ngIf="item.faq_THtopic && item.open" no-lines>
+       <ion-list *ngIf="item.faq_type_title_TH && item.open" no-lines>
            <!-- <ion-item *ngIf="!item.faq_THtopic"  detail-none class="child-item" text-wrap> -->
             <!-- <h5>1{{ item.faq_THtopic}}</h5>
             <p text-lowercase>1{{ item.faq_THtopic}}</p>
             <h5>1{{ item.faq_THanswer}}</h5> -->
            <!-- </ion-item> -->
-           <ion-list *ngIf="item.faq_THtopic && this.faq">
-             <ion-item *ngFor="let item of faqq; let k = index" detail-none class="child-item" text-wrap>
-                <h5>{{ item.faq_THtopic}}</h5>
-                <p text-lowercase>{{ item.faq_THanswer}}</p>
+           <ion-list *ngIf="item.faq_type_title_TH && this.faq">
+             <ion-item *ngFor="let item of faq; let k = index" detail-none class="child-item" text-wrap>
+                <h5>{{ item.faq_type_title_TH}}</h5>
+                <p text-lowercase>{{ item.faq_type_title_TH}}</p>
              </ion-item>
             </ion-list>
           </ion-list>

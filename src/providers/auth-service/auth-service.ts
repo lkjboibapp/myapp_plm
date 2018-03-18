@@ -44,7 +44,7 @@ export class AuthServiceProvider {
 
   //page contact service
   contactData(credentials, type) {
-    console.log("contactData ->", credentials);
+    // console.log("contactData ->", credentials);
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.post(contactUrl + type, JSON.stringify(credentials), { headers: headers })

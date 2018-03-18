@@ -22,14 +22,15 @@ export class PrivatemessagePage {
   public data: any 
   constructor(private loadingCtrl: LoadingController,public navCtrl: NavController, public modalCtrl: ModalController,
     public authService: AuthServiceProvider, public alertCtrl: AlertController, ) {
-  
+    
+      this.rePage();
     this.data = JSON.parse(localStorage.getItem('userData'));
-    this.data_id = this.data.data;
+    this.data_id = this.data;
     // this.alertLogin();
   }
 
   ionViewDidLoad() {
-    this.rePage();
+    
   }
   
   rePage() {
@@ -41,17 +42,12 @@ export class PrivatemessagePage {
     loader.onDidDismiss(() => {
       // console.log('Dismissed loading หยุดทำงานตัวโหลด เสดแล้วเรียก alert() ');
       this.alertLogin();
-      
-      this.messageData();
     });
-
     loader.present();
-
   }
 
   alertLogin() {
     if (this.data_id == null) {
-
       let alert = this.alertCtrl.create({
         title: 'แจ้งเตือน',
         subTitle: 'กรุณา Login ก่อนนะครับ',
@@ -71,7 +67,8 @@ export class PrivatemessagePage {
       });
       alert.present();
     } else {
-      console.log("lkdcopdkcopdkc")
+      this.messageData();
+      console.log("this.data_id ไม่เท่ากับ null")
     }
   }
 
@@ -80,7 +77,9 @@ export class PrivatemessagePage {
   }
 
   messageData() {
-    let id_course = { create_by: this.data_id.id };
+    let data_id = this.data_id.data;
+    let id_course = { create_by: data_id.id };
+    console.log("id_course->",id_course)
     this.authService.messageGetData(id_course, 'getPrivateMessage').then((result) => {
       this.data_result = result['data'];
     }, (err) => {

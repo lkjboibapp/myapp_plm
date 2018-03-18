@@ -63,7 +63,8 @@ export class PrivatemessagePage {
             this.navCtrl.setRoot(ELearningPage);
           }
         }
-        ]
+        ],
+        enableBackdropDismiss: false // <- Here! :)
       });
       alert.present();
     } else {
@@ -71,6 +72,7 @@ export class PrivatemessagePage {
       console.log("this.data_id ไม่เท่ากับ null")
     }
   }
+  
 
   addRoom() {
     this.navCtrl.push(AddRoomPage);

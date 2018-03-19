@@ -68,6 +68,8 @@ export class AddRoomPage {
       
     // console.log("this.data->", this.data);
       this.authService.messagePostData(this.data, 'InsertPrivateMessage').then((result) => {
+
+        console.log("addroom result->",result);
         let alert = this.alertCtrl.create(
           {
             title: 'ส่งข้อความเรียบร้อยแล้ว!!!',

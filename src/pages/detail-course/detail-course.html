@@ -5,11 +5,11 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
 
-  <ion-toolbar>
-    <ion-segment>
-      <ion-segment-button>
+<ion-content class="section">
+  <ion-toolbar >
+    <ion-segment class="section2"> 
+      <ion-segment-button  >
         ภาพรวมหลักสูตร
       </ion-segment-button>
       <ion-segment-button>
@@ -27,7 +27,7 @@
         <ion-card>
           <ion-col>
             <!-- <img src="asset/imgs/" /> -->
-            <img height="100%" src="assets/imgs/nom.png" />
+            <img height="100%" src="assets/img/picture.jpg" />
 
           </ion-col>
         </ion-card>
@@ -77,12 +77,10 @@
               </label>
               <ion-row>
                 <ion-col col-75>
-                  <label>
-                    แบบทดสอบก่อนเรียน
-                  </label>
+                  <label >แบบทดสอบก่อนเรียน</label>
                 </ion-col>
                 <ion-col col-auto>
-                  <button ion-button clear item-end (click)="openPretest(p)">
+                  <button ion-button clear item-end (click)="QuizPage()">
                     ทำแบบทดสอบ
                   </button>
                 </ion-col>

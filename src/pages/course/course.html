@@ -10,23 +10,23 @@
 </ion-header>
 <ion-content  id="page3" class="section">
   <ion-searchbar  (ionInput)="getItems($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar>
-<label paddinng >
-    <article>
-        <h3 style="text-align:center;">หมวดหมู่หลักสูตร</h3>
+<label paddinng  >
+    <article  >
+        <h3  >หมวดหมู่หลักสูตร</h3>
       <select (change)="selectChangHandler($event)">
-        <option *ngFor="let item of results" value="{{ item.cate_id }}">{{ item.cate_title }}</option>
+        <option *ngFor="let item of results" value="{{ item.cate_id }}" class="section1">{{ item.cate_title }}</option>
       </select>
     </article>
 
-    <ion-grid>
-      <ion-row>
+    <ion-grid >
+      <ion-row >
           <ion-col col-6 col-md-4 col-xl-3 *ngFor="let i of text">
-              <ion-card class="section1" (click)="openItem(i)">
+              <ion-card class="section3" (click)="openItem(i)" >
                   <ion-card >
-                    <img height="100%" src="assets/imgs/nom.png" />
+                    <img height="90%" src="assets/img/pictureone.jpg" />
                   </ion-card>
-                <div class="container" padding>
-                  <p>{{ i.course_short_title }}</p>
+                <div  padding>
+                  <p item-center>{{ i.course_short_title }}</p>
                 </div>
               </ion-card>
             </ion-col>

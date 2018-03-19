@@ -101,6 +101,10 @@ export class DetailCoursePage {
     //   id: id.id,
     // });
   }
+  
+  QuizPage(id) {
+    console.log("QuizPage");
+  }
 
-
+ 
 }

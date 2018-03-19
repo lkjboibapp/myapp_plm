@@ -17,22 +17,26 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-searchbar (ionInput)="getSearch($event)"></ion-searchbar>
+<ion-content padding class="section">
+  <ion-searchbar (ionInput)="getSearch($event)"placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar>
 
-  <label paddinng>
+  <label padding>
+
     <article>
-      <h3 style="text-align:center;">หมวดหมู่หลักสูตร</h3>
-      <select (change)="selectChangHandler($event)">
+
+      <h3 style="color:#8FAF37; text-align:center;">หมวดหมู่หลักสูตร</h3>
+      <div style="text-align:center;">
+        <select (change)="selectChangHandler($event)">
         <option>ทั้งหมด</option>
         <option *ngFor="let item of data" value="{{ item.cate_id }}">{{ item.cate_title }}</option>
       </select>
+    </div>
     </article>
-  
+
     <ion-grid>
       <ion-row>
         <ion-col col-6 col-md-4 col-xl-3 *ngFor="let i of filter_course">
-          <ion-card (click)="getItemCourse(i)">
+          <ion-card  class="section1" (click)="getItemCourse(i)">
             <ion-card>
               <img height="100%" src="assets/imgs/nom.png" />
             </ion-card>

@@ -7,7 +7,7 @@ import { AlertController } from 'ionic-angular';
 
 import { AddRoomPage } from '../add-room/add-room'
 import { LoginPage } from "../login/login";
-import { ELearningPage } from '../e-learning/e-learning';
+import { TabsControllerPage } from '../tabs-controller/tabs-controller';
 import { PrivateMessageReturnPage } from '../private-message-return/private-message-return';
 
 @IonicPage()
@@ -54,13 +54,13 @@ export class PrivatemessagePage {
         buttons: [{
           text: 'ตกลง',
           handler: () => {
-            this.navCtrl.setRoot(LoginPage)
+            this.navCtrl.setRoot(LoginPage);
             // Your Imagination should go here
           }
         }, {
           text: 'ยกเลิก',
           handler: () => {
-            this.navCtrl.setRoot(ELearningPage);
+            this.navCtrl.setRoot(TabsControllerPage);
           }
         }
         ],

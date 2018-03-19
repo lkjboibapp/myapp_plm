@@ -33,14 +33,8 @@ export class ContactPage {
      this.rePage();
 
     this.data = JSON.parse(localStorage.getItem('userData'));
-    console.log("this.data->",this.data);
     this.data_id = this.data;
-    console.log("this.data_id->",this.data_id);
-    let Details = this.data_id.data;
-    console.log("let Details->",Details);
-    this.email = Details.email;
-    this.orgchart = Details.orgchart_lv2;
-  
+   
   }
 
   queryContact() {
@@ -71,18 +65,14 @@ export class ContactPage {
   }
 
   rePage() {
-    console.log("ทำงานน่ะ1");
     let lodepage = this.loadingCtrl.create({
       spinner: "ios",
       content: "กรุณารอสักครู่...",
       duration: 500
     })
-    console.log("ทำงานน่ะ2");
     lodepage.onDidDismiss(() => {
-      console.log("ทำงานน่ะ3");
       this.alertLogin();
     });
-    console.log("ทำงานน่ะ4");
     lodepage.present();
 
   }
@@ -108,8 +98,11 @@ export class ContactPage {
       });
       alert.present();
     } else {
-      console.log("ล๊อกอินแล้ว");
       this.queryContact();
+      let Details = this.data_id.data;
+      this.email = Details.email;
+      this.orgchart = Details.orgchart_lv2;
+
       
     }
   }

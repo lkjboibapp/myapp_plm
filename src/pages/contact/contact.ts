@@ -30,20 +30,21 @@ export class ContactPage {
   job: any;
 
   constructor(private loadingCtrl: LoadingController, public authService: AuthServiceProvider, public navCtrl: NavController, public alertCtrl: AlertController) {
-    this.rePage();
-    const data = JSON.parse(localStorage.getItem('userData'));
-    console.log("data",data);
-    this.userDetails = data;
-    console.log("this.userDetails",this.userDetails);
-    let Details = this.userDetails.data;
+     this.rePage();
+
+    this.data = JSON.parse(localStorage.getItem('userData'));
+    console.log("this.data->",this.data);
+    this.data_id = this.data;
+    console.log("this.data_id->",this.data_id);
+    let Details = this.data_id.data;
+    console.log("let Details->",Details);
     this.email = Details.email;
     this.orgchart = Details.orgchart_lv2;
   
-    this.queryContact();
   }
 
   queryContact() {
-    let Qdata = this.userDetails.data;
+    let Qdata = this.data_id.data;
     var user_id = { user_id: Qdata.id };
     this.authService.contactData(user_id, 'getProfile')
     .then((result) => {
@@ -87,7 +88,7 @@ export class ContactPage {
   }
 
   alertLogin() {
-    if (this.userDetails == null) {
+    if (this.data_id == null) {
       let alert = this.alertCtrl.create({
         title: 'แจ้งเตือน',
         subTitle: 'กรุณาเข้าสู่ระบบ!!!',

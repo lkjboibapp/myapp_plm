@@ -13,19 +13,18 @@
     <ion-list id="login-list2">
       <ion-item>
         <ion-label floating>เลขบัตรประจำตัวประชาชน</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" value="{{idcard}}"></ion-input>
         <ion-icon color="secondary" name="md-contact" item-left style="margin-top: 35px;"></ion-icon>
       </ion-item>
       <ion-item>
         <ion-label floating>อีเมล์</ion-label>
-        <ion-input type="text"></ion-input>
+    <ion-input type="text" name="email" value="{{email}}"></ion-input>
         <ion-icon color="secondary" name="md-mail" item-left style="margin-top: 35px;"></ion-icon>
       </ion-item>
       <ion-item>
         <ion-label floating>เลือกหลักสูตร</ion-label>
-        <ion-icon color="secondary" name="md-bookmarks" item-left style="margin-top: 35px;"></ion-icon>
+        <ion-icon color="secondary" name="md-bookmarks"  item-left style="margin-top: 35px;"></ion-icon>
         <ion-select type="text">
-
           <ion-option>[Select all]</ion-option>
           <ion-option>PLM</ion-option>
           <ion-option>vvp</ion-option>
@@ -44,17 +43,17 @@
       </ion-item>
       <ion-item>
         <ion-label floating>ชื่อ</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" value="{{name}}"></ion-input>
         <ion-icon color="secondary" name="md-person" item-left style="margin-top: 35px;"></ion-icon>
       </ion-item>
       <ion-item>
         <ion-label floating>นามสกุล</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" value="{{lastname}}"></ion-input>
         <ion-icon color="secondary" name="md-person" item-left style="margin-top: 35px;"></ion-icon>
       </ion-item>
       <ion-item>
         <ion-label floating>หน่วยงาน</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" value="{{departmaent}}"></ion-input>
         <ion-icon color="secondary" name="md-briefcase" item-left style="margin-top: 35px;"></ion-icon>
       </ion-item>
       <ion-item>
@@ -72,7 +71,7 @@
       </ion-item>
     </ion-list>
     <div class="spacer" style="height:20px;" id="login-spacer1"></div>
-    <button id="okregister" round ion-button (click)="alert()" block>
+    <button id="okregister" round ion-button (click)="submit()" block>
       บันทึก
     </button>
   </form>

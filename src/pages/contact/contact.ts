@@ -13,12 +13,14 @@ import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
 export class ContactPage {
 
   public result: any;
- public result_contact: any;
+  public result_contact: any;
   userDetails: any;
+  result_con_con:any;
 
   email: any;
   orgchart: any;
 
+  ch_prefix: any;
   prefix: any;
   name: any;
   lastname: any;
@@ -29,49 +31,37 @@ export class ContactPage {
   constructor(private loadingCtrl: LoadingController, public authService: AuthServiceProvider, public navCtrl: NavController, public alertCtrl: AlertController) {
     this.rePage();
 
-
     const data = JSON.parse(localStorage.getItem('userData'));
-
-
     this.userDetails = data;
-  
     let Details = this.userDetails.data;
-    // console.log("let Details->",Details);
-
     this.email = Details.email;
     this.orgchart = Details.orgchart_lv2;
   
     this.queryContact();
-
-    // console.log("let Details->",Detailss);
-    
   }
 
   queryContact() {
     let Qdata = this.userDetails.data;
-    // console.log("let Qdata->",Qdata);
     var user_id = { user_id: Qdata.id };
-    // console.log("var user_id->",user_id);
-    this.authService.contactData(user_id, 'getProfile').then((result) => {
-
+    this.authService.contactData(user_id, 'getProfile')
+    .then((result) => {
     this.result_contact = result;
-    console.log("this.authService->",this.result_contact.data);
-    // let Qperfix = this.result_contact;
-    // let Qdata = Qperfix.data;
-    // console.log("result->",Qdata);
-    // this.name = Qdata.Array.firstname;
-    // console.log("let name->",name);
-
-
-      
-      // let Qperfix = this.result_contact;
-      // let data = Qperfix['data'];
-      // console.log(" Qperfix->",data);
-
-      // this.prefix = Qperfix.position;
-      // // this.orgchat = Details.orgchat_lv2;
-      // console.log(" this.prefix->",   Qperfix.title_id);
-      
+    let result_con_con = this.result_contact.data[0];
+    let ch_prefix = result_con_con.title_id;//3
+    if(ch_prefix == 1){
+      this.prefix = "นาย";
+    } 
+   else if(ch_prefix==2){
+      this.prefix = "นาง";
+    } 
+    else{
+      this.prefix = "นางสาว";
+    }
+    this.name = result_con_con.firstname;
+    this.lastname = result_con_con.lastname;
+    this.idcard = result_con_con.identification;
+    this.departmaent = result_con_con.company;
+    this.job = result_con_con.occupation;
     }, (err) => {
       console.log(err);
     });

@@ -7,7 +7,7 @@ import { ELearningPage } from '../pages/e-learning/e-learning';
 import { BannerPage } from '../pages/banner/banner';
 import { NewsPage } from '../pages/news/news';
 import { DocumentsPage } from '../pages/documents/documents';
-import { CoursePage } from '../pages/course/course';
+
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { AboutPage } from '../pages/about/about';
 import { UsabilityPage } from '../pages/usability/usability';

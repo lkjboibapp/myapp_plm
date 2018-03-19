@@ -11,7 +11,8 @@ import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
   templateUrl: 'contact.html'
 })
 export class ContactPage {
-
+  public data_id: any;
+  public data: any; 
   public result: any;
   public result_contact: any;
   userDetails: any;
@@ -30,9 +31,10 @@ export class ContactPage {
 
   constructor(private loadingCtrl: LoadingController, public authService: AuthServiceProvider, public navCtrl: NavController, public alertCtrl: AlertController) {
     this.rePage();
-
     const data = JSON.parse(localStorage.getItem('userData'));
+    console.log("data",data);
     this.userDetails = data;
+    console.log("this.userDetails",this.userDetails);
     let Details = this.userDetails.data;
     this.email = Details.email;
     this.orgchart = Details.orgchart_lv2;
@@ -68,23 +70,24 @@ export class ContactPage {
   }
 
   rePage() {
-    let loader = this.loadingCtrl.create({
+    console.log("ทำงานน่ะ1");
+    let lodepage = this.loadingCtrl.create({
       spinner: "ios",
       content: "กรุณารอสักครู่...",
       duration: 500
     })
-    loader.onDidDismiss(() => {
+    console.log("ทำงานน่ะ2");
+    lodepage.onDidDismiss(() => {
+      console.log("ทำงานน่ะ3");
       this.alertLogin();
-      
-
     });
+    console.log("ทำงานน่ะ4");
+    lodepage.present();
 
-    loader.present();
   }
 
   alertLogin() {
     if (this.userDetails == null) {
-
       let alert = this.alertCtrl.create({
         title: 'แจ้งเตือน',
         subTitle: 'กรุณาเข้าสู่ระบบ!!!',
@@ -99,11 +102,14 @@ export class ContactPage {
             this.navCtrl.setRoot(ELearningPage);
           }
         }
-        ]
+        ],
+        enableBackdropDismiss: false
       });
       alert.present();
     } else {
-      // console.log("lkdcopdkcopdkc")
+      console.log("ล๊อกอินแล้ว");
+      this.queryContact();
+      
     }
   }
 

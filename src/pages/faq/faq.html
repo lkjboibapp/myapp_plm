@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color ="secondary">
+  <ion-navbar color="secondary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -11,36 +11,29 @@
 </ion-header>
 
 <ion-content padding class="section">
-    <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar >
-      <br>
-      <ion-list  class="accordion-list">
-     <!-- First Level -->
-     <ion-list-header *ngFor="let item of faq let i = index" no-lines no-padding>
-       <!-- Toggle Button -->
-       <button class="section1" ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}" color="stable" block>
-         <ion-icon item-left name="md-arrow-dropright" *ngIf="!item.open"></ion-icon>
-         <ion-icon item-left name="md-arrow-dropdown" *ngIf="item.open"></ion-icon>
-         <!-- หัวข้อ -->
-         <h3>{{ item.faq_type_title_TH}}</h3>
-       </button>
-       
-       <!-- สไลด์เนื้อหา -->
-       <ion-list *ngIf="item.faq_type_title_TH && item.open" no-lines>
-           <!-- <ion-item *ngIf="!item.faq_THtopic"  detail-none class="child-item" text-wrap> -->
-            <!-- <h5>1{{ item.faq_THtopic}}</h5>
-            <p text-lowercase>1{{ item.faq_THtopic}}</p>
-            <h5>1{{ item.faq_THanswer}}</h5> -->
-           <!-- </ion-item> -->
-           <ion-list *ngIf="item.faq_type_title_TH && this.faq">
-             <ion-item *ngFor="let item of faq; let k = index" detail-none class="child-item" text-wrap>
-                <h5>{{ item.faq_type_title_TH}}</h5>
-                <p text-lowercase>{{ item.faq_type_title_TH}}</p>
-             </ion-item>
-            </ion-list>
-          </ion-list>
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar>
+  <br>
+  <ion-list class="accordion-list">
+    <!-- First Level -->
+    <ion-list-header *ngFor="let item of faq let i = index" no-lines no-padding>
+      <!-- Toggle Button -->
+      <button class="section1" ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': item.open, 'section': !item.open}"
+        color="stable" block>
+        <ion-icon item-left name="md-arrow-dropright" *ngIf="!item.open"></ion-icon>
+        <ion-icon item-left name="md-arrow-dropdown" *ngIf="item.open"></ion-icon>
+        <!-- หัวข้อ -->
+        <h3>{{ item.faq_type_title_TH}}</h3>
+      </button>
 
-          </ion-list-header>
-          </ion-list>
-  </ion-content>
-
-
+      <!-- สไลด์เนื้อหา -->
+      <ion-list *ngIf="item.faq_type_id && item.open" no-lines>
+        <!-- <ion-list *ngIf="item.faq_type_id && this.faq"> -->
+        <ion-item *ngFor="let itemfaq of faqq; let k = index" detail-none class="child-item" text-wrap>
+          <h5>{{ itemfaq.faq_THtopic}}</h5>
+          <p text-lowercase>{{ itemfaq.faq_THanswer}}</p>
+        </ion-item>
+        <!-- </ion-list> -->
+      </ion-list>
+    </ion-list-header>
+  </ion-list>
+</ion-content>

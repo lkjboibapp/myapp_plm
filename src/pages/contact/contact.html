@@ -8,10 +8,10 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page4">
-  <img src="assets/img/7JrKqTrYSnCdbeBmNa2K_user.jpg" style="display:block;width:30%;height:auto;margin-left:auto;margin-right:auto;"
+<ion-content padding id="page4" class="section">
+  <img src="assets/img/group.png" style="display:block;width:40%;height:auto;margin-left:auto;margin-right:auto;"
   />
-  <form id="contact-form1">
+  <form id="contact-form1" section1>
     <ion-item id="textname">
       <ion-label>
         ชื่อ<p>{{prefix}} {{name}}</p>
@@ -59,7 +59,7 @@
       </ion-icon>
       Google
     </ion-item> -->
-    <button id="editprofile" round ion-button (click)="editprofilePage()" color="stable" block>
+    <button id="editprofile" class="section2" round ion-button (click)="editprofilePage()" color="stable" block>
       แก้ไขข้อมูลส่วนตัว
     </button>
     <button id="logout" round ion-button (click)="logoutPage()" color="danger" block>

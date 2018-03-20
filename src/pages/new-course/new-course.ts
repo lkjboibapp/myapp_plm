@@ -57,7 +57,7 @@ export class NewCoursePage {
         buttons: [{
           text: 'ตกลง',
           handler: () => {
-            this.navCtrl.setRoot(LoginPage)
+            this.navCtrl.setRoot(LoginPage);
             // Your Imagination should go here
           }
         }, {

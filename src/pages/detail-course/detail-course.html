@@ -7,9 +7,9 @@
 </ion-header>
 
 <ion-content class="section">
-  <ion-toolbar >
-    <ion-segment class="section2"> 
-      <ion-segment-button  >
+  <ion-toolbar>
+    <ion-segment class="section2">
+      <ion-segment-button>
         ภาพรวมหลักสูตร
       </ion-segment-button>
       <ion-segment-button>
@@ -32,26 +32,11 @@
           </ion-col>
         </ion-card>
       </ion-row>
-      <!-- <ion-row>
-        <ion-col>
-          {{course_detail}}
-          <p [innerHTML]="course_detail"></p>
-        </ion-col>
-      </ion-row> -->
+
     </ion-grid>
   </ion-card>
 
-  <!--
-  <ion-toolbar>
-    <ion-segment>
-      <ion-segment-button>
-        รายละเอียด
-      </ion-segment-button>
-      <ion-segment-button>
-        เนื้อหาของคอร์สนี้
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar> -->
+
 
   <div padding>
     <ion-segment [(ngModel)]="pet">
@@ -70,32 +55,30 @@
         <ion-grid>
           <ion-list padding class="test">
             <label>
-              <label>
-                <h3 text-center>
-                  {{course_title}}
-                </h3>
-              </label>
-              <ion-row>
-                <ion-col col-75>
-                  <label >แบบทดสอบก่อนเรียน</label>
-                </ion-col>
-                <ion-col col-auto>
-                  <button ion-button clear item-end (click)="QuizPage()">
-                    ทำแบบทดสอบ
-                  </button>
-                </ion-col>
+
+              <ion-row (click)="QuizPage()">
+                <ion-card>
+                  <ion-item>
+                  <ion-col col-75>
+                   
+                      <label>ข้อสอบก่อนเรียน (Pre Test)</label>
+                    
+                  </ion-col>
+                  </ion-item>
+                </ion-card>
               </ion-row>
-              <ion-row *ngFor="let p of results_course">
-                <ion-col col-75>
-                  {{p.title}}
-                </ion-col>
-                <ion-col col-auto>
-                  <button ion-button clear item-end (click)="openVDO(p)">
-                    ทดสอบบบบบบบ
-                  </button>
-                </ion-col>
+
+              <ion-row *ngFor="let p of results_course" (click)="openVDO(p)">
+                <ion-card>
+                  <ion-item>
+                    <ion-col col-75>
+                      {{p.title}}
+                    </ion-col>
+                  </ion-item>
+                </ion-card>
               </ion-row>
-              <ion-row>
+
+              <!-- <ion-row>
                 <ion-col col-75>
                   <label>
                     บททดสอบหลังเรียน
@@ -106,19 +89,19 @@
                     ทำแบบทดสอบ
                   </button>
                 </ion-col>
+              </ion-row> -->
+              <ion-row (click)="openQuestion(p)">
+                <ion-card>
+                  <ion-item>
+                    <ion-col col-75>
+                      <label>
+                        ข้อสอบหลังเรียน (Post Test)
+                      </label>
+                    </ion-col>
+                  </ion-item>
+                </ion-card>
               </ion-row>
-              <ion-row>
-                <ion-col col-75>
-                  <label>
-                    แบบสอบถาม
-                  </label>
-                </ion-col>
-                <ion-col col-auto>
-                  <button ion-button clear item-end (click)="openQuestion(p)">
-                    ทำแบบสอบถาม
-                  </button>
-                </ion-col>
-              </ion-row>
+
             </label>
           </ion-list>
         </ion-grid>

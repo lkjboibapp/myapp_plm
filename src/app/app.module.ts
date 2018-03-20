@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { ELearningPage } from '../pages/e-learning/e-learning';
-import { CoursePage } from '../pages/course/course';
+
 import { EditprofilePage } from '../pages/editprofile/editprofile';
 import { ContactPage } from '../pages/contact/contact';
 import { TabsControllerPage } from '../pages/tabs-controller/tabs-controller';
@@ -64,7 +64,7 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     MyApp,
     ELearningPage,
-    CoursePage,
+
     ContactPage,
     TabsControllerPage,
     DashboardPage,
@@ -114,7 +114,7 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [
     MyApp,
     ELearningPage,
-    CoursePage,
+
     ContactPage,
     TabsControllerPage,
     DashboardPage,

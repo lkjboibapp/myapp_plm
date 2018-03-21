@@ -50,15 +50,16 @@ export class NewCoursePage {
   ngAfterViewInit() {
     
   }
+  
 ///////// start test
   toggleDetails(data) {
-    console.log("test->",data);
+    // console.log("test->",data);
     if (data.showDetails) {
       data.showDetails = false;
-      data.icon = 'ios-add-circle-outline';
+      data.icon = 'md-arrow-dropright';
     } else {
       data.showDetails = true;
-      data.icon = 'ios-remove-circle-outline';
+      data.icon = 'md-arrow-dropdown';
     }
   }
 
@@ -117,9 +118,6 @@ export class NewCoursePage {
     });
     alert.present();
   }
-
- 
-
   //call service CategoryCourse
   CategoryCourse() {
     //โหลดข้อมูลจาก service จบการทำงานตอนที่ ดาวโหลด service เรียบร้อยแล้ว 

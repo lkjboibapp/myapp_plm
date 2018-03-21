@@ -37,7 +37,7 @@ export class PrivatemessagePage {
     let loader = this.loadingCtrl.create({
       spinner: "ios",
       content: "Loading Please Wait...",
-      duration: 500
+      duration: 50
     })
     loader.onDidDismiss(() => {
       // console.log('Dismissed loading หยุดทำงานตัวโหลด เสดแล้วเรียก alert() ');
@@ -81,11 +81,19 @@ export class PrivatemessagePage {
   messageData() {
     let data_id = this.data_id.data;
     let id_course = { create_by: data_id.id };
-    console.log("id_course->",id_course)
+    let loading = this.loadingCtrl.create({
+      content: 'กำลังโหลดข้อมูล...',
+      spinner: 'dots'
+    });
+    loading.present();
+
+    // console.log("id_course->",id_course)
     this.authService.messageGetData(id_course, 'getPrivateMessage').then((result) => {
       this.data_result = result['data'];
+      loading.dismiss();
     }, (err) => {
       console.log(err);
+      loading.dismiss();
     });
   }
 

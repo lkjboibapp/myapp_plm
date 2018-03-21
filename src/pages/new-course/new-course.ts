@@ -12,6 +12,9 @@ import { ELearningPage } from '../e-learning/e-learning';
 })
 export class NewCoursePage {
 
+  data_v1: Array<{ title: string, details: string, icon: string, showDetails: boolean }> = [];
+
+
   public cate_id: any = ""; //post
   public course_id: any = "";
   public data: any; //เก็บข้อมูลที่รับมาจาก service
@@ -29,14 +32,39 @@ export class NewCoursePage {
     const data = JSON.parse(localStorage.getItem('userData'));
     this.userDetails = data;
 
+    //////////
+    for (let i = 0; i < 10; i++) {
+      this.data_v1.push({
+        title: 'Title ' + i,
+        details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        icon: 'ios-add-circle-outline',
+        showDetails: false
+      });
+    }
+
+    /////////
+
   }
+///////// start test
+  toggleDetails(data) {
+    console.log("test->",data);
+    if (data.showDetails) {
+      data.showDetails = false;
+      data.icon = 'ios-add-circle-outline';
+    } else {
+      data.showDetails = true;
+      data.icon = 'ios-remove-circle-outline';
+    }
+  }
+
+///////// end test
 
 
   rePage() {
     let loader = this.loadingCtrl.create({
       spinner: "ios",
       content: "Loading Please Wait...",
-      duration: 500
+      duration: 50
     })
     loader.onDidDismiss(() => {
       // console.log('Dismissed loading หยุดทำงานตัวโหลด เสดแล้วเรียก alert() ');
@@ -91,19 +119,34 @@ export class NewCoursePage {
 
   //call service CategoryCourse
   CategoryCourse() {
+    //โหลดข้อมูลจาก service จบการทำงานตอนที่ ดาวโหลด service เรียบร้อยแล้ว 
+    let loading = this.loadingCtrl.create({
+      content: 'กำลังโหลดข้อมูล..Category.',
+      spinner: 'dots'
+    });
+    loading.present();
     this.courService.CategoryCourse(this.cate_id, 'getCategory').then((result) => {
       this.data = result['data'];
+      loading.dismiss();
     }, (err) => {
       console.log(err);
+      loading.dismiss();
     });
   }
 
   //call service course
   courseService() {
+    let loading = this.loadingCtrl.create({
+      content: 'กำลังโหลดข้อมูล..course.',
+      spinner: 'dots'
+    });
+    loading.present();
     this.courService.Course(this.course_id, 'get').then((result) => {
       this.data_course = result['data'];
+      loading.dismiss();
     }, (err) => {
       console.log(err);
+      loading.dismiss();
     });
   }
   //Search

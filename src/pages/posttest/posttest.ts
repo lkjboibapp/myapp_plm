@@ -48,7 +48,7 @@ export class PosttestPage {
   ResultsPretest() {
 
     console.log("testvdo")
-    let path = 'http://localhost/Service/ServiceMobile/ServiceManage.php/getManagePost/'+this.navParams.get("id");
+    let path = 'http://112.121.150.4/ServiceMobile/ServiceManage.php/getManagePost/'+this.navParams.get("id");
     let encodedPath = encodeURI(path);
     // let timeoutMS = 2000;
 

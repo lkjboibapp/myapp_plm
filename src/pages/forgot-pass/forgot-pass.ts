@@ -25,7 +25,7 @@ export class ForgotPassPage {
       this.ETPhoneHome();
     }
     ETPhoneHome() {
-      let path = 'http://localhost/Service/ServiceMobile/ServiceDoc.php/getdocs';
+      let path = 'http://112.121.150.4/ServiceMobile/ServiceDoc.php/getdocs';
         let encodedPath = encodeURI(path);
 
         this.http.get(encodedPath)

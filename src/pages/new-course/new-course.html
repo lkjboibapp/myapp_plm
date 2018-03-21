@@ -29,7 +29,7 @@
       </select>
     </article>
 
-    <!-- <ion-grid>
+    <ion-grid>
       <ion-row>
         <ion-col item-center col-6 col-md-4 col-xl-3 *ngFor="let i of filter_course" >
           <ion-card class="section1" (click)="getItemCourse(i)">
@@ -42,7 +42,7 @@
           </ion-card>
         </ion-col>
       </ion-row>
-    </ion-grid> -->
+    </ion-grid>
   </label>
 
   
@@ -51,7 +51,7 @@
     <ion-list-header>
       Ionic 2 Accordion Example.
     </ion-list-header>
-    <ion-item padding *ngFor="let d of data" (click)="toggleDetails(d)">
+    <ion-item padding *ngFor="let d of data" (click)="toggleDetails(d)" >
       <ion-icon color="primary" item-right [name]="d.icon"></ion-icon>
       {{d.cate_title}}
       <div *ngIf="d.showDetails">{{d.cate_detail}}</div>

@@ -26,7 +26,7 @@ export class RegisterPage {
   }
   submit() {
     if (this.userData.idcard.length == 13 && this.userData.email && this.userData.course && this.userData.perfix && this.userData.name&& this.userData.lastname&& this.userData.department&& this.userData.job) {
-      var link = 'http://localhost/service/ServiceMobile/Register.php/InsertRegister';
+      var link = 'http://112.121.150.4/ServiceMobile/Register.php/InsertRegister';
       var myData = JSON.stringify({
        
         identification: this.userData.idcard,

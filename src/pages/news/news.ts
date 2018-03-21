@@ -17,11 +17,10 @@ export class NewsPage {
   news: any;
   constructor(public navCtrl: NavController,  public modalCtrl: ModalController, public http: Http) {
     this.ETPhoneHome();
-    console.log('======================================');
   }
 
   ETPhoneHome() {
-    let path = 'http://localhost/Service/ServiceMobile/ServiceNew_v3.php/getNews';
+    let path = 'http://112.121.150.4/ServiceMobile/ServiceNew_v3.php/getNews';
     let encodedPath = encodeURI(path);
     let timeoutMS = 10000;
   

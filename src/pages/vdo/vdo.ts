@@ -15,9 +15,7 @@ export class VdoPage {
   public results: any;
   public text: any;
 
-  chTitle: string;
-  chUrl: string;
-  chUrlTrusted: SafeResourceUrl;
+
 
   constructor(private domSanitizer:DomSanitizer,public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
     this.ETPhoneHome();
@@ -29,11 +27,11 @@ export class VdoPage {
 
   ionViewWillEnter() {
 
-    this.chUrlTrusted = this.domSanitizer.bypassSecurityTrustResourceUrl(this.chUrl);
+    
   }
 
   ETPhoneHome() {
-    let path = 'http://localhost/Service/ServiceMobile/ServiceVDO.php/getvdo';
+    let path = 'http://112.121.150.4/ServiceMobile/ServiceVDO.php/getvdo';
     let encodedPath = encodeURI(path);
     // console.log(encodedPath)
     let timeoutMS = 100;
@@ -43,7 +41,7 @@ export class VdoPage {
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
         console.log("vdo = ", this.results);
-        this.chUrl = 'https://www.youtube.com/embed/' + this.results.path;
+      
 
       },
         err => {

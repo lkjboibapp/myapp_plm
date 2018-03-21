@@ -21,7 +21,7 @@ export class FaqPage {
    
 
     ETPhoneHome() {
-        let path = 'http://localhost/Service/ServiceMobile/ServiceFAQ.php/getfaq_type';
+        let path = 'http://112.121.150.4/ServiceMobile/ServiceFAQ.php/getfaq_type';
         let encodedPath = encodeURI(path);
         let timeoutMS = 10000;
         this.http.get(encodedPath)
@@ -35,7 +35,7 @@ export class FaqPage {
     }
 
     ETPhoneHomeQuery() {
-      let pathh = 'http://localhost/Service/ServiceMobile/ServiceFAQ.php/getfaq';
+      let pathh = 'http://112.121.150.4/ServiceMobile/ServiceFAQ.php/getfaq';
       let encodedPathh = encodeURI(pathh);
       let timeoutMSS = 10000;
       this.http.get(encodedPathh)

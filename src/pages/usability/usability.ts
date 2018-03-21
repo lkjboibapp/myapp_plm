@@ -23,7 +23,7 @@ export class UsabilityPage {
   }
 
   ETPhoneHome() {
-    let path = 'http://localhost/Service/ServiceMobile/Serviceusability.php/usability';
+    let path = 'http://112.121.150.4/ServiceMobile/Serviceusability.php/usability';
     let encodedPath = encodeURI(path);
 
     this.http.get(encodedPath)

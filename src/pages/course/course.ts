@@ -27,7 +27,7 @@ export class CoursePage {
   }
 
   Category() {
-    let path = 'http://localhost/Service/ServiceMobile/ServiceCategory.php/getCategory';
+    let path = 'http://112.121.150.4/ServiceMobile/ServiceCategory.php/getCategory';
     let encodedPath = encodeURI(path);
     let timeoutMS = 2000;
 
@@ -42,7 +42,7 @@ export class CoursePage {
   }
 
   CourseOnline() {
-    let path = 'http://localhost/Service/ServiceMobile/Course_online.php/get';
+    let path = 'http://112.121.150.4/ServiceMobile/Course_online.php/get';
     let encodedPath = encodeURI(path);
     let timeoutMS = 2000;
 

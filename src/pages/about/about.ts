@@ -23,7 +23,7 @@ export class AboutPage {
  }
 
 //  ETPhoneHome() {
-//    let path = 'http://localhost/Service/ServiceMobile/about.php/getabout';
+//    let path = 'http://112.121.150.4/ServiceMobile/about.php/getabout';
 //      let encodedPath = encodeURI(path);
 //      let timeoutMS = 200;
 

@@ -91,7 +91,7 @@ export class ELearningPage {
   }
 
   ETPhoneHome() {
-    let path = 'http://localhost/Service/ServiceMobile/ServiceNew_v3.php/getNews';
+    let path = 'http://112.121.150.4/ServiceMobile/ServiceNew_v3.php/getNews';
     let encodedPath = encodeURI(path);
     this.http.get(encodedPath)
       .map(res => res.json()).subscribe(data => {
@@ -104,7 +104,7 @@ export class ELearningPage {
   }
 
   FeaturedHome() {
-    let path = 'http://localhost/service/ServiceMobile/ServiceFeaturedLinks.php/getFeaturedLinks';
+    let path = 'http://112.121.150.4/ServiceMobile/ServiceFeaturedLinks.php/getFeaturedLinks';
     let encodedPath = encodeURI(path);
 
     this.http.get(encodedPath)
@@ -120,7 +120,7 @@ export class ELearningPage {
   }
 
   ResulteVDO() {
-    let path = 'http://localhost/Service/ServiceMobile/ServiceVDO.php/getvdo';
+    let path = 'http://112.121.150.4/ServiceMobile/ServiceVDO.php/getvdo';
     let encodedPath = encodeURI(path);
     // console.log(encodedPath)
 

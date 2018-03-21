@@ -63,10 +63,10 @@ export class DocumentsPage {
       headers: {}
     }
 
-    fileTransfer.upload(this.imageURI, 'http://192.168.137.224:8080/api/uploadImage', options)
+    fileTransfer.upload(this.imageURI, 'http://112.121.150.4/api/uploadImage', options)
       .then((data) => {
         console.log(data + " Uploaded Successfully");
-        this.imageFileName = "http://192.168.137.224:8080/static/images/ionicfile.jpg"
+        this.imageFileName = "http://112.121.150.4/static/images/ionicfile.jpg"
         loader.dismiss();
         this.presentToast("Image uploaded successfully");
       }, (err) => {
@@ -96,7 +96,7 @@ export class DocumentsPage {
 
   //end test upload file
   ETPhoneHome() {
-    let path = 'http://localhost/Service/ServiceMobile/ServiceDoc.php/getdocs';
+    let path = 'http://112.121.150.4/ServiceMobile/ServiceDoc.php/getdocs';
     let encodedPath = encodeURI(path);
 
     this.http.get(encodedPath)

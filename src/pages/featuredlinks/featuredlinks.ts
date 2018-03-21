@@ -36,7 +36,7 @@ export class FeaturedlinksPage {
   }
 
   ETPhoneHome() {
-    let path = 'http://localhost/service/ServiceMobile/ServiceFeaturedLinks.php/getFeaturedLinks';
+    let path = 'http://112.121.150.4/ServiceMobile/ServiceFeaturedLinks.php/getFeaturedLinks';
     let encodedPath = encodeURI(path);
   
     this.http.get(encodedPath)

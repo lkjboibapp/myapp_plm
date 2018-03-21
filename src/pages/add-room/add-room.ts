@@ -48,7 +48,7 @@ export class AddRoomPage {
   }
 
   addroom() {
-    let path = 'http://localhost/service/ServiceMobile/Tbl_User.php/getUserPassWord';
+    let path = 'http://112.121.150.4/ServiceMobile/Tbl_User.php/getUserPassWord';
     let encodedPath = encodeURI(path);
     let timeoutMS = 10000;
 

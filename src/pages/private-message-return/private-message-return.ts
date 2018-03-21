@@ -63,7 +63,7 @@ export class PrivateMessageReturnPage {
     this.authService.Message_return_Post_PmrReturn(this.post_data, 'insertMassage').then((result) => {
       console.log("result->", result);
       this.messageData();
-
+       this.post_data = { pm_id: "", pmr_return: "", create_by: "", all_file_return_pm: "" };
     loading.dismiss();
     }, (err) => {
       console.log(err);

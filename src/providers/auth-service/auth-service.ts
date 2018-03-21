@@ -15,8 +15,21 @@ export class AuthServiceProvider {
     console.log('Hello AuthServiceProvider Provider');
   }
 
+  Message_return_Post_PmrReturn(credentials, type) {
+    // console.log("Message_return ->", credentials);
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      this.http.post(Private_Message_return + type, JSON.stringify(credentials), { headers: headers })
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   Message_return(credentials, type) {
-    console.log("Message_return ->", credentials);
+    // console.log("Message_return ->", credentials);
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.post(Private_Message_return + type, JSON.stringify(credentials), { headers: headers })
@@ -30,7 +43,7 @@ export class AuthServiceProvider {
 
   //หน้าlogin
   postData(credentials, type) {
-    console.log("postData ->", credentials);
+    // console.log("postData ->", credentials);
     return new Promise((resolve, reject) => {
       let headers = new Headers();
       this.http.post(apiUrl + type, JSON.stringify(credentials), { headers: headers })

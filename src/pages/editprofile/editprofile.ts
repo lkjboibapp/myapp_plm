@@ -31,22 +31,16 @@ export class EditprofilePage {
   constructor(public navParams: NavParams,public navCtrl: NavController, private http: Http,public alertCtrl: AlertController)
   {
     this.qdatata = this.navParams.get('result_ta');
-    console.log(" this.data->", this.qdatata);
     let qdatatb = this.navParams.get('result_tb');
-    console.log(" this.data->", this.qdatatb);
-
+  
     let ch_prefix = qdatatb.title_id;
     this.name = qdatatb.firstname;
     this.lastname = qdatatb.lastname;
     this.idcard = qdatatb.identification;
     this.departmaent = qdatatb.company;
     this.job = qdatatb.occupation;
-    console.log("this.name->",qdatatb.firstname);
-
     let Details = this.qdatata;
-    console.log(" let Details->", this.qdatata);
     this.data_id = Details.id;
-    console.log("this.data_id->",this.data_id);
   
     this.email = Details.email;
     this.orgchart = Details.orgchart_lv2;

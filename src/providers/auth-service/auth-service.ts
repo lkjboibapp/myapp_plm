@@ -3,11 +3,11 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 
-let banService = 'http://localhost/service/ServiceMobile/Service_Imgslide.php/';
-let apiUrl = 'http://localhost/Service/ServiceMobile/login.php/';
-let contactUrl = 'http://localhost/Service/ServiceMobile/ServiceContact.php/';
-var Private_Message = 'http://localhost/service/ServiceMobile/Private_Message.php/';
-var Private_Message_return = 'http://localhost/Service/ServiceMobile/Private_Message_return.php/';
+let banService = 'http://112.121.150.4/ServiceMobile/Service_Imgslide.php/';
+let apiUrl = 'http://112.121.150.4/ServiceMobile/login.php/';
+let contactUrl = 'http://112.121.150.4/ServiceMobile/ServiceContact.php/';
+var Private_Message = 'http://112.121.150.4/ServiceMobile/Private_Message.php/';
+var Private_Message_return = 'http://112.121.150.4/ServiceMobile/Private_Message_return.php/';
 @Injectable()
 export class AuthServiceProvider {
 

@@ -9,10 +9,10 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 
-let CategoryCourseService = 'http://localhost/Service/ServiceMobile/ServiceCategory.php/';
-let Course = 'http://localhost/Service/ServiceMobile/Course_online.php/';
-let getLesson = 'http://localhost/Service/ServiceMobile/ServiceLesson.php/';
-let Service_fileLean ='http://localhost/Service/ServiceMobile/ServiceFile.php//'; 
+let CategoryCourseService = 'http://112.121.150.4/ServiceMobile/ServiceCategory.php/';
+let Course = 'http://112.121.150.4/ServiceMobile/Course_online.php/';
+let getLesson = 'http://112.121.150.4/ServiceMobile/ServiceLesson.php/';
+let Service_fileLean ='http://112.121.150.4/ServiceMobile/ServiceFile.php//';
 
 
 @Injectable()

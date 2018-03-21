@@ -33,7 +33,7 @@ export class NewCoursePage {
     this.userDetails = data;
 
     //////////
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5 ; i++) {
       this.data_v1.push({
         title: 'Title ' + i,
         details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -44,6 +44,11 @@ export class NewCoursePage {
 
     /////////
 
+  }
+
+  //จะทำงานก็ต่อเมื่อโหลดข้อมูลเสดเรียบร้อยแล้วถึงจะทำงาน
+  ngAfterViewInit() {
+    
   }
 ///////// start test
   toggleDetails(data) {
@@ -64,7 +69,7 @@ export class NewCoursePage {
     let loader = this.loadingCtrl.create({
       spinner: "ios",
       content: "Loading Please Wait...",
-      duration: 50
+      duration: 30
     })
     loader.onDidDismiss(() => {
       // console.log('Dismissed loading หยุดทำงานตัวโหลด เสดแล้วเรียก alert() ');
@@ -101,7 +106,7 @@ export class NewCoursePage {
     } else {
       this.CategoryCourse();
       this.courseService();
-      console.log("service ok")
+      console.log("service ok");
     }
   }
   showAlert(title, subTitle) {
@@ -113,9 +118,7 @@ export class NewCoursePage {
     alert.present();
   }
 
-  //จะทำงานก็ต่อเมื่อโหลดข้อมูลเสดเรียบร้อยแล้วถึงจะทำงาน
-  ngAfterViewInit() {
-  }
+ 
 
   //call service CategoryCourse
   CategoryCourse() {
@@ -144,6 +147,7 @@ export class NewCoursePage {
     this.courService.Course(this.course_id, 'get').then((result) => {
       this.data_course = result['data'];
       loading.dismiss();
+      this.filter_course = this.data_course;
     }, (err) => {
       console.log(err);
       loading.dismiss();
@@ -157,10 +161,14 @@ export class NewCoursePage {
   //select id course filter
   selectChangHandler(event: any) {
     let text = event.target.value;
-    this.filter_course = this.data_course.filter((item) => {
-      return (item.cate_id.toLowerCase().indexOf(text.toLowerCase()) > -1);
-    });
-    console.log("filter_course => " + this.filter_course)
+    if (text && text.trim() != '') {
+      this.filter_course = this.data_course.filter((item) => {
+        return (item.cate_id.toLowerCase().indexOf(text.toLowerCase()) > -1);
+      });
+    } else if (text == ''){
+      this.filter_course = this.data_course;
+    }
+    
   }
 
   //get item

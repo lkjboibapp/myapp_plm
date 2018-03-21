@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/timeout';
@@ -14,11 +15,21 @@ export class VdoPage {
   public results: any;
   public text: any;
 
-  constructor(public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
+  chTitle: string;
+  chUrl: string;
+  chUrlTrusted: SafeResourceUrl;
+
+  constructor(private domSanitizer:DomSanitizer,public http: Http, public navCtrl: NavController, private alertCtrl: AlertController) {
     this.ETPhoneHome();
 
 
     console.log("123", this.ETPhoneHome());
+
+  }
+
+  ionViewWillEnter() {
+
+    this.chUrlTrusted = this.domSanitizer.bypassSecurityTrustResourceUrl(this.chUrl);
   }
 
   ETPhoneHome() {
@@ -31,7 +42,9 @@ export class VdoPage {
       .timeout(timeoutMS)
       .map(res => res.json()).subscribe(data => {
         this.results = data.data;
-        console.log("vdo = ", this.results)
+        console.log("vdo = ", this.results);
+        this.chUrl = 'https://www.youtube.com/embed/' + this.results.path;
+
       },
         err => {
           console.log("ldokvopdsv");

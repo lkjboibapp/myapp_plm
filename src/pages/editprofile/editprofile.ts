@@ -14,12 +14,18 @@ export class EditprofilePage {
   public results_filter: any;
   public results: any;
   information: any[];//ของเสีย
- 
+  
+  public selected_value:any;
   data_id:any;
   qdatata: any ;
   qdatatb: any ;
+  qdatatc: any ;
   email: any;
   orgchart: any;
+
+  data:any;
+
+  $:any;
 
   ch_prefix: any;
   prefix: any;
@@ -30,8 +36,12 @@ export class EditprofilePage {
   job: any;
   constructor(public navParams: NavParams,public navCtrl: NavController, private http: Http,public alertCtrl: AlertController)
   {
+
+    // var sel = document.getElementById('scripts');
+
     this.qdatata = this.navParams.get('result_ta');
     let qdatatb = this.navParams.get('result_tb');
+    // let qdatatc = this.navParams.get('selected_value');
   
     let ch_prefix = qdatatb.title_id;
     this.name = qdatatb.firstname;
@@ -45,33 +55,28 @@ export class EditprofilePage {
     this.email = Details.email;
     this.orgchart = Details.orgchart_lv2;
 
-  // let Qdata = this.data_id.data;
-  // console.log("let QdataTEST->",this.data_id.data);
-  // var user_id = { user_id: Qdata.id };
-  // console.log("var user_idTEST->",user_id);
+  console.log("หลักสูตร->",this.orgchart);
+  console.log("คำนำหน้า->",ch_prefix);
+  console.log("กลุ่มงาน->",this.job);
+  
+  if(this.orgchart == "1"){
+console.log("นาย");
 
-  // this.authService.contactData(user_id, 'getProfile')
-  //   .then((result) => {
-  //     this.result_contact = result;
-  //     let result_con_con = this.result_contact.data[0];
-  //     let ch_prefix = result_con_con.title_id;//3
-  //     if (ch_prefix == 1) {
-  //       this.prefix = "นาย";
-  //     }
-  //     else if (ch_prefix == 2) {
-  //       this.prefix = "นาง";
-  //     }
-  //     else {
-  //       this.prefix = "นางสาว";
-  //     }
-  //     this.name = result_con_con.firstname;
-  //     this.lastname = result_con_con.lastname;
-  //     this.idcard = result_con_con.identification;
-  //     this.departmaent = result_con_con.company;
-  //     this.job = result_con_con.occupation;
-  console.log("email->",Details.email);
-  console.log("orgchart->",Details.orgchart_lv2);
   }
+ else if(this.orgchart == "2"){
+  console.log("นาง");
+
+  }
+  else{
+    // var index =this.orgchart;
+    // console.log("index->",index);
+    // oa.SelectedItem = "Profile 2";
+    console.log("นางสาว");
+
+  }
+
+  }
+
   }
 
 

@@ -25,20 +25,19 @@
         <ion-label floating>เลือกหลักสูตร</ion-label>
         <ion-icon color="secondary" name="md-bookmarks"  item-left style="margin-top: 35px;"></ion-icon>
         <ion-select type="text">
-          <ion-option>[Select all]</ion-option>
-          <ion-option>PLM</ion-option>
-          <ion-option>vvp</ion-option>
+          <ion-option >[Select all]</ion-option>
+          <ion-option >PLM</ion-option>
+          <ion-option [selected]=true>vvp</ion-option>
           <ion-option>ple</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label floating>คำนำหน้า</ion-label>
-        <ion-icon color="secondary" name="md-person" item-left style="margin-top: 35px;" ></ion-icon>
-        <ion-select type="text" >
-
-          <ion-option>นาย</ion-option>
-          <ion-option>นาง</ion-option>
-          <ion-option>นางสาว</ion-option>
+        <ion-icon color="secondary" name="md-bookmarks" item-left style="margin-top: 35px;" ></ion-icon>
+        <ion-select type="text"  name=""  >
+          <ion-option value="1" >นาย</ion-option>
+          <ion-option value="2"> นาง</ion-option>
+          <ion-option value="3">นางสาว</ion-option>
         </ion-select>
       </ion-item>
       <ion-item>
@@ -60,9 +59,8 @@
         <ion-label floating>กลุ่มงาน(อาชีพ)</ion-label>
         <ion-icon color="secondary" name="md-pricetags" item-left style="margin-top: 35px;"></ion-icon>
         <ion-select type="text">
-
-          <ion-option>ธุรกิจส่วนตัว/เจ้าของกิจการ</ion-option>
-          <ion-option>นักเรียน/นักศึกษา</ion-option>
+          <ion-option name="oa">ธุรกิจส่วนตัว/เจ้าของกิจการ</ion-option>
+          <ion-option name="ob">นักเรียน/นักศึกษา</ion-option>
           <ion-option>ข้าราชการ</ion-option>
           <ion-option>พนักงานรัฐวิสาหกิจ</ion-option>
           <ion-option>พนักงานเอกชน</ion-option>
@@ -71,7 +69,7 @@
       </ion-item>
     </ion-list>
     <div class="spacer" style="height:20px;" id="login-spacer1"></div>
-    <button id="okregister" round ion-button (click)="submit()" block>
+    <button id="okregister" round ion-button (click)="Submit()" block>
       บันทึก
     </button>
   </form>

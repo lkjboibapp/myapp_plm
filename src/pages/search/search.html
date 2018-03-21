@@ -14,5 +14,10 @@
 
 
 <ion-content padding >
+    <ion-searchbar
+    [(ngModel)]="myInput"
+    [showCancelButton]="shouldShowCancel"
+    (ionInput)="onInput($event)"></ion-searchbar>
+
 
 </ion-content>

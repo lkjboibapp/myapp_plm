@@ -44,7 +44,7 @@ export class NewCoursePage {
     });
 
     loader.present();
-   
+
   }
 
   //จะทำงานต่อจาก constructor เป็นลำดับที่ 2
@@ -57,7 +57,7 @@ export class NewCoursePage {
         buttons: [{
           text: 'ตกลง',
           handler: () => {
-            this.navCtrl.setRoot(LoginPage)
+            this.navCtrl.setRoot(LoginPage);
             // Your Imagination should go here
           }
         }, {
@@ -98,7 +98,7 @@ export class NewCoursePage {
     });
   }
 
-  //call service course 
+  //call service course
   courseService() {
     this.courService.Course(this.course_id, 'get').then((result) => {
       this.data_course = result['data'];
@@ -120,7 +120,7 @@ export class NewCoursePage {
     console.log("filter_course => " + this.filter_course)
   }
 
-  //get item 
+  //get item
   getItemCourse(i: any) {
     this.navCtrl.push(DetailCoursePage, {
       item: i

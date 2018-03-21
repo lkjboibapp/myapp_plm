@@ -54,6 +54,10 @@ export class DetailCoursePage {
     this.CourseOnline();
   }
 
+  toggleSection(i) {//iคือ Array
+    // console.log("item=>", item);
+    this.results_course[i].open = !this.results_course[i].open;
+  }
 
 
   CourseOnline() {

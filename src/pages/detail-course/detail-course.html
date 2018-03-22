@@ -8,7 +8,7 @@
 
 <ion-content class="section">
   <ion-toolbar>
-    <ion-segment class="section2">
+    <ion-segment class="section">
       <ion-segment-button>
         ภาพรวมหลักสูตร
       </ion-segment-button>
@@ -27,7 +27,7 @@
         <ion-card>
           <ion-col>
             <!-- <img src="asset/imgs/" /> -->
-            <img height="100%" src="assets/img/picture.jpg" />
+            <img height="100%"    src="assets/img/picture.jpg" />
 
           </ion-col>
         </ion-card>
@@ -52,33 +52,33 @@
   <div [ngSwitch]="pet">
     <ion-list *ngSwitchCase="'puppies'">
       <label>
-        <ion-grid>
-          <ion-list padding class="test">
+        <ion-grid >
+          <ion-list  class="test" >
             <label>
 
               <ion-row (click)="QuizPage()">
-                <ion-card>
+                <ion-card >
                   <ion-item>
                   <ion-col col-75>
-                   
+
                       <label>ข้อสอบก่อนเรียน (Pre Test)</label>
-                    
+
                   </ion-col>
                   </ion-item>
                 </ion-card>
               </ion-row>
 
               <ion-row *ngFor="let p of results_course ; let i = index" >
-   
+
                     <ion-col>
-                      <button class="section1" ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': p.open, 'section': !p.open}"
-                        color="stable" block>
+                      <button  ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': p.open, 'section': !p.open}"
+                      >
                         <ion-icon item-right name="md-arrow-dropright" *ngIf="!p.open"></ion-icon>
                         <ion-icon item-right name="md-arrow-dropdown" *ngIf="p.open"></ion-icon>
                       {{p.title}}
                       </button>
                     </ion-col>
-             
+
               </ion-row>
 
               <!-- <ion-row>

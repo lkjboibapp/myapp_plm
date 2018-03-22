@@ -18,11 +18,11 @@
 
 
 <ion-content padding  class="section">
-  <ion-searchbar (ionInput)="getSearch($event)"></ion-searchbar>
+  <ion-searchbar (ionInput)="getSearch($event)" placeholder="ใส่ข้อความที่ต้องการค้นหา..."></ion-searchbar>
 
   <label paddinng class="section3">
     <article>
-      <h3 style="text-align:center;">หมวดหมู่หลักสูตร</h3>
+      <h5 style="margin-top:15px; text-align:center;">หมวดหมู่หลักสูตร</h5>
       <select class="section4" (change)="selectChangHandler($event)">
         <option value="">หลักสูตรทั้งหมด</option>
         <option *ngFor="let item of data" value="{{ item.cate_id }}">{{ item.cate_title }}</option>
@@ -45,7 +45,7 @@
     </ion-grid>
   </label>
 
-  
+
 
   <!-- <ion-list>
     <ion-list-header>

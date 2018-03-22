@@ -17,6 +17,7 @@ import { PosttestPage } from '../posttest/posttest';
 })
 export class DetailCoursePage {
 
+  pet: string = "kittens";
   //ตัวแปลรับค่าจาก html
   file: any = {};
 

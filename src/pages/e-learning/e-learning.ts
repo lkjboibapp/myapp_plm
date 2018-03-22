@@ -34,14 +34,11 @@ export class ELearningPage {
     public http: Http) {
 
     this.imageArray = [
-      { 'image': '../../assets/img/a.jpg' },
-      { 'image': '../../assets/img/bu.jpg' },
-      { 'image': '../../assets/img/tim.png' },
-      { 'image': '../../assets/img/b.jpg' },
-      { 'image': '../../assets/img/c.jpg' },
-      { 'image': '../../assets/img/d.jpg' },
-      { 'image': '../../assets/img/e.jpg' }
-      // { 'image': '../../assets/img/t.jpg' }
+     { 'image': '../../assets/img/1.jpg' },
+      { 'image': '../../assets/img/2.jpg' },
+      { 'image': '../../assets/img/3.jpg' }
+
+
     ]
 
     this.resultsVDO = "";

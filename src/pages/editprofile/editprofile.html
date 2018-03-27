@@ -13,7 +13,7 @@
     <ion-list id="login-list2">
       <ion-item>
         <ion-label floating>เลขบัตรประจำตัวประชาชน</ion-label>
-        <ion-input type="text" name="idcard" [(ngModel)]="dataI.idcard"></ion-input>
+        <ion-input type="text" maxlength="13" name="idcard" [(ngModel)]="dataI.idcard"></ion-input>
         <ion-icon color="secondary" name="md-contact" item-left style="margin-top: 35px;"></ion-icon>
       </ion-item>
       <ion-item>
@@ -52,7 +52,7 @@
       </ion-item>
       <ion-item>
         <ion-label floating>หน่วยงาน</ion-label>
-        <ion-input type="text" name="departmaent" [(ngModel)]="dataI.departmaent"></ion-input>
+        <ion-input type="text" name="department" [(ngModel)]="dataI.department"></ion-input>
         <ion-icon color="secondary" name="md-briefcase" item-left style="margin-top: 35px;"></ion-icon>
       </ion-item>
       <ion-item>

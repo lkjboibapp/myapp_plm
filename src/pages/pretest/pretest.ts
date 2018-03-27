@@ -30,6 +30,7 @@ export class PretestPage {
   this.ResultsPretest();  
 
     this.pretest = this.navParams.get("id");
+    console.log("this.pretest -> ", this.pretest);
 
   }
 
@@ -39,8 +40,8 @@ export class PretestPage {
 
   ResultsPretest() {
 
-    console.log("testvdo")
-    let path = 'http://112.121.150.4/ServiceMobile/ServiceManage.php/getManagePre/'+this.navParams.get("id");
+    console.log("testvdo");
+    let path = 'http://112.121.150.4/ServiceMobile/ServiceManage.php/getManagePre/'+this.pretest;
     let encodedPath = encodeURI(path);
     // let timeoutMS = 2000;
 

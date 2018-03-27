@@ -101,7 +101,7 @@ export class NewCoursePage {
           }
         }
         ],
-        enableBackdropDismiss: false // <- Here! :)
+        // enableBackdropDismiss: false // <- Here! :)
       });
       alert.present();
     } else {

@@ -5,7 +5,6 @@ import { Http } from '@angular/http';
 import { LicencePage } from '../licence/licence';
 import { TabsControllerPage } from '../tabs-controller/tabs-controller';
 import { ELearningPage } from '../e-learning/e-learning';
-import { CoursePage } from '../course/course';
 
 
 import { ForgotPassPage } from '../forgot-pass/forgot-pass';

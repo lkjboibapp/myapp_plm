@@ -7,7 +7,7 @@ import 'rxjs/add/operator/timeout';
 import { CourServiceProvider } from '../../providers/cour/cour-service';
 
 import { FileLeanPage } from '../file-lean/file-lean';
-import { PretestPage } from '../pretest/pretest';
+import { PretestPageModule } from '../pretest/pretest.module';
 import { PosttestPage } from '../posttest/posttest';
 
 
@@ -17,7 +17,7 @@ import { PosttestPage } from '../posttest/posttest';
 })
 export class DetailCoursePage {
 
-  pet: string = "kittens";
+  pet: string = "puppies";
   //ตัวแปลรับค่าจาก html
   file: any = {};
 
@@ -42,8 +42,6 @@ export class DetailCoursePage {
     public navParams: NavParams,
     public viewCtrl: ViewController,
     public appCtrl: App) {
-
-
     this.data = this.navParams.get('item');
     this.course_detail = this.data.course_detail;
     this.course_title = this.data.course_title;
@@ -88,16 +86,16 @@ export class DetailCoursePage {
 
   openPretest(id) {
     console.log("PretestPage");
-    // this.navCtrl.push('PretestPage', {
-    //   id: id.id,
-    // });
+    this.navCtrl.push('PretestPage', {
+      id: id.id,
+    });
   }
 
   openPosttest(id) {
     console.log("PosttestPage");
-    // this.navCtrl.push('PosttestPage', {
-    //   id: id.id,
-    // });
+    this.navCtrl.push('PosttestPage', {
+      id: id.id,
+    });
   }
 
   openQuestion(id) {
@@ -106,10 +104,10 @@ export class DetailCoursePage {
     //   id: id.id,
     // });
   }
-  
+
   QuizPage(id) {
     console.log("QuizPage");
   }
 
- 
+
 }

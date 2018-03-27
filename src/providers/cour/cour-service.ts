@@ -9,14 +9,15 @@ import { Injectable } from '@angular/core';
   and Angular DI.
 */
 
-let CategoryCourseService = 'http://112.121.150.4/ServiceMobile/ServiceCategory.php/';
-let Course = 'http://112.121.150.4/ServiceMobile/Course_online.php/';
-let getLesson = 'http://112.121.150.4/ServiceMobile/ServiceLesson.php/';
-let Service_fileLean ='http://112.121.150.4/ServiceMobile/ServiceFile.php//';
+// let CategoryCourseService = 'http://112.121.150.4/ServiceMobile/ServiceCategory.php/';
+// let Course = 'http://112.121.150.4/ServiceMobile/Course_online.php/';
+// let getLesson = 'http://112.121.150.4/ServiceMobile/ServiceLesson.php/';
+// let Service_fileLean ='http://112.121.150.4/ServiceMobile/ServiceFile.php//';
 
 
 @Injectable()
 export class CourServiceProvider {
+  apiUrl: string = 'http://112.121.150.4/ServiceMobile';
 
   constructor(public http: Http) {
     console.log('Hello CourServiceProvider Provider');
@@ -25,7 +26,7 @@ export class CourServiceProvider {
   FileLean(credentials, type) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
-      this.http.post(Service_fileLean + type, JSON.stringify(credentials), { headers: headers })
+      this.http.post((`${this.apiUrl}/ServiceFile.php/`) + type, JSON.stringify(credentials), { headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {
@@ -38,7 +39,7 @@ export class CourServiceProvider {
   CategoryCourse(credentials, type) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
-      this.http.post(CategoryCourseService + type, { headers: headers })
+      this.http.post((`${this.apiUrl}/ServiceCategory.php/`) + type, { headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {
@@ -51,7 +52,7 @@ export class CourServiceProvider {
   Course(credentials, type) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
-      this.http.post(Course + type, JSON.stringify(credentials), { headers: headers })
+      this.http.post((`${this.apiUrl}/Course_online.php/`) + type, JSON.stringify(credentials), { headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {
@@ -65,7 +66,7 @@ export class CourServiceProvider {
 
     return new Promise((resolve, reject) => {
       let headers = new Headers();
-      this.http.post(getLesson + type, JSON.stringify(credentials), { headers: headers })
+      this.http.post((`${this.apiUrl}/ServiceLesson.php/`)  + type, JSON.stringify(credentials), { headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {

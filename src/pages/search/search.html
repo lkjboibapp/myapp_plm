@@ -18,6 +18,9 @@
     [(ngModel)]="myInput"
     [showCancelButton]="shouldShowCancel"
     (ionInput)="onInput($event)"></ion-searchbar>
-
-
+    <ion-item *ngFor="let item of banners">
+      <ion-card>
+        <p>{{ item.imgslide_title }}</p>
+      </ion-card>
+    </ion-item>
 </ion-content>

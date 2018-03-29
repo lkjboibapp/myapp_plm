@@ -7,7 +7,8 @@
 <ion-header>
 
   <ion-navbar color="secondary">
-    <ion-title>ข้อความตอบกลับ</ion-title>
+    <ion-title>ข้อความตอบกลับ
+      <=>{{USER}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,10 +17,14 @@
   <div class="chatwindow">
     <ion-list no-lines>
 
-      <ion-item *ngFor="let item of data_result; let i = index" text-wrap>
-        {{item.pmr_return}}
+      <ion-item *ngFor="let item of data_result">
+        <ion-item *ngIf="item.create_by == USER">
+          <div text-right>{{item.pmr_return}}</div>
+        </ion-item>
+        <ion-item *ngIf="item.create_by != USER">
+        <div text-left>{{item.pmr_return}}</div>
+        </ion-item>
       </ion-item>
-
     </ion-list>
   </div>
 </ion-content>

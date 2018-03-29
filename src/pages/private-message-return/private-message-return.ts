@@ -18,19 +18,24 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 export class PrivateMessageReturnPage {
 
   public data_result: any;
-  
+  public USER: any;
   public data: any;
   public post_data: any = { pm_id: "", pmr_return: "", create_by: "", all_file_return_pm: "" };
   constructor(private loadingCtrl: LoadingController,
     public authService: AuthServiceProvider,
-             public navCtrl: NavController, public navParams: NavParams,
-            public alertCtrl: AlertController) {
+    public navCtrl: NavController, public navParams: NavParams,
+    public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     this.data = this.navParams.get("key");
-    this.messageData();
+    let id = this.navParams.get("USER");
+    this.USER = id.id;
     
+    this.messageData();
+
+    console.log("user->", this.USER.id);
+
   }
 
   messageData() {
@@ -50,7 +55,7 @@ export class PrivateMessageReturnPage {
   //เก็บข้อมูลที่ถูกส่งมาจากการเลือก หัวข้อเนื้อหา
   addmessage() {
     let id = this.data;
-    this.post_data.pm_id = id.pm_id ;
+    this.post_data.pm_id = id.pm_id;
     this.post_data.create_by = id.create_by;
     console.log("addmessage->", this.post_data);
 
@@ -63,8 +68,8 @@ export class PrivateMessageReturnPage {
     this.authService.Message_return_Post_PmrReturn(this.post_data, 'insertMassage').then((result) => {
       console.log("result->", result);
       this.messageData();
-       this.post_data = { pm_id: "", pmr_return: "", create_by: "", all_file_return_pm: "" };
-    loading.dismiss();
+      this.post_data = { pm_id: "", pmr_return: "", create_by: "", all_file_return_pm: "" };
+      loading.dismiss();
     }, (err) => {
       console.log(err);
       loading.dismiss();

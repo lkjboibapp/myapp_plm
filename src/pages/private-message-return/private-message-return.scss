@@ -1,62 +1,136 @@
 page-private-message-return {
 
-  .section{
-    //background: rgb(179, 218, 75);
-    color: #000000;
-    background-image: url('../assets/img/bg2.jpg');
-      background-repeat: no-repeat;
-      background-size: 100%;
-}
-.chat {
-    width: 320px;
-}
+  $userBackgroundColor: #387ef5;
+  $toUserBackgroundColor: #fff;
 
-.bubble{
-    background-color: #F2F2F2;
-    border-radius: 5px;
-    box-shadow: 0 0 6px #B2B2B2;
-    display: inline-block;
-    padding: 10px 18px;
-    position: relative;
-    vertical-align: top;
-}
+  ion-content .scroll-content {
+    background-color: #f5f5f5;
+  }
 
-.bubble::before {
-    background-color: #F2F2F2;
-    content: "\00a0";
-    display: block;
-    height: 16px;
-    position: absolute;
-    top: 11px;
-    transform:             rotate( 29deg ) skew( -35deg );
-        -moz-transform:    rotate( 29deg ) skew( -35deg );
-        -ms-transform:     rotate( 29deg ) skew( -35deg );
-        -o-transform:      rotate( 29deg ) skew( -35deg );
-        -webkit-transform: rotate( 29deg ) skew( -35deg );
-    width:  20px;
-}
+  ion-footer {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.11);
+    background-color: #fff;
+    height: 255px;
+  }
 
-.me {
-    float: left;   
-    margin: 5px 45px 5px 20px;         
-}
+  .line-breaker {
+    white-space: pre-line;
+  }
 
-.me::before {
-    box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
-    left: -9px;           
-}
+  .input-wrap {
+    padding: 5px;
+    display: flex;
+    textarea {
+      flex: 1;
+      border: 0;
+      border-bottom: 1px $userBackgroundColor;
+      border-style: solid;
+    }
+  }
 
-.you {
-    float: right;    
-    margin: 5px 20px 5px 45px;         
-}
+  .message-wrap {
+    padding: 0 10px;
+    .message {
+      position: relative;
+      padding: 7px 0;
+      .user-img {
+        position: absolute;
+        border-radius: 45px;
+        width: 45px;
+        height: 45px;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.36);
+      }
 
-.you::before {
-    box-shadow: 2px -2px 2px 0 rgba( 178, 178, 178, .4 );
-    right: -9px;    
-}
+      .msg-detail {
+        width: 100%;
+        display: inline-block;
+        p {
+          margin: 0;
+        }
+        .msg-info {
+          p {
+            font-size: .8em;
+            color: #888;
+          }
+        }
 
-.chatwindow {
-    padding-bottom: 70px;
-}
+        .msg-content {
+          position: relative;
+          margin-top: 5px;
+          border-radius: 5px;
+          padding: 8px;
+          border: 1px solid #ddd;
+          color: #fff;
+          width: auto;
+          max-width: 80%;
+          span.triangle {
+            background-color: #fff;
+            border-radius: 2px;
+            height: 8px;
+            width: 8px;
+            top: 12px;
+            display: block;
+            border-style: solid;
+            border-color: #ddd;
+            border-width: 1px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            position: absolute;
+          }
+        }
+
+      }
+    }
+
+    .message.left {
+      .msg-content {
+        background-color: $toUserBackgroundColor;
+        float: left;
+      }
+      .msg-detail {
+        padding-left: 60px;
+      }
+      .user-img {
+        left: 0;
+      }
+      .msg-content {
+        color: #343434;
+        span.triangle {
+          border-top-width: 0;
+          border-right-width: 0;
+          left: -5px;
+        }
+      }
+
+    }
+
+    .message.right {
+      .msg-detail {
+        padding-right: 60px;
+        .msg-info {
+          text-align: right;
+        }
+      }
+      .user-img {
+        right: 0;
+      }
+      ion-spinner {
+        position: absolute;
+        right: 10px;
+        top: 50px;
+      }
+      .msg-content {
+        background-color: $userBackgroundColor;
+        float: right;
+        span.triangle {
+          background-color: $userBackgroundColor;
+          border-bottom-width: 0;
+          border-left-width: 0;
+          right: -5px;
+        }
+      }
+
+    }
+
+  }
 }

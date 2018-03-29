@@ -105,7 +105,8 @@ export class PrivatemessagePage {
   }
 
   joinRoom(item) {
-    this.navCtrl.push(PrivateMessageReturnPage, { key: item });
+    this.navCtrl.push(PrivateMessageReturnPage, { key: item ,
+      USER: this.data_id.data});
     // this.navCtrl.setRoot(PrivateMessageReturnPage, { key: item });   ไม่มีปุมย้อนกลับ
   }
 

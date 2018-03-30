@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CourServiceProvider } from '../../providers/cour/cour-service';
 
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
@@ -17,19 +18,43 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 })
 export class SearchPage {
 
+
+  public course_id: any;
   public banner: any;
+  public data_course:any;
   //==========
   public banners: any;
+  public data_courses:any;
   ///++++++++++++++++
   data: any;
 
-  constructor(public authService: AuthServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public courService: CourServiceProvider,public authService: AuthServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.bannerService();
+    this.course();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SearchPage');
   }
+
+  //service Api start
+  bannerService() {
+    this.authService.bannerGetData(this.data, 'getImgslide').then((result) => {
+      this.banner = result['data'];
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  course(){
+    this.courService.Course(this.course_id, 'get').then((result) => {
+      this.data_course = result['data'];
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
+  ///end call service api
 
   onInput(ev: any) {
     let val = ev.target.value;
@@ -41,14 +66,19 @@ export class SearchPage {
     } else if (val == '') {
       this.bannerService();
     }
+///////////////////--data_courses--////////////////////////////////
+    if (val && val.trim() != '') {
+      this.data_courses = this.data_course.filter((item) => {
+        return (item.course_title.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      });
+    } else if (val == '') {
+      this.course();
+    }
+
+
+    console.log("ไม่อยู่ในฟังชั้น อีฟ");
   }
 
-  bannerService() {
-    this.authService.bannerGetData(this.data, 'getImgslide').then((result) => {
-      this.banner = result['data'];
-    }, (err) => {
-      console.log(err);
-    });
-  }
+ 
 
 }

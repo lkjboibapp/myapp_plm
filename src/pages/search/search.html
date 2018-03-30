@@ -16,13 +16,13 @@
 <ion-content padding>
   <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)"></ion-searchbar>
 
-  <ion-list *ngIf="banners">
+  <ion-item *ngIf="banners">
     <!-- <ion-title>banners</ion-title> -->
     <div color=" " *ngFor="let item of banners">
       {{ item.imgslide_title }}</div>
-  </ion-list>
+  </ion-item>
 
-  <ion-item color="primary" *ngIf="data_courses">
+  <ion-item color="" *ngIf="data_courses">
       <!-- <ion-title>courses</ion-title> -->
       <div *ngFor="let item of data_courses">{{ item.course_title }}</div>
   </ion-item>

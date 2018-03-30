@@ -34,7 +34,7 @@ export class SearchPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
+    // console.log('ionViewDidLoad SearchPage');
   }
 
   //service Api start
@@ -58,7 +58,7 @@ export class SearchPage {
 
   onInput(ev: any) {
     let val = ev.target.value;
-    console.log("val->", val);
+    // console.log("val->", val);
     if (val && val.trim() != '') {
       this.banners = this.banner.filter((item) => {
         return (item.imgslide_title.toLowerCase().indexOf(val.toLowerCase()) > -1);

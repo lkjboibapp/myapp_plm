@@ -142,6 +142,7 @@ export class NewCoursePage {
       spinner: 'dots'
     });
     loading.present();
+    //api start
     this.courService.Course(this.course_id, 'get').then((result) => {
       this.data_course = result['data'];
       loading.dismiss();
@@ -150,6 +151,7 @@ export class NewCoursePage {
       console.log(err);
       loading.dismiss();
     });
+    //end api
   }
   //Search
   getSearch(event: any) {

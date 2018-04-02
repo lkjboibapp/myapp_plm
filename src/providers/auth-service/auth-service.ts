@@ -11,16 +11,19 @@ import 'rxjs/add/operator/map';
 @Injectable() 
 export class AuthServiceProvider {
   apiUrl: string = 'http://112.121.150.4/ServiceMobile';
+  testApiUrl: string = 'http://localhost/Service/ServiceMobile'
   
   constructor(public http: Http) {
     console.log('Hello AuthServiceProvider Provider');
   }
+  
+  
 
   Message_return_Post_PmrReturn(credentials, type) {
     // console.log("Message_return ->", credentials);
     return new Promise((resolve, reject) => {
       let headers = new Headers();
-      this.http.post((`${this.apiUrl}/Private_Message_return.php/`) + type, JSON.stringify(credentials), { headers: headers })
+      this.http.post((`${this.testApiUrl}/Private_Message_return.php/`) + type, JSON.stringify(credentials), { headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {
@@ -33,7 +36,7 @@ export class AuthServiceProvider {
     // console.log("Message_return ->", credentials);
     return new Promise((resolve, reject) => {
       let headers = new Headers();
-      this.http.post((`${this.apiUrl}/Private_Message_return.php/`) + type, JSON.stringify(credentials), { headers: headers })
+      this.http.post((`${this.testApiUrl}/Private_Message_return.php/`) + type, JSON.stringify(credentials), { headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {
@@ -73,7 +76,7 @@ export class AuthServiceProvider {
   messagePostData(credentials, type) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
-      this.http.post((`${this.apiUrl}/Private_Message.php/`) + type, JSON.stringify(credentials), { headers: headers })
+      this.http.post((`${this.testApiUrl}/Private_Message.php/`) + type, JSON.stringify(credentials), { headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {
@@ -86,7 +89,7 @@ export class AuthServiceProvider {
   messageGetData(credentials, type) {
     return new Promise((resolve, reject) => {
       let headers = new Headers();
-      this.http.post((`${this.apiUrl}/Private_Message.php/`) + type,JSON.stringify(credentials),{ headers: headers })
+      this.http.post((`${this.testApiUrl}/Private_Message.php/`) + type,JSON.stringify(credentials),{ headers: headers })
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {

@@ -64,7 +64,6 @@ export function createTranslateLoader(http: HttpClient) {
   declarations: [
     MyApp,
     ELearningPage,
-
     ContactPage,
     TabsControllerPage,
     DashboardPage,
@@ -114,7 +113,6 @@ export function createTranslateLoader(http: HttpClient) {
   entryComponents: [
     MyApp,
     ELearningPage,
-
     ContactPage,
     TabsControllerPage,
     DashboardPage,

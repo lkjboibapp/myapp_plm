@@ -8,5 +8,14 @@ page-search {
         background-repeat: no-repeat;
         background-size: 100%;
 }
+.chat-item {
+  color: #ff0909;
+  -webkit-animation-delay:200ms;
+  animation-delay:200ms;
+
+  /* override to make sure it's not inherited from other styles */
+  -webkit-animation-duration:0;
+  animation-duration:0;
+}
 
 }

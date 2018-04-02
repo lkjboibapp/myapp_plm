@@ -17,7 +17,18 @@ export class AuthServiceProvider {
     console.log('Hello AuthServiceProvider Provider');
   }
   
-  
+  NewApi(type) {
+    // console.log("NewApi ->", type);
+    return new Promise((resolve, reject) => {
+      let headers = new Headers();
+      this.http.get((`${this.testApiUrl}/ServiceNew_v3.php/`) + type, { headers: headers })
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 
   Message_return_Post_PmrReturn(credentials, type) {
     // console.log("Message_return ->", credentials);

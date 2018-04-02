@@ -18,13 +18,56 @@
 
   <ion-item *ngIf="banners">
     <!-- <ion-title>banners</ion-title> -->
-    <div color="Green" *ngFor="let item of banners">
-      {{ item.imgslide_title }}</div>
+    <ion-list *ngFor="let item of banners" (click)="bannerdetail(item)">
+      <ion-card>
+        <ion-item>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+
+                {{item.imgslide_title}}
+
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-card>
+    </ion-list>
   </ion-item>
 
-  <ion-item class="chat-item animation-delay" *ngIf="data_courses">
-      <!-- <ion-title>courses</ion-title> -->
-      <div *ngFor="let item of data_courses">{{ item.course_title }}</div>
+  <ion-item *ngIf="data_courses">
+    หลักสูตร
+    <!-- <ion-title>courses</ion-title> -->
+    <ion-list>
+      <ion-item-sliding *ngFor="let item of data_courses" (click)="getItemCourse(item)">
+
+        <p item-center>{{ item.course_title }}</p>
+      </ion-item-sliding>
+    </ion-list>
   </ion-item>
 
+  <ion-item *ngIf="data_News">
+    <!-- <ion-title>data_News</ion-title> -->
+    <ion-list>
+      ข่าว
+      <ion-item-sliding *ngFor="let item of data_News">
+        <button ion-item (click)="Newdetail(item)">
+          <ion-avatar item-start>
+            <img src="assets/img/tiger.jpg" />
+          </ion-avatar>
+          <a>
+            <h2 item-center>{{ item.cms_title}} </h2>
+          </a>
+          <a>
+            <p item-center>{{ item.cms_short_title}}</p>
+          </a>
+          <a>
+            <p item-center>{{ item.create_date}} </p>
+          </a>
+        </button>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-item>
+
+  
 </ion-content>
